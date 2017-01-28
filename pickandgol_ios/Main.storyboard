@@ -14,6 +14,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="GBV-Xi-eWK" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="EWU-hy-CdS">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -39,10 +40,10 @@
             </objects>
             <point key="canvasLocation" x="856" y="-19"/>
         </scene>
-        <!--NewItem-->
+        <!--Newitem-->
         <scene sceneID="mw7-TI-v7C">
             <objects>
-                <viewControllerPlaceholder storyboardName="NewItem" id="AWc-vx-Dv2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Newitem" id="AWc-vx-Dv2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="NewItem" id="3MT-NP-SvI"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iLg-JO-Ujj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -69,10 +70,10 @@
             </objects>
             <point key="canvasLocation" x="854" y="255"/>
         </scene>
-        <!--TimeLine-->
+        <!--Timeline-->
         <scene sceneID="LJ4-17-myQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="TimeLine" id="W5w-xg-Die" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Timeline" id="W5w-xg-Die" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Timeline" id="91U-4C-WSm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7j1-zo-9GC" userLabel="First Responder" sceneMemberID="firstResponder"/>
