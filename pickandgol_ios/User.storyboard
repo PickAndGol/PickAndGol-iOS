@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a1z-g5-VU8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a1z-g5-VU8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User Detail View Controller-->
         <scene sceneID="mRp-m7-QnA">
             <objects>
-                <viewController id="dui-P7-fnG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserDetailViewController" id="dui-P7-fnG" customClass="UserDetailViewController" customModule="pickandgol_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uQh-h8-0Pa"/>
                         <viewControllerLayoutGuide type="bottom" id="IYe-pG-F1H"/>
@@ -19,9 +19,24 @@
                     <view key="view" contentMode="scaleToFill" id="ipj-LR-L3n">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqR-9t-uTm">
+                                <rect key="frame" x="158" y="86" width="59" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bqR-9t-uTm" firstAttribute="centerX" secondItem="ipj-LR-L3n" secondAttribute="centerX" id="HWb-Hc-acg"/>
+                            <constraint firstItem="bqR-9t-uTm" firstAttribute="top" secondItem="uQh-h8-0Pa" secondAttribute="bottom" constant="22" id="zNh-Cj-mCJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tfz-gI-HQZ"/>
+                    <connections>
+                        <outlet property="userNameLabel" destination="bqR-9t-uTm" id="W04-yM-u3B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LxZ-Y5-lAy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
