@@ -12,6 +12,14 @@ import RxSwift
 
 class UserDetailViewController: UIViewController {
 
+    @IBOutlet weak var userNameLabel: UILabel!
 
+    override func viewDidLoad() {
+
+        let navVC = UINavigationController()
+        let loginVC: MainLoginViewController = UIStoryboard(storyboard: .login).instantiateViewController()
+        navVC.viewControllers = [loginVC]
+        self.present(navVC, animated: true, completion: nil)
+    }
 }
 

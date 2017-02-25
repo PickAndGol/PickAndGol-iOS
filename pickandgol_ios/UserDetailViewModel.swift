@@ -9,7 +9,10 @@
 import Foundation
 import RxSwift
 
+
 class UserDetailViewModel {
 
+//    let userName: Observable<String>
+//    private let user: Observable<UserModelStruct>
 
 }

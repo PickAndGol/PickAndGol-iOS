@@ -7,11 +7,10 @@ public protocol JSONDecodable {
     init?(dictionary: JSONDictionary) throws
 }
 
-
-
 //public func decode<T: JSONDecodable>(_ dictionary: JSONDictionary) -> T? {
-//    return T(dictionary: dictionary)
+//    return try! T(dictionary: dictionary)
 //}
+
 //
 //public func decode<T: JSONDecodable>(_ dictionaries: [JSONDictionary]) -> [T] {
 //    return dictionaries.flatMap(decode)

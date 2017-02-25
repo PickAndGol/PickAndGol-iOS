@@ -33,6 +33,9 @@
 		34B8456B1E3D1F0D00410E6A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8456A1E3D1F0D00410E6A /* LoginViewController.swift */; };
 		34B8456D1E3D229100410E6A /* UIStoryboard+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8456C1E3D229100410E6A /* UIStoryboard+Storyboard.swift */; };
 		34B8456F1E3D264F00410E6A /* PruebaInstatiateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B8456E1E3D264F00410E6A /* PruebaInstatiateVC.swift */; };
+		34D952381E59AF8C00410032 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D952371E59AF8B00410032 /* RegisterViewController.swift */; };
+		34D9523A1E59B1B800410032 /* MainLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D952391E59B1B800410032 /* MainLoginViewController.swift */; };
+		34D9523C1E59B35800410032 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D9523B1E59B35800410032 /* RegisterViewModel.swift */; };
 		4925ADBB9C14A57292BE6DA2 /* Pods_pickandgol_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE5AA2C33B69F6A907567B /* Pods_pickandgol_ios.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +83,9 @@
 		34B8456A1E3D1F0D00410E6A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		34B8456C1E3D229100410E6A /* UIStoryboard+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Storyboard.swift"; sourceTree = "<group>"; };
 		34B8456E1E3D264F00410E6A /* PruebaInstatiateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PruebaInstatiateVC.swift; sourceTree = "<group>"; };
+		34D952371E59AF8B00410032 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		34D952391E59B1B800410032 /* MainLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLoginViewController.swift; sourceTree = "<group>"; };
+		34D9523B1E59B35800410032 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		65B20C08AA10E8CE98B79D52 /* Pods-pickandgol_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_ios/Pods-pickandgol_ios.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,7 +214,9 @@
 		349F43EB1E54EE9B00A905FE /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				34D952391E59B1B800410032 /* MainLoginViewController.swift */,
 				34B8456A1E3D1F0D00410E6A /* LoginViewController.swift */,
+				34D952371E59AF8B00410032 /* RegisterViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -261,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				349F43EF1E54F20700A905FE /* LoginViewModel.swift */,
+				34D9523B1E59B35800410032 /* RegisterViewModel.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -584,10 +593,13 @@
 				349F43EE1E54EEDE00A905FE /* UserDetailViewController.swift in Sources */,
 				349F43DF1E54EBB800A905FE /* JSONDecodable.swift in Sources */,
 				349F43E01E54EBB800A905FE /* JSONDecodingError.swift in Sources */,
+				34D9523C1E59B35800410032 /* RegisterViewModel.swift in Sources */,
 				34B8456B1E3D1F0D00410E6A /* LoginViewController.swift in Sources */,
 				34B844FA1E3BBC4D00410E6A /* AppDelegate.swift in Sources */,
 				34B8456F1E3D264F00410E6A /* PruebaInstatiateVC.swift in Sources */,
+				34D9523A1E59B1B800410032 /* MainLoginViewController.swift in Sources */,
 				349F43F01E54F20700A905FE /* LoginViewModel.swift in Sources */,
+				34D952381E59AF8C00410032 /* RegisterViewController.swift in Sources */,
 				349F43E21E54EBEB00A905FE /* UserModel.swift in Sources */,
 				34B8456D1E3D229100410E6A /* UIStoryboard+Storyboard.swift in Sources */,
 				349F43E41E54EC2B00A905FE /* UserModelStruct.swift in Sources */,
