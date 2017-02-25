@@ -33,9 +33,15 @@
                             <constraint firstItem="bqR-9t-uTm" firstAttribute="top" secondItem="uQh-h8-0Pa" secondAttribute="bottom" constant="22" id="zNh-Cj-mCJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Tfz-gI-HQZ"/>
+                    <navigationItem key="navigationItem" id="Tfz-gI-HQZ">
+                        <barButtonItem key="rightBarButtonItem" title="Register" id="4Ls-fU-XZZ">
+                            <connections>
+                                <action selector="registerButtonTapped:" destination="dui-P7-fnG" id="7ah-zv-8l2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="userNameLabel" destination="bqR-9t-uTm" id="W04-yM-u3B"/>
+                        <outlet property="userNameLabel" destination="bqR-9t-uTm" id="bn6-q1-bfH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LxZ-Y5-lAy" userLabel="First Responder" sceneMemberID="firstResponder"/>

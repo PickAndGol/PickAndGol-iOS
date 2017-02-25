@@ -9,3 +9,6 @@
 import Foundation
 
 
+class UserDataBaseRepository {
+    
+}
