@@ -14,4 +14,18 @@ class MainLoginViewController: UIViewController {
 
         self.dismiss(animated: true, completion: nil)
     }
+
+    // en vez de hacer un segue instanciar por codigo
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "registerSegue" {
+
+            guard let nextVC: RegisterViewController = segue.destination as? RegisterViewController else {
+                return
+            }
+            let userModel = UserModel()
+            let viewModel = RegisterViewModel(model: userModel)
+            nextVC.setViewModel(viewModel: viewModel)
+
+        }
+    }
 }

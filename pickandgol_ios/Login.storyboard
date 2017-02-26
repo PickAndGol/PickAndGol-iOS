@@ -32,7 +32,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="ffp-4z-mAM" kind="show" id="Iss-hL-PWe"/>
+                                    <segue destination="ffp-4z-mAM" kind="show" identifier="loginSegue" id="Iss-hL-PWe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBR-Ae-T2H">
@@ -44,7 +44,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Registrarse"/>
                                 <connections>
-                                    <segue destination="iBE-wB-NMa" kind="show" id="8oH-gX-gf4"/>
+                                    <segue destination="iBE-wB-NMa" kind="show" identifier="registerSegue" id="8oH-gX-gf4"/>
                                 </connections>
                             </button>
                         </subviews>

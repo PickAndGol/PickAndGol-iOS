@@ -1,10 +1,3 @@
-//
-//  UserApiRepository.swift
-//  pickandgol_ios
-//
-//  Created by Edu González on 15/2/17.
-//  Copyright © 2017 pickandgol. All rights reserved.
-//
 
 import Foundation
 import RxSwift
@@ -13,7 +6,7 @@ import Alamofire
 public enum ApiError: Error {
     case couldNotDecodeJSON
     case badStatus(JSONDictionary)
-    case failedParsingData
+    case failedParsingData(JSONDictionary)
 }
 
 class UserApiRepository {
@@ -21,10 +14,14 @@ class UserApiRepository {
     func userRegister(name: String, email: String, password: String) -> Observable<UserModelStruct> {
 
         let url: URL = URL(string: "register", relativeTo: ApiPaths.user.url.absoluteURL)!
+        let params: Parameters = [
+            "name":name,
+            "email": email,
+            "password": password]
 
         return Observable.create { observer in
 
-            let request = Alamofire.request(url)
+            let request = Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
                 .responseJSON(completionHandler: { response in
 
                     guard response.result.isSuccess else {
@@ -39,19 +36,18 @@ class UserApiRepository {
                             observer.onCompleted()
                             return
                     }
-                    if result == "error" {
+                    if result == "ERROR" {
                         observer.onError(ApiError.badStatus(data))
                         observer.onCompleted()
                     }
                     if result == "OK" {
 
                         do {
-//                            let user = try UserModelStruct(dictionary: data)
-                            // TODO: - ¿porque no extrae el optional?
-//                            observer.onNext(user)
+                            let user = try UserModelStruct(dictionary: data)
+                            observer.onNext(user)
                             observer.onCompleted()
                         } catch {
-                            observer.onError(error)
+                            observer.onError(ApiError.failedParsingData(data))
                             observer.onCompleted()
                         }
                     }
@@ -72,7 +68,6 @@ class UserApiRepository {
             "email": email,
             "password": password]
 
-            // Crear request con parametros
             let request = Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
                 .responseJSON(completionHandler: { response in
 
@@ -88,24 +83,21 @@ class UserApiRepository {
                             observer.onCompleted()
                             return
                     }
-                    if result == "error" {
+                    if result == "ERROR" {
                         observer.onError(ApiError.badStatus(data))
                         observer.onCompleted()
                     }
                     if result == "OK" {
 
                         do {
-//                            let user = try UserModelStruct(dictionary: data)
-                            // TODO: - ¿porque no extrae el optional?
-                            // TODO: - ¿que hacemos con el token, donde lo guardamos?
-                            // observer.onNext(user)
+                            let user = try UserModelStruct(dictionary: data)
+                            observer.onNext(user)
                             observer.onCompleted()
                         } catch {
-                            observer.onError(error)
+                            observer.onError(ApiError.failedParsingData(data))
                             observer.onCompleted()
                         }
                     }
-
                 })
 
             return Disposables.create(with: {
@@ -136,23 +128,21 @@ class UserApiRepository {
                             observer.onCompleted()
                             return
                     }
-                    if result == "error" {
+                    if result == "ERROR" {
                         observer.onError(ApiError.badStatus(data))
                         observer.onCompleted()
                     }
                     if result == "OK" {
 
                         do {
-//                            let user = try UserModelStruct(dictionary: data)
-                            // TODO: - ¿porque no extrae el optional?
-                            // observer.onNext(user)
+                            let user = try UserModelStruct(dictionary: data)
+                            observer.onNext(user)
                             observer.onCompleted()
                         } catch {
-                            observer.onError(error)
+                            observer.onError(ApiError.failedParsingData(data))
                             observer.onCompleted()
                         }
                     }
-
                 })
             
             return Disposables.create(with: {

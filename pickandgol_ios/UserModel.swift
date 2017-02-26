@@ -1,10 +1,3 @@
-//
-//  UserModel.swift
-//  pickandgol_ios
-//
-//  Created by Edu González on 15/2/17.
-//  Copyright © 2017 pickandgol. All rights reserved.
-//
 
 import Foundation
 import RxSwift
@@ -14,6 +7,8 @@ struct UserModel {
     private let apiRepository = UserApiRepository()
     private let dataBaseRepository = UserDataBaseRepository()
 
+    // Concatenar el guardado de datos en el databaseREpo en la respuesta
+    // Concatenar la busqueda de datos en el databaseREpo
     func userRegister(name: String, email: String, password: String) -> Observable<UserModelStruct> {
 
         return apiRepository.userRegister(name: name, email: email, password: password)

@@ -1,44 +1,66 @@
-//
-//  RegisterViewModel.swift
-//  pickandgol_ios
-//
-//  Created by Edu González on 19/2/17.
-//  Copyright © 2017 pickandgol. All rights reserved.
-//
+
 
 import Foundation
 import RxSwift
 
 class RegisterViewModel {
 
-    let userName = Variable<String>("")
-    let userEmail = Variable<String>("")
-    let userPassword = Variable<String>("")
+    let userModel: UserModel
+    private(set) lazy var isRegister: Observable<UserModelStruct> = self.userModel
+        .userRegister(name: self.userName, email: self.userEmail, password: self.userPassword)
 
-    private let disposeBag = DisposeBag()
-
-    func userRegister(name: String, email: String, password: String) {
-
+    var userName = String() {
+        didSet {
+            validateUserName(username: userName)
+        }
+    }
+    var userEmail = String() {
+        didSet {
+            validateUserEmail(email: userEmail)
+        }
+    }
+    var userPassword = String() {
+        didSet {
+            validatePassword(password: userPassword)
+        }
     }
 
-    func validateUserName(username: String?) -> Bool {
+    var userNameValid: Bool = false
+    var userEmailValid: Bool = false
+    var userPasswordValid: Bool = false
+
+    fileprivate let disposeBag = DisposeBag()
+
+    init(model: UserModel) {
+        userModel = model
+    }
+
+    func registerUser() -> Observable<UserModelStruct> {
+// Como devolver nada si no es valido el formulario
+        //        if formIsValid() {
+            return self.isRegister
+//        }
+    }
+
+    fileprivate func validateUserName(username: String?) {
         guard let username = username, !username.isEmpty else {
-            return false
+            return userNameValid = false
         }
-        return true
+        userNameValid = true
     }
-    func validateUserEmail(email: String?) -> Bool {
+    fileprivate func validateUserEmail(email: String?) {
         guard let email = email, !email.isEmpty else {
-            return false
+            return userEmailValid = false
         }
-        return true
+        userEmailValid = true
     }
-
-    func validatePassword(password: String?)  -> Bool {
+    fileprivate func validatePassword(password: String?) {
         guard let password = password, !password.isEmpty else {
-            return false
+            return userPasswordValid = false
         }
-        return true
+        userPasswordValid = true
     }
-
+    fileprivate func formIsValid() -> Bool {
+        return userNameValid && userEmailValid && userPasswordValid
+    }
 }

@@ -1,10 +1,3 @@
-//
-//  RegisterViewController.swift
-//  pickandgol_ios
-//
-//  Created by Edu González on 19/2/17.
-//  Copyright © 2017 pickandgol. All rights reserved.
-//
 
 import UIKit
 import RxSwift
@@ -12,7 +5,7 @@ import RxCocoa
 
 class RegisterViewController: UIViewController {
 
-    var registerViewModel =     RegisterViewModel()
+    var registerViewModel: RegisterViewModel!
 
     @IBOutlet weak var usarNameTextField: UITextField!
     @IBOutlet weak var userEmailTextField: UITextField!
@@ -23,63 +16,81 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        usarNameTextField.tag = 1;
-        userEmailTextField.tag = 2;
-        userPasswordTextField.tag = 3;
+        bindViewModel()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(textFieldDidChange),
-            name: .UITextFieldTextDidChange,
-            object: nil)
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        NotificationCenter.default.removeObserver(self)
+    func setViewModel(viewModel: RegisterViewModel) {
+        registerViewModel = viewModel
     }
 
     @IBAction func registerButtonTapped(_ sender: Any) {
-        guard let name = usarNameTextField.text,
-            let email = userEmailTextField.text,
-            let password = userPasswordTextField.text else {
-                return
-        }
-        if formIsValid() {
-            registerViewModel.userRegister(name: name,
-                                           email: email,
-                                           password: password)
-        }
 
+        registerViewModel.registerUser().subscribe(
+            onNext: { userModelStruct in
+                self.dismiss(animated: true, completion: { 
+                    self.showAlert("exito", message: userModelStruct.name)
+                })
+        },
+            onError: { error in
+                self.showAlert("error", message: error.localizedDescription)
+        },
+                                                   onCompleted: nil,
+                                                   onDisposed: nil)
+            .addDisposableTo(disposeBag)
+
+        updateFormStatus()
     }
-    
-    func textFieldDidChange(_ notification: NSNotification) {
 
-        guard let textField = notification.object as? UITextField,
+    func bindViewModel() {
+        let userName = usarNameTextField.rx.text
+        userName.subscribe(onNext:{ text in
+            guard let text = text else {
+                return
+            }
+            // hacer un weakself?
+            self.registerViewModel.userName = text
+            self.updateFormStatus()
+
+//            self.textFieldDidChange(textField: self.usarNameTextField)
+        }).addDisposableTo(disposeBag)
+
+        let userEmail = userEmailTextField.rx.text
+        userEmail.subscribe(onNext:{ _ in
+            self.textFieldDidChange(textField: self.userEmailTextField)
+        }).addDisposableTo(disposeBag)
+
+        let userPassword = userPasswordTextField.rx.text
+        userPassword.subscribe(onNext:{ _ in
+            self.textFieldDidChange(textField: self.userPasswordTextField)
+        }).addDisposableTo(disposeBag)
+    }
+
+    func textFieldDidChange(textField: UITextField?) {
+        guard let textField = textField,
             let text = textField.text else {
                 return
         }
-        textField.layer.borderWidth = 1.0
-        switch textField.tag {
-        case 1:
-            usarNameTextField.layer.borderColor = registerViewModel.validateUserName(username: text) ? UIColor.green.cgColor : UIColor.red.cgColor
-        case 2:
-            userEmailTextField.layer.borderColor =  registerViewModel.validateUserEmail(email: text) ? UIColor.green.cgColor : UIColor.red.cgColor
-        case 3:
-            userPasswordTextField.layer.borderColor = registerViewModel.validatePassword(password: text) ? UIColor.green.cgColor : UIColor.red.cgColor
-        default:
-            return
+
+        if textField == usarNameTextField {
+            registerViewModel.userName = text
+        } else if textField == userEmailTextField{
+            registerViewModel.userEmail = text
+        } else if textField == userPasswordTextField {
+            registerViewModel.userPassword = text
         }
+
+        updateFormStatus()
     }
 
-    func formIsValid() -> Bool {
-        return registerViewModel.validateUserName(username: usarNameTextField.text!)
-        && registerViewModel.validateUserEmail(email: userEmailTextField.text!)
-        && registerViewModel.validatePassword(password: userPasswordTextField.text!)
+    func updateFormStatus() {
+        usarNameTextField.layer.borderWidth = 1.0
+        userEmailTextField.layer.borderWidth = 1.0
+        userPasswordTextField.layer.borderWidth = 1.0
+
+        // hacer el layer reactivo
+        usarNameTextField.layer.borderColor = registerViewModel.userNameValid ? UIColor.green.cgColor : UIColor.red.cgColor
+        userEmailTextField.layer.borderColor =  registerViewModel.userEmailValid ? UIColor.green.cgColor : UIColor.red.cgColor
+        userPasswordTextField.layer.borderColor = registerViewModel.userPasswordValid ? UIColor.green.cgColor : UIColor.red.cgColor
     }
 
     fileprivate func showAlert(_ title: String, message: String) {
