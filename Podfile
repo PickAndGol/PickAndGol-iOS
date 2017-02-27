@@ -5,11 +5,11 @@ use_frameworks!
 
 target 'pickandgol_ios' do
 
-#pod 'RealmSwift'
-#pod 'RxSwift',    '~> 3.0'
-#pod 'RxCocoa',    '~> 3.0'
-#pod 'Alamofire', '~> 4.3'
-#pod 'HanekeSwift'
+pod 'RealmSwift'
+pod 'RxSwift',    '~> 3.0'
+pod 'RxCocoa',    '~> 3.0'
+pod 'Alamofire', '~> 4.3'
+pod 'HanekeSwift'
 
 end
 
