@@ -18,13 +18,7 @@ class EventApiRepository {
         let url = ApiPaths.event.url
         
       
-        let client = Client()
-        client.listAllEvent()
-        /*let urlp = "http://www.mocky.io/v2/58ac684c1000002d12514b61"
-                
-        Alamofire.request(URL(string:urlp)!).responseJSON { (response) in
-            print(response)
-        }*/
+        
         
     }
     

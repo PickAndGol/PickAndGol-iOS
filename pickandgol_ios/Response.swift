@@ -22,8 +22,9 @@ public struct Response {
     public func result<T: JSONDecodable>() -> T? {
         return (payload as? JSONDictionary).flatMap(decode)
     }
-    
+    // Me quedo por aqui la funcion no funciona correctamente
     public func results<T: JSONDecodable>() -> [T]? {
+        print("DEcodable")
         return (payload as? [JSONDictionary]).flatMap(decode)
     }
 }
@@ -43,6 +44,6 @@ extension Response: JSONDecodable {
         
         self.status = status!
         self.message = "NO implementado"
-        self.payload = payload
+        self.payload = payload ?? ""
     }
 }

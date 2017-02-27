@@ -11,11 +11,9 @@ import RxSwift
 
 extension Client {
     
-    public func listAllEvent() -> Observable<[Response]>{
-        /*objects(endPoint: EventApi()).subscribe(onNext: { (element) in
-            print(element)
-        }).addDisposableTo(disposeBag)*/
+    public func listAllEvent() -> Observable<Response>{
         
+        // Falta pasarle los parametros
         return objects(endPoint: EventApi())
         
     }

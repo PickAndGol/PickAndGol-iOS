@@ -8,13 +8,24 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class TimelineViewModel {
+
+    let disposeBag = DisposeBag()
     
-  
-    public lazy var  myevents: Observable<[Response]> = Client().listAllEvent()
+    public func listOfEvent(){
+        let client = Client()
+        
+        
+        
+        client.listAllEvent().subscribe(onNext: { (element) in
+            print("DOS")
+            print(element)
+            
+        }).addDisposableTo(disposeBag)
     
     
-   
     
+    }
 }

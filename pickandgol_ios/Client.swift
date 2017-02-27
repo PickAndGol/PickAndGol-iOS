@@ -22,16 +22,18 @@ public class Client{
     
     let disposeBag = DisposeBag()
 
-    func objects(endPoint:NetworkResource) -> Observable<[Response]> {
+    func objects(endPoint:NetworkResource) -> Observable<Response> {
         
         return response(endPoint: endPoint)
             .map { response in
-         
-                print(response)
-                guard let results:[Response] = response.results() else {
+                
+                print("***")
+                
+                /*guard let results:[Response] = response.results() else {
                     throw ClientError.couldNotDecodeJSON
-                }
-                return results
+                }*/
+               
+                return response
         }
         }
             
@@ -44,7 +46,7 @@ public class Client{
             if let value = endPointResponse as? JSONDictionary {
             
                  let response:Response = decode(value)!
-                print(response)
+               // print(response)
                 observer.onNext(response)
                 observer.onCompleted()
                 

@@ -14,17 +14,15 @@ class TimelineViewController: UIViewController {
 
     let disposeBag = DisposeBag()
     
+    
     private let viewModel = TimelineViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print("HOLA")
-        viewModel.myevents.subscribe(onNext: { (element) in
-            print(element)
-        }).addDisposableTo(disposeBag)
         
-        
+        viewModel.listOfEvent()
+               
         // Do any additional setup after loading the view.
     }
 
