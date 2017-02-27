@@ -3,10 +3,10 @@ import Foundation
 import RxSwift
 import Alamofire
 
-public enum ApiError: Error {
+public enum ApiClientError: Error {
     case couldNotDecodeJSON
-    case badStatus(JSONDictionary)
     case failedParsingData(JSONDictionary)
+    case badStatus(String)
 }
 
 class UserApiRepository {
@@ -14,12 +14,12 @@ class UserApiRepository {
     func userRegister(name: String, email: String, password: String) -> Observable<UserModelStruct> {
 
         let url: URL = URL(string: "register", relativeTo: ApiPaths.user.url.absoluteURL)!
-        let params: Parameters = [
-            "name":name,
-            "email": email,
-            "password": password]
 
         return Observable.create { observer in
+            let params: Parameters = [
+                "name":name,
+                "email": email,
+                "password": password]
 
             let request = Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
                 .responseJSON(completionHandler: { response in
@@ -32,22 +32,33 @@ class UserApiRepository {
                     guard let value = response.result.value as? JSONDictionary,
                         let result = value["result"] as? String,
                         let data = value["data"] as? JSONDictionary else{
-                            observer.onError(ApiError.couldNotDecodeJSON)
+                            observer.onError(ApiClientError.couldNotDecodeJSON)
                             observer.onCompleted()
                             return
                     }
                     if result == "ERROR" {
-                        observer.onError(ApiError.badStatus(data))
+
+                        // Como gestionar los errores
+                        guard let errorCode: Int = data["code"] as? Int else {
+                            return
+                        }
+                        var errorDescription = String()
+                        if errorCode == 409 {
+                            errorDescription = "El usuario ya existe"
+                        } else {
+                            errorDescription = "El servidor no responde"
+                        }
+
+                        observer.onError(ApiClientError.badStatus(errorDescription))
                         observer.onCompleted()
                     }
                     if result == "OK" {
-
                         do {
                             let user = try UserModelStruct(dictionary: data)
                             observer.onNext(user)
                             observer.onCompleted()
                         } catch {
-                            observer.onError(ApiError.failedParsingData(data))
+                            observer.onError(ApiClientError.failedParsingData(data))
                             observer.onCompleted()
                         }
                     }
@@ -79,12 +90,12 @@ class UserApiRepository {
                     guard let value = response.result.value as? JSONDictionary,
                         let result = value["result"] as? String,
                         let data = value["data"] as? JSONDictionary else{
-                            observer.onError(ApiError.couldNotDecodeJSON)
+                            observer.onError(ApiClientError.couldNotDecodeJSON)
                             observer.onCompleted()
                             return
                     }
                     if result == "ERROR" {
-                        observer.onError(ApiError.badStatus(data))
+                        observer.onError(ApiClientError.badStatus(""))
                         observer.onCompleted()
                     }
                     if result == "OK" {
@@ -94,7 +105,7 @@ class UserApiRepository {
                             observer.onNext(user)
                             observer.onCompleted()
                         } catch {
-                            observer.onError(ApiError.failedParsingData(data))
+                            observer.onError(ApiClientError.failedParsingData(data))
                             observer.onCompleted()
                         }
                     }
@@ -124,12 +135,12 @@ class UserApiRepository {
                     guard let value = response.result.value as? JSONDictionary,
                         let result = value["result"] as? String,
                         let data = value["data"] as? JSONDictionary else{
-                            observer.onError(ApiError.couldNotDecodeJSON)
+                            observer.onError(ApiClientError.couldNotDecodeJSON)
                             observer.onCompleted()
                             return
                     }
                     if result == "ERROR" {
-                        observer.onError(ApiError.badStatus(data))
+                        observer.onError(ApiClientError.badStatus(""))
                         observer.onCompleted()
                     }
                     if result == "OK" {
@@ -139,7 +150,7 @@ class UserApiRepository {
                             observer.onNext(user)
                             observer.onCompleted()
                         } catch {
-                            observer.onError(ApiError.failedParsingData(data))
+                            observer.onError(ApiClientError.failedParsingData(data))
                             observer.onCompleted()
                         }
                     }

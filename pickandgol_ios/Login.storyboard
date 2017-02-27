@@ -228,6 +228,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Mse-zp-hi4"/>
                     <connections>
+                        <outlet property="registerButton" destination="qdF-K6-CpF" id="FZQ-YJ-YpL"/>
                         <outlet property="usarNameTextField" destination="HwP-PU-j4A" id="H2t-HI-hMU"/>
                         <outlet property="userEmailTextField" destination="uSh-y3-NqS" id="k1R-WL-zux"/>
                         <outlet property="userPasswordTextField" destination="CM3-PO-pmO" id="Ih6-iW-YLe"/>

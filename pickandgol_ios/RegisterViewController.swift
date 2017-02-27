@@ -11,12 +11,14 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
 
+    @IBOutlet weak var registerButton: UIButton!
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bindViewModel()
+        setupBindings()
+        initTextFields()
     }
 
     func setViewModel(viewModel: RegisterViewModel) {
@@ -27,70 +29,59 @@ class RegisterViewController: UIViewController {
 
         registerViewModel.registerUser().subscribe(
             onNext: { userModelStruct in
-                self.dismiss(animated: true, completion: { 
-                    self.showAlert("exito", message: userModelStruct.name)
-                })
+                self.showAlert("Te has registrado con éxito", message: userModelStruct.name)
+//                self.dismiss(animated: true, completion:nil)
         },
             onError: { error in
-                self.showAlert("error", message: error.localizedDescription)
+                self.showAlert("Ha habido algún problema en el registro", message: error.localizedDescription)
         },
                                                    onCompleted: nil,
                                                    onDisposed: nil)
             .addDisposableTo(disposeBag)
-
-        updateFormStatus()
     }
 
-    func bindViewModel() {
-        let userName = usarNameTextField.rx.text
-        userName.subscribe(onNext:{ text in
-            guard let text = text else {
-                return
-            }
-            // hacer un weakself?
-            self.registerViewModel.userName = text
-            self.updateFormStatus()
-
-//            self.textFieldDidChange(textField: self.usarNameTextField)
-        }).addDisposableTo(disposeBag)
-
-        let userEmail = userEmailTextField.rx.text
-        userEmail.subscribe(onNext:{ _ in
-            self.textFieldDidChange(textField: self.userEmailTextField)
-        }).addDisposableTo(disposeBag)
-
-        let userPassword = userPasswordTextField.rx.text
-        userPassword.subscribe(onNext:{ _ in
-            self.textFieldDidChange(textField: self.userPasswordTextField)
-        }).addDisposableTo(disposeBag)
+    func initTextFields() {
+        usarNameTextField.layer.borderWidth = 0
+        userEmailTextField.layer.borderWidth = 0
+        userPasswordTextField.layer.borderWidth = 0
     }
+    func setupBindings() {
+        usarNameTextField.rx.text
+            .map { $0 ?? "" }
+            .bindTo(registerViewModel.userName)
+            .addDisposableTo(disposeBag)
+        userEmailTextField.rx.text
+            .map { $0 ?? "" }
+            .bindTo(registerViewModel.userEmail)
+            .addDisposableTo(disposeBag)
+        userPasswordTextField.rx.text
+            .map { $0 ?? "" }
+            .bindTo(registerViewModel.userPassword)
+            .addDisposableTo(disposeBag)
 
-    func textFieldDidChange(textField: UITextField?) {
-        guard let textField = textField,
-            let text = textField.text else {
-                return
-        }
+        registerViewModel.formIsValid
+            .bindTo(registerButton.rx.isEnabled)
+            .addDisposableTo(disposeBag)
 
-        if textField == usarNameTextField {
-            registerViewModel.userName = text
-        } else if textField == userEmailTextField{
-            registerViewModel.userEmail = text
-        } else if textField == userPasswordTextField {
-            registerViewModel.userPassword = text
-        }
+        let userNameTF = usarNameTextField!
+        let userEmailTF = userEmailTextField!
+        let userPassTF = userPasswordTextField!
 
-        updateFormStatus()
-    }
-
-    func updateFormStatus() {
-        usarNameTextField.layer.borderWidth = 1.0
-        userEmailTextField.layer.borderWidth = 1.0
-        userPasswordTextField.layer.borderWidth = 1.0
-
-        // hacer el layer reactivo
-        usarNameTextField.layer.borderColor = registerViewModel.userNameValid ? UIColor.green.cgColor : UIColor.red.cgColor
-        userEmailTextField.layer.borderColor =  registerViewModel.userEmailValid ? UIColor.green.cgColor : UIColor.red.cgColor
-        userPasswordTextField.layer.borderColor = registerViewModel.userPasswordValid ? UIColor.green.cgColor : UIColor.red.cgColor
+        registerViewModel.userNameIsValid
+            .subscribe(onNext: { isValid in
+                userNameTF.isValid(valid: isValid)
+            })
+            .addDisposableTo(disposeBag)
+        registerViewModel.userEmailIsValid
+            .subscribe(onNext: { isValid in
+                userEmailTF.isValid(valid: isValid)
+            })
+            .addDisposableTo(disposeBag)
+        registerViewModel.userPasswordIsValid
+            .subscribe(onNext: { isValid in
+                userPassTF.isValid(valid: isValid)
+            })
+            .addDisposableTo(disposeBag)
     }
 
     fileprivate func showAlert(_ title: String, message: String) {
@@ -99,4 +90,5 @@ class RegisterViewController: UIViewController {
         alertController.addAction(ok)
         present(alertController, animated: true, completion: nil)
     }
+
 }

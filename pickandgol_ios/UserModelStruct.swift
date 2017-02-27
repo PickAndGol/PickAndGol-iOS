@@ -18,7 +18,7 @@ struct UserModelStruct {
 
     init(dictionary dict: JSONDictionary) throws {
 
-        guard let id = dict["_id"] as? String else {
+        guard let id = dict["id"] as? String else {
             throw JSONDecodingError.wrongJSONFormat
         }
         guard let name = dict["name"] as? String else {
