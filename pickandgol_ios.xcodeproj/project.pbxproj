@@ -40,6 +40,7 @@
 		A921BB711E5C548400EF3872 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921BB701E5C548400EF3872 /* Response.swift */; };
 		A921BB731E5C694400EF3872 /* Client+EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921BB721E5C694400EF3872 /* Client+EventApi.swift */; };
 		A921BB751E5C69D400EF3872 /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921BB741E5C69D400EF3872 /* EventApi.swift */; };
+		A95C7F501E6B373E00765023 /* TimelineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C7F4F1E6B373E00765023 /* TimelineCollectionViewCell.swift */; };
 		A97D41D91E5F4418004E9F90 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D41D81E5F4418004E9F90 /* TimelineViewModel.swift */; };
 		A97D41DB1E5F4624004E9F90 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D41DA1E5F4624004E9F90 /* TimelineViewController.swift */; };
 		A9E0FD3C1E5B373C008512B3 /* NetWorkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E0FD3B1E5B373C008512B3 /* NetWorkResource.swift */; };
@@ -96,6 +97,7 @@
 		A921BB701E5C548400EF3872 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		A921BB721E5C694400EF3872 /* Client+EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+EventApi.swift"; sourceTree = "<group>"; };
 		A921BB741E5C69D400EF3872 /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
+		A95C7F4F1E6B373E00765023 /* TimelineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineCollectionViewCell.swift; sourceTree = "<group>"; };
 		A97D41D81E5F4418004E9F90 /* TimelineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 		A97D41DA1E5F4624004E9F90 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		A9E0FD3B1E5B373C008512B3 /* NetWorkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkResource.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				A97D41DA1E5F4624004E9F90 /* TimelineViewController.swift */,
+				A95C7F4F1E6B373E00765023 /* TimelineCollectionViewCell.swift */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				A97D41DB1E5F4624004E9F90 /* TimelineViewController.swift in Sources */,
 				A921BB751E5C69D400EF3872 /* EventApi.swift in Sources */,
 				349F43F21E54F21400A905FE /* UserDetailViewModel.swift in Sources */,
+				A95C7F501E6B373E00765023 /* TimelineCollectionViewCell.swift in Sources */,
 				349F43EE1E54EEDE00A905FE /* UserDetailViewController.swift in Sources */,
 				349F43DF1E54EBB800A905FE /* JSONDecodable.swift in Sources */,
 				349F43E01E54EBB800A905FE /* JSONDecodingError.swift in Sources */,

@@ -27,12 +27,6 @@ public class Client{
         return response(endPoint: endPoint)
             .map { response in
                 
-                print("***")
-                
-                /*guard let results:[Response] = response.results() else {
-                    throw ClientError.couldNotDecodeJSON
-                }*/
-               
                 return response
         }
         }

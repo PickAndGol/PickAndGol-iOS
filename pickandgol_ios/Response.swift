@@ -13,7 +13,7 @@ public struct Response {
     
     public let status: String
     public let message: String
-    fileprivate let payload: Any
+    fileprivate let payload: AnyObject
     
     public var succeeded: Bool {
         return status == "OK"
@@ -23,9 +23,22 @@ public struct Response {
         return (payload as? JSONDictionary).flatMap(decode)
     }
     // Me quedo por aqui la funcion no funciona correctamente
-    public func results<T: JSONDecodable>() -> [T]? {
-        print("DEcodable")
-        return (payload as? [JSONDictionary]).flatMap(decode)
+    public func results() -> [JSONDictionary]? {
+        
+        var dataInDictionary = [JSONDictionary]()
+        let datos = payload["items"] as! NSArray
+         
+         for dat in datos {
+         //print("++++")
+         
+         dataInDictionary.append(dat as! JSONDictionary)
+         
+         // print(response)
+         //print(dat as! JSONDictionary)
+         //print("---")
+         
+         }
+        return dataInDictionary
     }
 }
 
@@ -44,6 +57,6 @@ extension Response: JSONDecodable {
         
         self.status = status!
         self.message = "NO implementado"
-        self.payload = payload ?? ""
+        self.payload = payload ?? "" as AnyObject
     }
 }

@@ -11,19 +11,47 @@ import RxSwift
 import RxCocoa
 
 class TimelineViewModel {
+    
+    private let client: Client
+    
+    init(client: Client = Client()) {
+        self.client = client
+        
+    //suggestions = client.listAllEvent().asObservable().observeOn(MainScheduler.instance)
+        
+    }
 
     let disposeBag = DisposeBag()
     
-    public func listOfEvent(){
-        let client = Client()
-        
-        
-        
-        client.listAllEvent().subscribe(onNext: { (element) in
-            print("DOS")
-            print(element)
+    //var suggestions: Observable<JSONDictionary>
+    
+    
+    
+    public func listOfEvent()->Observable<[JSONDictionary]>{
+    
+        return Observable<[JSONDictionary]>.create { (observer) -> Disposable in
             
-        }).addDisposableTo(disposeBag)
+            
+            self.client.listAllEvent().subscribe(onNext: { (element) in
+                
+                observer.onNext((element.results() ?? nil)!)
+                observer.onCompleted()
+                
+            }).addDisposableTo(self.disposeBag)
+            
+            
+            
+            return Disposables.create()
+        }
+        
+        
+        
+        /*client.listAllEvent().subscribe(onNext: { (element) in
+            print("DOS")
+            print(element.results())
+            print("FIN")
+            
+        }).addDisposableTo(disposeBag)*/
     
     
     

@@ -12,17 +12,40 @@ import RxCocoa
 
 class TimelineViewController: UIViewController {
 
-    let disposeBag = DisposeBag()
     
+    @IBOutlet weak var timelineEventDetail: UICollectionView!{
+        didSet{
+            timelineEventDetail.backgroundColor = UIColor.brown
+        }
+        
+    }
+    
+   
     
     private let viewModel = TimelineViewModel()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
-        viewModel.listOfEvent()
-               
+        
+        viewModel.listOfEvent().bindTo(timelineEventDetail.rx.items) { collectionView, row, event in
+            
+            let indexPath = IndexPath(item: row, section: 0)
+            //let cell: TimelineCollectionViewCell = timelineEventDetail.dequeueReusableCell(withReuseIdentifier: "cell", for: <#T##IndexPath#>)
+            guard let cell = self.timelineEventDetail.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TimelineCollectionViewCell else {
+                fatalError("missing cell")
+            }
+            
+            cell.eventTitle.text = event["name"]! as! String
+            
+           
+            
+            return cell
+            }
+            .addDisposableTo(disposeBag)
+        
         // Do any additional setup after loading the view.
     }
 
