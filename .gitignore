@@ -53,5 +53,6 @@ Temporary Items
 
 #Don`t up pods
 Pods/
-
+Podfile.lock
+pickandgol_ios.xcodeproj/project.pbxproj
 # End of https://www.gitignore.io/api/xcode,osx

@@ -7,8 +7,6 @@ public protocol JSONDecodable {
     init?(dictionary: JSONDictionary)
 }
 
-
-
 public func decode<T: JSONDecodable>(_ dictionary: JSONDictionary) -> T? {
     return T(dictionary: dictionary)
 }
@@ -29,3 +27,4 @@ public func decode<T: JSONDecodable>(_ data: Data) -> T? {
     
     return object
 }
+
