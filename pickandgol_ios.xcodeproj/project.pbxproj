@@ -38,17 +38,14 @@
 		34D9523C1E59B35800410032 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D9523B1E59B35800410032 /* RegisterViewModel.swift */; };
 		34E70B551E64B50D00430649 /* UITextField+isValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E70B541E64B50D00430649 /* UITextField+isValid.swift */; };
 		4925ADBB9C14A57292BE6DA2 /* Pods_pickandgol_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE5AA2C33B69F6A907567B /* Pods_pickandgol_ios.framework */; };
-		A910A8071E5A35F5003FBF84 /* EventApiRespository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910A8061E5A35F5003FBF84 /* EventApiRespository.swift */; };
-		A910A8091E5A4619003FBF84 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A910A8081E5A4619003FBF84 /* NotificationViewController.swift */; };
-		A921BB6F1E5C51A800EF3872 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921BB6E1E5C51A800EF3872 /* Client.swift */; };
-		A921BB711E5C548400EF3872 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921BB701E5C548400EF3872 /* Response.swift */; };
-		A921BB731E5C694400EF3872 /* Client+EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921BB721E5C694400EF3872 /* Client+EventApi.swift */; };
-		A921BB751E5C69D400EF3872 /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A921BB741E5C69D400EF3872 /* EventApi.swift */; };
-		A95C7F501E6B373E00765023 /* TimelineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95C7F4F1E6B373E00765023 /* TimelineCollectionViewCell.swift */; };
-		A97D41D91E5F4418004E9F90 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D41D81E5F4418004E9F90 /* TimelineViewModel.swift */; };
-		A97D41DB1E5F4624004E9F90 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D41DA1E5F4624004E9F90 /* TimelineViewController.swift */; };
-		A9E0FD3C1E5B373C008512B3 /* NetWorkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E0FD3B1E5B373C008512B3 /* NetWorkResource.swift */; };
-
+		A98BA9CE1E6C2C6B00A0F5A8 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */; };
+		A98BA9CF1E6C2C6B00A0F5A8 /* Client+EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */; };
+		A98BA9D11E6C2C7F00A0F5A8 /* NetWorkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */; };
+		A98BA9D31E6C2CA500A0F5A8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D21E6C2CA500A0F5A8 /* Response.swift */; };
+		A98BA9D51E6C2CBE00A0F5A8 /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D41E6C2CBE00A0F5A8 /* EventApi.swift */; };
+		A98BA9D81E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D61E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift */; };
+		A98BA9D91E6C2E6E00A0F5A8 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D71E6C2E6E00A0F5A8 /* TimelineViewController.swift */; };
+		A98BA9DB1E6C2E8700A0F5A8 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9DA1E6C2E8700A0F5A8 /* TimelineViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,16 +97,14 @@
 		34D9523B1E59B35800410032 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		34E70B541E64B50D00430649 /* UITextField+isValid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+isValid.swift"; sourceTree = "<group>"; };
 		65B20C08AA10E8CE98B79D52 /* Pods-pickandgol_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_ios/Pods-pickandgol_ios.debug.xcconfig"; sourceTree = "<group>"; };
-		A910A8061E5A35F5003FBF84 /* EventApiRespository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApiRespository.swift; sourceTree = "<group>"; };
-		A910A8081E5A4619003FBF84 /* NotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
-		A921BB6E1E5C51A800EF3872 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		A921BB701E5C548400EF3872 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		A921BB721E5C694400EF3872 /* Client+EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+EventApi.swift"; sourceTree = "<group>"; };
-		A921BB741E5C69D400EF3872 /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
-		A95C7F4F1E6B373E00765023 /* TimelineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineCollectionViewCell.swift; sourceTree = "<group>"; };
-		A97D41D81E5F4418004E9F90 /* TimelineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
-		A97D41DA1E5F4624004E9F90 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
-		A9E0FD3B1E5B373C008512B3 /* NetWorkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkResource.swift; sourceTree = "<group>"; };
+		A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+EventApi.swift"; sourceTree = "<group>"; };
+		A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkResource.swift; sourceTree = "<group>"; };
+		A98BA9D21E6C2CA500A0F5A8 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		A98BA9D41E6C2CBE00A0F5A8 /* EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventApi.swift; sourceTree = "<group>"; };
+		A98BA9D61E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineCollectionViewCell.swift; sourceTree = "<group>"; };
+		A98BA9D71E6C2E6E00A0F5A8 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		A98BA9DA1E6C2E8700A0F5A8 /* TimelineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +146,11 @@
 		349F43D21E54EA9200A905FE /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */,
+				A98BA9D21E6C2CA500A0F5A8 /* Response.swift */,
+				A98BA9D41E6C2CBE00A0F5A8 /* EventApi.swift */,
+				A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */,
+				A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */,
 				349F43FF1E55015100A905FE /* ApiPaths.swift */,
 				349F43D31E54EAB500A905FE /* User */,
 				349F43D51E54EAC400A905FE /* Pub */,
@@ -209,8 +209,8 @@
 		349F43E71E54EE7F00A905FE /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
-				A97D41DA1E5F4624004E9F90 /* TimelineViewController.swift */,
-				A95C7F4F1E6B373E00765023 /* TimelineCollectionViewCell.swift */,
+				A98BA9D61E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift */,
+				A98BA9D71E6C2E6E00A0F5A8 /* TimelineViewController.swift */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -257,6 +257,7 @@
 		349F43F31E54F23700A905FE /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				A98BA9DA1E6C2E8700A0F5A8 /* TimelineViewModel.swift */,
 			);
 			name = Timeline;
 			sourceTree = "<group>";
@@ -616,15 +617,22 @@
 				349F43DC1E54EB4E00A905FE /* UserDataBaseRepository.swift in Sources */,
 				349F44001E55015100A905FE /* ApiPaths.swift in Sources */,
 				349F43F21E54F21400A905FE /* UserDetailViewModel.swift in Sources */,
-				A95C7F501E6B373E00765023 /* TimelineCollectionViewCell.swift in Sources */,
 				34E70B551E64B50D00430649 /* UITextField+isValid.swift in Sources */,
 				349F43EE1E54EEDE00A905FE /* UserDetailViewController.swift in Sources */,
+				A98BA9D51E6C2CBE00A0F5A8 /* EventApi.swift in Sources */,
 				349F43DF1E54EBB800A905FE /* JSONDecodable.swift in Sources */,
+				A98BA9D81E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift in Sources */,
+				A98BA9D91E6C2E6E00A0F5A8 /* TimelineViewController.swift in Sources */,
+				A98BA9CE1E6C2C6B00A0F5A8 /* Client.swift in Sources */,
 				349F43E01E54EBB800A905FE /* JSONDecodingError.swift in Sources */,
 				34D9523C1E59B35800410032 /* RegisterViewModel.swift in Sources */,
+				A98BA9D11E6C2C7F00A0F5A8 /* NetWorkResource.swift in Sources */,
 				34B8456B1E3D1F0D00410E6A /* LoginViewController.swift in Sources */,
 				34B844FA1E3BBC4D00410E6A /* AppDelegate.swift in Sources */,
+				A98BA9DB1E6C2E8700A0F5A8 /* TimelineViewModel.swift in Sources */,
 				34B8456F1E3D264F00410E6A /* PruebaInstatiateVC.swift in Sources */,
+				A98BA9CF1E6C2C6B00A0F5A8 /* Client+EventApi.swift in Sources */,
+				A98BA9D31E6C2CA500A0F5A8 /* Response.swift in Sources */,
 				34D9523A1E59B1B800410032 /* MainLoginViewController.swift in Sources */,
 				349F43F01E54F20700A905FE /* LoginViewModel.swift in Sources */,
 				34D952381E59AF8C00410032 /* RegisterViewController.swift in Sources */,
