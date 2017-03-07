@@ -30,25 +30,29 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ULj-3O-sai">
-                                                        <rect key="frame" x="8" y="8" width="359" height="128"/>
+                                                        <rect key="frame" x="8" y="8" width="359" height="461"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R3o-Ly-Dwp">
-                                                            <size key="itemSize" width="151" height="85"/>
+                                                            <size key="itemSize" width="141" height="130"/>
                                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                         </collectionViewFlowLayout>
                                                         <cells>
                                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="cgf-YT-aBR" customClass="TimelineCollectionViewCell" customModule="pickandgol_ios" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="151" height="85"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="141" height="130"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="85"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="141" height="130"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
+                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ur-eh-P4U">
+                                                                            <rect key="frame" x="30" y="17" width="87" height="66"/>
+                                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3SP-lA-Ov2">
-                                                                            <rect key="frame" x="30" y="32" width="42" height="21"/>
+                                                                            <rect key="frame" x="40" y="91" width="42" height="21"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -58,6 +62,7 @@
                                                                 </view>
                                                                 <connections>
                                                                     <outlet property="eventTitle" destination="3SP-lA-Ov2" id="LoR-O4-JyD"/>
+                                                                    <outlet property="imageEvent" destination="0ur-eh-P4U" id="geQ-sQ-UhQ"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>

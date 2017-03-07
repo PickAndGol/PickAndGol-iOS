@@ -14,16 +14,26 @@ class TimelineViewModel {
     
     private let client: Client
     
+    
+    
     init(client: Client = Client()) {
         self.client = client
         
-    //suggestions = client.listAllEvent().asObservable().observeOn(MainScheduler.instance)
+        client.downloadImage().subscribe( onNext: { (element) in
+            print(element)
+        })
         
     }
 
     let disposeBag = DisposeBag()
     
-    //var suggestions: Observable<JSONDictionary>
+
+    
+    public func downLoadImage(image:String) -> Observable<UIImage>{
+        
+        return client.downloadImage()
+        
+    }
     
     
     
@@ -44,14 +54,7 @@ class TimelineViewModel {
             return Disposables.create()
         }
         
-        
-        
-        /*client.listAllEvent().subscribe(onNext: { (element) in
-            print("DOS")
-            print(element.results())
-            print("FIN")
-            
-        }).addDisposableTo(disposeBag)*/
+      
     
     
     

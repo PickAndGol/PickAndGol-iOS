@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import AWSS3
 
 public enum ClientError: Error {
     case couldNotDecodeJSON
@@ -18,15 +19,11 @@ public enum ClientError: Error {
 
 public class Client{
     
-    
-    
     let disposeBag = DisposeBag()
-
     func objects(endPoint:NetworkResource) -> Observable<Response> {
         
         return response(endPoint: endPoint)
             .map { response in
-                
                 return response
         }
         }
@@ -34,36 +31,39 @@ public class Client{
     private func response(endPoint:NetworkResource) ->Observable<Response>  {
 
         return Observable<Response>.create { (observer) -> Disposable in
+            endPoint.request { (endPointResponse)   in
         
-        endPoint.request { (endPointResponse)   in
-        
-            if let value = endPointResponse as? JSONDictionary {
-            
-                 let response:Response = decode(value)!
-               // print(response)
-                observer.onNext(response)
-                observer.onCompleted()
-                
-                /*let datos = value["data"]?["items"] as! NSArray
-            
-                for dat in datos {
-                    print("++++")
-                    
-                  
-                   // print(response)
-                    //print(dat as! JSONDictionary)
-                    print("---")
-                    
-                }*/
-            }
+                if let value = endPointResponse as? JSONDictionary {
+                    let response:Response = decode(value)!
+                    observer.onNext(response)
+                    observer.onCompleted()
+                }
      
             }
             
-        return  Disposables.create()
+            return  Disposables.create()
         }
         
             
-        }
+    }
     
+    public func downloadImage() -> Observable<UIImage>{
+        
+        return Observable<UIImage>.create({ (observer) -> Disposable in
+            let network = EventApi()
+            network.downloadImageFromS3(){ data in
+                print(data)
+                 let datos = data as! AWSS3TransferManagerDownloadOutput
+                
+                    let url = datos.body as! NSURL
+                    let image = UIImage(contentsOfFile: url.path! )!
+                    //observer.onNext(datos.body as! NSURL)
+                    observer.onNext(image)
+                    observer.onCompleted()
+            }
+            return  Disposables.create()
+        })
+        
+    }
     
 }

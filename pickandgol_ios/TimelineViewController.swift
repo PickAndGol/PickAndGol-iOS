@@ -10,6 +10,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+
+
 class TimelineViewController: UIViewController {
 
     
@@ -28,7 +30,7 @@ class TimelineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+    
         
         viewModel.listOfEvent().bindTo(timelineEventDetail.rx.items) { collectionView, row, event in
             
@@ -39,6 +41,7 @@ class TimelineViewController: UIViewController {
             }
             
             cell.eventTitle.text = event["name"]! as! String
+            self.viewModel.downLoadImage(image: event["name"] as! String).bindTo(cell.imageEvent.rx.image)
             
            
             

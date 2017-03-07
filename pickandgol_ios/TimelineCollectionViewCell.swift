@@ -11,6 +11,7 @@ import UIKit
 class TimelineCollectionViewCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var imageEvent: UIImageView!
    
     @IBOutlet weak var eventTitle: UILabel!
     
