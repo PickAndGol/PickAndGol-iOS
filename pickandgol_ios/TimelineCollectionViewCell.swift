@@ -15,10 +15,7 @@ class TimelineCollectionViewCell: UICollectionViewCell {
    
     @IBOutlet weak var eventTitle: UILabel!
     
-    public func putTitle(title:String){
-        
-        self.eventTitle.text = "HOLA"
-    }
-    
+   
+    @IBOutlet weak var eventDescription: UILabel!
     
 }
