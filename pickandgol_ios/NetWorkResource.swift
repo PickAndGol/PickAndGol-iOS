@@ -32,8 +32,8 @@ extension NetworkResource {
     
     func request(completion:@escaping(_ response:Any) -> ()){
         
-        //let urlp = "http://www.mocky.io/v2/58ac684c1000002d12514b61"
-        let urlp = "http://www.mocky.io/v2/58bb30a11000001f01109e2f"
+        let urlp = "http://pickandgol.com/api/v1/events/"
+        //let urlp = "http://www.mocky.io/v2/58bb30a11000001f01109e2f"
         Alamofire.request(URL(string:urlp)!).responseJSON { (response) in
             
             // Aquí no emite el valor devuelto

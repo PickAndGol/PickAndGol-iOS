@@ -25,20 +25,11 @@ public struct Response {
     // Me quedo por aqui la funcion no funciona correctamente
     public func results() -> [JSONDictionary]? {
         
-        var dataInDictionary = [JSONDictionary]()
-        let datos = payload["items"] as! NSArray
-         
-         for dat in datos {
-         //print("++++")
-         
-         dataInDictionary.append(dat as! JSONDictionary)
-         
-         // print(response)
-         //print(dat as! JSONDictionary)
-         //print("---")
-         
-         }
-        return dataInDictionary
+        
+        let dataInDictionary = payload
+        
+        //return dataInDictionary as! [JSONDictionary]
+        return payload as! [JSONDictionary]
     }
 }
 
@@ -55,7 +46,7 @@ extension Response: JSONDecodable {
                 return nil
         }*/
         
-        self.status = status!
+        self.status = "OK"
         self.message = "NO implementado"
         self.payload = payload ?? "" as AnyObject
     }
