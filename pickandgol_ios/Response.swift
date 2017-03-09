@@ -19,17 +19,19 @@ public struct Response {
         return status == "OK"
     }
     
-    public func result<T: JSONDecodable>() -> T? {
-        return (payload as? JSONDictionary).flatMap(decode)
+    public func result() -> AnyObject? {
+        
+        return payload
     }
-    // Me quedo por aqui la funcion no funciona correctamente
+    
     public func results() -> [JSONDictionary]? {
         
-        
-        let dataInDictionary = payload
-        
-        //return dataInDictionary as! [JSONDictionary]
-        return payload as! [JSONDictionary]
+        var dataInDictionary = [JSONDictionary]()
+        let datos = payload["items"] as! NSArray
+        for dat in datos {
+            dataInDictionary.append(dat as! JSONDictionary)
+        }
+        return dataInDictionary
     }
 }
 
@@ -39,12 +41,7 @@ extension Response: JSONDecodable {
         
         let status = dictionary["result"] as? String
         let payload = dictionary["data"]
-        /*guard
-            let status = dictionary["result"] as? String,
-            let message = dictionary["error"] as? String,
-            let payload = dictionary["data"] else {
-                return nil
-        }*/
+       
         
         self.status = "OK"
         self.message = "NO implementado"

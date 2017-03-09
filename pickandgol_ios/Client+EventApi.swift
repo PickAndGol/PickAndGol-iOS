@@ -12,10 +12,24 @@ import RxSwift
 extension Client {
     
     public func listAllEvent() -> Observable<Response>{
+    
+        let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/events/")!, method: .get, body: [:])
+        return objects(endPoint: endpoint)
         
-        // Falta pasarle los parametros
-        return objects(endPoint: EventApi())
+    }
+    
+    public func saveEvent() {
         
+    }
+    
+    
+    // Quitar de aqui y poner en Client+UserApi
+    public func recoverMail() -> Observable<Response>{
+        let dictionary = ["email":"antonio@benavente-cardador.com"]
+        let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/users/recover")!, method: .post, body: dictionary)
+    
+        return objects(endPoint: endpoint)
+    
     }
     
 }

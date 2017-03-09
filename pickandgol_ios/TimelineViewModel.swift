@@ -19,9 +19,16 @@ class TimelineViewModel {
     init(client: Client = Client()) {
         self.client = client
         
-        client.downloadImage().subscribe( onNext: { (element) in
+        /*client.downloadImage().subscribe( onNext: { (element) in
             print(element)
         })
+        
+        client.recoverMail().subscribe( onNext: { (element) in
+           
+        
+            print(element.result())
+            })*/
+
         
     }
 

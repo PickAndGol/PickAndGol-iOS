@@ -8,10 +8,19 @@
 
 import Foundation
 
+typealias bodyType = [String:String]
+
 
 class EventApi:NetworkResource {
     
-    var path: URL = ApiPaths.event.url
-    
+    var path: URL = URL(string:"http://pickandgol.com/api/v1/events/")!
+    var methodRequest:HTTPMethod = .get
+    var body:bodyType = [:]
+   
+    init(path:URL, method methodRequest:HTTPMethod, body:bodyType){
+        self.path = path
+        self.methodRequest = methodRequest
+        self.body = body
+    }
     
 }

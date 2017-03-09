@@ -11,44 +11,73 @@ import RxSwift
 import Alamofire
 import AWSS3
 
-public enum Method:String {
-    case GET = "GET"
-    case POST = "POST"
-    case PUT = "PUT"
-    case DELETE = "DELETE"
-    
-}
-
-public enum TypeParameters:String {
-    case body = "body"
-}
 
 public protocol NetworkResource {
     var path:URL { get }
+    var methodRequest:HTTPMethod {get}
+    var body:[String:String] {get}
 }
 
 extension NetworkResource {
     
-    
+
     func request(completion:@escaping(_ response:Any) -> ()){
         
-        let urlp = "http://pickandgol.com/api/v1/events/"
-        //let urlp = "http://www.mocky.io/v2/58bb30a11000001f01109e2f"
-        Alamofire.request(URL(string:urlp)!).responseJSON { (response) in
-            
-            // Aquí no emite el valor devuelto
-            
-            switch response.result {
-            case .success:
-                completion(response.value)
-            case .failure(let error):
-                completion(error)
-        }
+        let headers = [
+            "Content-Type":"application/json; charset=utf-8",
+            ]
+       let urlp = "http://pickandgol.com/api/v1/events/"
+        var request2 = URLRequest(url: self.path)
+        request2.httpMethod = self.methodRequest.rawValue
+        request2.httpBody = try! JSONSerialization.data(withJSONObject: self.body, options: [])
+        
+       // No puedo pasar el parametro method de manera dinamica tengo que cometer esta aberración por el momento!!!!!!!!
 
+        switch self.methodRequest {
+        case .get:
+            Alamofire.request(URL(string:urlp)!, method: .get ,parameters:self.body)
+                .validate()
+                .responseJSON { response in
+                    
+                    if (response.result.error == nil) {
+                        debugPrint("HTTP Response Body: \(response.data!)")
+                        completion(response.value)
+                    }
+                    else {
+                        debugPrint("HTTP Request failed: \(response.result.error)")
+                        completion(response.error)
+                    }
+            }
+        
+        case .post:            
+            Alamofire.request(self.path, method: .post ,parameters:self.body)
+                .validate()
+                .responseJSON { response in
+                    
+                    if (response.result.error == nil) {
+                        debugPrint("HTTP Response Body: \(response.data!)")
+                        completion(response.value)
+                    }
+                    else {
+                        debugPrint("HTTP Request failed: \(response.result.error)")
+                        completion(response.error)
+                    }
+            }
+        
+        default:
+            print("ERROR")
+            
+        }
+        
+       
+    
         
     }
     
-    }
+    
+    
+    
+    
     
     func downloadImageFromS3(completion:@escaping(_ response:Any) -> ()){
         let downloadingFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("myImage.jpg")

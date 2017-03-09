@@ -38,6 +38,7 @@
 		34D9523C1E59B35800410032 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D9523B1E59B35800410032 /* RegisterViewModel.swift */; };
 		34E70B551E64B50D00430649 /* UITextField+isValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E70B541E64B50D00430649 /* UITextField+isValid.swift */; };
 		4925ADBB9C14A57292BE6DA2 /* Pods_pickandgol_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE5AA2C33B69F6A907567B /* Pods_pickandgol_ios.framework */; };
+		A946D3641E713C4D00DF4FBA /* httpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946D3631E713C4D00DF4FBA /* httpMethods.swift */; };
 		A98BA9CE1E6C2C6B00A0F5A8 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */; };
 		A98BA9CF1E6C2C6B00A0F5A8 /* Client+EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */; };
 		A98BA9D11E6C2C7F00A0F5A8 /* NetWorkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */; };
@@ -97,6 +98,7 @@
 		34D9523B1E59B35800410032 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		34E70B541E64B50D00430649 /* UITextField+isValid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+isValid.swift"; sourceTree = "<group>"; };
 		65B20C08AA10E8CE98B79D52 /* Pods-pickandgol_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_ios/Pods-pickandgol_ios.debug.xcconfig"; sourceTree = "<group>"; };
+		A946D3631E713C4D00DF4FBA /* httpMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = httpMethods.swift; sourceTree = "<group>"; };
 		A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+EventApi.swift"; sourceTree = "<group>"; };
 		A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkResource.swift; sourceTree = "<group>"; };
@@ -146,11 +148,6 @@
 		349F43D21E54EA9200A905FE /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */,
-				A98BA9D21E6C2CA500A0F5A8 /* Response.swift */,
-				A98BA9D41E6C2CBE00A0F5A8 /* EventApi.swift */,
-				A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */,
-				A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */,
 				349F43FF1E55015100A905FE /* ApiPaths.swift */,
 				349F43D31E54EAB500A905FE /* User */,
 				349F43D51E54EAC400A905FE /* Pub */,
@@ -171,6 +168,8 @@
 		349F43D41E54EABA00A905FE /* Event */ = {
 			isa = PBXGroup;
 			children = (
+				A98BA9D41E6C2CBE00A0F5A8 /* EventApi.swift */,
+				A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */,
 			);
 			name = Event;
 			sourceTree = "<group>";
@@ -303,6 +302,7 @@
 		349F44011E562ED400A905FE /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				A946D3651E71B6CD00DF4FBA /* NetWorkUtils */,
 				349F44021E562EE700A905FE /* Protocols */,
 				34B8451D1E3BBE1B00410E6A /* Extensions */,
 			);
@@ -448,6 +448,17 @@
 				2ABFDB01C706FE97FCEAAF0F /* Pods-pickandgol_ios.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A946D3651E71B6CD00DF4FBA /* NetWorkUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A946D3631E713C4D00DF4FBA /* httpMethods.swift */,
+				A98BA9D21E6C2CA500A0F5A8 /* Response.swift */,
+				A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */,
+				A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */,
+			);
+			name = NetWorkUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -617,6 +628,7 @@
 				349F43DC1E54EB4E00A905FE /* UserDataBaseRepository.swift in Sources */,
 				349F44001E55015100A905FE /* ApiPaths.swift in Sources */,
 				349F43F21E54F21400A905FE /* UserDetailViewModel.swift in Sources */,
+				A946D3641E713C4D00DF4FBA /* httpMethods.swift in Sources */,
 				34E70B551E64B50D00430649 /* UITextField+isValid.swift in Sources */,
 				349F43EE1E54EEDE00A905FE /* UserDetailViewController.swift in Sources */,
 				A98BA9D51E6C2CBE00A0F5A8 /* EventApi.swift in Sources */,
