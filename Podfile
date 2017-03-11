@@ -31,7 +31,7 @@ pod 'AWSKinesis'
     pod 'AWSSNS'
     pod 'AWSSQS'
 #pod 'HanekeSwift'
-
+pod 'SwifterSwift'
 end
 
 post_install do |installer|

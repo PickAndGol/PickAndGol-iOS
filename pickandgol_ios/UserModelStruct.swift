@@ -13,6 +13,7 @@ struct UserModelStruct {
     let id: String
     let name: String
     let email: String
+    let token:String
 //    let photoUrl: String = nil
     let favorites: Array<Any> = Array()
 
@@ -27,6 +28,10 @@ struct UserModelStruct {
         guard let email = dict["email"] as? String else {
             throw JSONDecodingError.wrongJSONFormat
         }
+        guard let token = dict["token"] as? String else {
+            throw JSONDecodingError.wrongJSONFormat
+        }
+        
 //        guard let photoUrl = dict["photo_url"] as? String else {
 //            throw JSONDecodingError.wrongJSONFormat
 //        }
@@ -34,6 +39,7 @@ struct UserModelStruct {
         self.id = id
         self.name = name
         self.email = email
+        self.token = token
 //        self.photoUrl = photoUrl
     }
 

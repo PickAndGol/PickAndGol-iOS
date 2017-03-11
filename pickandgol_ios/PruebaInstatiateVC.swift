@@ -10,6 +10,6 @@ import UIKit
 
 class InstatiateVC {
 
-    let vc3: LoginViewController = UIStoryboard(storyboard: .login).instantiateViewController()
+    let vc3: LoginUserViewController = UIStoryboard(storyboard: .login).instantiateViewController()
     
 }

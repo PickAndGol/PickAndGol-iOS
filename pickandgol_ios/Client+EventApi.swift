@@ -22,14 +22,6 @@ extension Client {
         
     }
     
-    
-    // Quitar de aqui y poner en Client+UserApi
-    public func recoverMail() -> Observable<Response>{
-        let dictionary = ["email":"antonio@benavente-cardador.com"]
-        let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/users/recover")!, method: .post, body: dictionary)
-    
-        return objects(endPoint: endpoint)
-    
-    }
+  
     
 }

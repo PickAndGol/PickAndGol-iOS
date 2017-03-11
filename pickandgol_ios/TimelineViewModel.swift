@@ -21,13 +21,9 @@ class TimelineViewModel {
         
         /*client.downloadImage().subscribe( onNext: { (element) in
             print(element)
-        })
+        })*/
         
-        client.recoverMail().subscribe( onNext: { (element) in
-           
         
-            print(element.result())
-            })*/
 
         
     }
