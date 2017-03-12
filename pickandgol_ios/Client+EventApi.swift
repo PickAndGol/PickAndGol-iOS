@@ -18,8 +18,9 @@ extension Client {
         
     }
     
-    public func saveEvent() {
-        
+    public func saveEvent(dic:JSONDictionary) -> Observable<Response> {
+        let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/events/")!, method: .post, body:dic as! bodyType)
+        return objects(endPoint: endpoint)
     }
     
   

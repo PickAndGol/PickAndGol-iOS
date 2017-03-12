@@ -50,6 +50,7 @@
 		A98BA9D81E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D61E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift */; };
 		A98BA9D91E6C2E6E00A0F5A8 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D71E6C2E6E00A0F5A8 /* TimelineViewController.swift */; };
 		A98BA9DB1E6C2E8700A0F5A8 /* TimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9DA1E6C2E8700A0F5A8 /* TimelineViewModel.swift */; };
+		A99359631E7536310010AEEF /* NewEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99359621E7536310010AEEF /* NewEventViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		A98BA9D61E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineCollectionViewCell.swift; sourceTree = "<group>"; };
 		A98BA9D71E6C2E6E00A0F5A8 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		A98BA9DA1E6C2E8700A0F5A8 /* TimelineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewModel.swift; sourceTree = "<group>"; };
+		A99359621E7536310010AEEF /* NewEventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 		349F43F51E54F24400A905FE /* Newitem */ = {
 			isa = PBXGroup;
 			children = (
+				A99359621E7536310010AEEF /* NewEventViewModel.swift */,
 			);
 			name = Newitem;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				A98BA9D51E6C2CBE00A0F5A8 /* EventApi.swift in Sources */,
 				349F43DF1E54EBB800A905FE /* JSONDecodable.swift in Sources */,
 				A98BA9D81E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift in Sources */,
+				A99359631E7536310010AEEF /* NewEventViewModel.swift in Sources */,
 				A95778D41E73E18800E3D740 /* LoginUserViewController.swift in Sources */,
 				A98BA9D91E6C2E6E00A0F5A8 /* TimelineViewController.swift in Sources */,
 				A98BA9CE1E6C2C6B00A0F5A8 /* Client.swift in Sources */,
