@@ -55,7 +55,6 @@ public func downloadImage() -> Observable<UIImage>{
                 
                     let url = datos.body as! NSURL
                     let image = UIImage(contentsOfFile: url.path! )!
-                    //observer.onNext(datos.body as! NSURL)
                     observer.onNext(image)
                     observer.onCompleted()
             }

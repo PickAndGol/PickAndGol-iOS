@@ -19,13 +19,6 @@ class TimelineViewModel {
     init(client: Client = Client()) {
         self.client = client
         
-        /*client.downloadImage().subscribe( onNext: { (element) in
-            print(element)
-        })*/
-        
-        
-
-        
     }
 
     let disposeBag = DisposeBag()

@@ -26,16 +26,13 @@ extension NetworkResource {
         let headers = [
             "Content-Type":"application/json; charset=utf-8",
             ]
-       let urlp = "http://pickandgol.com/api/v1/events/"
-        var request2 = URLRequest(url: self.path)
-        request2.httpMethod = self.methodRequest.rawValue
-        request2.httpBody = try! JSONSerialization.data(withJSONObject: self.body, options: [])
+       
         
        // No puedo pasar el parametro method de manera dinamica tengo que cometer esta aberración por el momento!!!!!!!!
 
         switch self.methodRequest {
         case .get:
-            Alamofire.request(URL(string:urlp)!, method: .get ,parameters:self.body)
+            Alamofire.request(self.path, method: .get ,parameters:self.body)
                 .validate()
                 .responseJSON { response in
                     
