@@ -63,4 +63,20 @@ public func downloadImage() -> Observable<UIImage>{
         
     }
     
+    public func uploadImage(pathFile:URL) -> Observable<Bool>{
+        
+        return Observable<Bool>.create({ (observer) -> Disposable in
+            
+            let network = EventApi(path: pathFile, method: .get, body: [:])
+            network.uploadImageFromS3(){ data in
+                print(data)
+                observer.onNext(true)
+                observer.onCompleted()
+            }
+            return Disposables.create()
+        
+        })
+        
+    }
+
 }

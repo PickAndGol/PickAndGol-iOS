@@ -60,6 +60,20 @@ extension NetworkResource {
                         completion(response.error)
                     }
             }
+        case .put:
+            Alamofire.request(self.path, method: .put ,parameters:self.body)
+                .validate()
+                .responseJSON { response in
+                    
+                    if (response.result.error == nil) {
+                        debugPrint("HTTP Response Body: \(response.data!)")
+                        completion(response.value)
+                    }
+                    else {
+                        debugPrint("HTTP Request failed: \(response.result.error)")
+                        completion(response.error)
+                    }
+            }
         
         default:
             print("ERROR")
@@ -115,7 +129,43 @@ extension NetworkResource {
             return nil
         })
 
-
+    }
+    
+    func uploadImageFromS3(completion:@escaping(_ response:Any) -> ()){
+        
+        let sessionAWSS3 = S3ConfigSingleton.sharedInstance
+        let transferManager = AWSS3TransferManager.default()
+        let uploadRequest = AWSS3TransferManagerUploadRequest()
+        
+        
+        uploadRequest?.bucket = sessionAWSS3.bucket
+        uploadRequest?.key = self.path.lastPathComponent
+        uploadRequest?.body = self.path
+      
+        
+        transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
+            
+            if let error = task.error as? NSError {
+                if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
+                    switch code {
+                    case .cancelled, .paused:
+                        break
+                    default:
+                        print("Error downloading: \(uploadRequest?.key) Error: \(error)")
+                        completion(error)
+                    }
+                } else {
+                    print("Error downloading: \(uploadRequest?.key) Error: \(error)")
+                    completion(error)
+                }
+                return nil
+            }
+            print("Download complete for: \(uploadRequest?.key)")
+            let uploadOutput = task.result
+            completion(uploadOutput)
+            return nil
+        })
+        
     }
     
     

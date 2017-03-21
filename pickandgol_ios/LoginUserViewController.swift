@@ -10,12 +10,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 import SwifterSwift
+import LocalAuthentication
 
 class LoginUserViewController: UIViewController {
 
     let disposeBag = DisposeBag()
     
-    var viewModel = UserViewModel()
+    var viewModel = LoginViewModel()
+    
+    var contextSecurity = LAContext()
     
     @IBOutlet weak var email: UITextField!
     
@@ -23,13 +26,46 @@ class LoginUserViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    
+    @IBAction func touchID(_ sender: Any) {
+        
+        if  (contextSecurity.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error:nil)){
+            
+            contextSecurity.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Login PickAndGol", reply: { (success, error) in
+                
+                if (success) {
+                    print("Con tuouhc")
+                }
+                
+                if (error != nil) {
+                    print("ERROR")
+                }
+                
+            })
+            
+        }
+        
+    }
+    
     @IBAction func loginButton(_ sender: Any) {
-        viewModel.login(email: email.text!, pass: password.text!)
+        viewModel.login(email: email.text!, pass: password.text!).subscribe(onNext: { (element) in
+            if(element){
+                
+               self.loginOk()
+                
+            }else{
+                self.showAlert("Usuario o Contraseña incorrecta")
+            }
+            
+        }).addDisposableTo(disposeBag)
+       
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         bindRxSwit()
+        
+        
         
 
         // Do any additional setup after loading the view.
@@ -39,6 +75,18 @@ class LoginUserViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func showAlert(_ message:String){
+        let alertController = UIAlertController(title: "PickandGol", message: message, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func loginOk() {
+         self.dismiss(animated: true, completion: nil)
+    }
+
     
     
     func bindRxSwit(){

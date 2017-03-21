@@ -11,45 +11,33 @@ import RxSwift
 
 class UserViewModel{
 
-    
+    let disposeBag = DisposeBag()
     let client = Client()
-
-    func login(email:String, pass:String){
-        
-       let session = userSessionManager.sharedInstance
-        
-        client.login().subscribe( onNext: { (element) in
-            session.initWithLogin(dict: element.result() as! JSONDictionary)
-            
-            //TODO: Pendiente de login erroneo y ui alert con el resultado
-            
-            
-        })
-        
-        
-    }
     
-    func qualityPassword(val:String) -> UIColor {
+    public func saveProfileUser(user:String, userEmail:String, userPhoto:UIImage){
         
-        var color:UIColor
+        let body: [String : Any] = [
+            "email": userEmail,
+            "name": user,
+            "token": userSessionManager.sharedInstance.getToken(),
+            "photo_url": S3ConfigSingleton.sharedInstance.urlBucket.absoluteString+(userEmail.base64Encoded)!+".jpg"
+        ]
+    
         
-        switch(val.length){
-            
-        case 1..<2:
-            color = UIColor.red
-            
-        case 2..<5:
-            color = UIColor.orange
-            
-            
-        default:
-            color = UIColor.black
-            
-        }
+        userPhoto.scaled(toWidth: CGFloat(200.0))?
+            .savePhotoJPG((userEmail.base64Encoded)!+".jpg")?
+            .savePhotoS3((userEmail.base64Encoded)!+".jpg").subscribe(onNext: { (element) in
+
+                print(element)
+                
+            }).addDisposableTo(disposeBag)
         
-        return color
-     
-        
+        client.updateProfileUser(dictionary: body as JSONDictionary, idUser: userSessionManager.sharedInstance.getIdUser()).subscribe(onNext: {(element) in
+            
+            print(element)
+            
+            
+        }).addDisposableTo(self.disposeBag)
         
     }
     

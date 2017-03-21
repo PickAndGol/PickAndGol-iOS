@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -124,6 +125,17 @@
                                 <rect key="frame" x="16" y="473" width="343" height="30"/>
                                 <state key="normal" title="¿Has olvidado tu contraseña?"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7o-gM-F6M">
+                                <rect key="frame" x="137" y="536" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="8zX-r7-5ot"/>
+                                    <constraint firstAttribute="height" constant="100" id="ys7-g0-Wf8"/>
+                                </constraints>
+                                <state key="normal" title="Huella" image="Touch-icon-lg"/>
+                                <connections>
+                                    <action selector="touchID:" destination="ffp-4z-mAM" eventType="touchUpInside" id="ymp-gC-X5p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -134,11 +146,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="pjC-00-5iy" secondAttribute="trailing" id="GCh-T0-yLN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="u22-08-fgz" secondAttribute="trailing" id="SNv-Ky-5lB"/>
                             <constraint firstItem="u22-08-fgz" firstAttribute="top" secondItem="9IV-Er-jRP" secondAttribute="bottom" constant="22" id="Uma-5B-Hu4"/>
+                            <constraint firstItem="AKR-ZQ-4rD" firstAttribute="top" secondItem="g7o-gM-F6M" secondAttribute="bottom" constant="30" id="WJM-dj-ZeL"/>
                             <constraint firstItem="RWZ-M7-uyT" firstAttribute="top" secondItem="u22-08-fgz" secondAttribute="bottom" constant="30" id="cIO-XB-4eh"/>
                             <constraint firstItem="pjC-00-5iy" firstAttribute="top" secondItem="RWZ-M7-uyT" secondAttribute="bottom" constant="30" id="dnB-qd-Dfi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ziW-U4-1YI" secondAttribute="trailing" id="g6O-45-eQ3"/>
                             <constraint firstItem="RWZ-M7-uyT" firstAttribute="leading" secondItem="JDZ-Qb-Tyf" secondAttribute="leadingMargin" id="h99-RQ-rdx"/>
+                            <constraint firstItem="g7o-gM-F6M" firstAttribute="leading" secondItem="JDZ-Qb-Tyf" secondAttribute="leadingMargin" constant="121" id="k8u-G3-ez7"/>
                             <constraint firstItem="pjC-00-5iy" firstAttribute="leading" secondItem="JDZ-Qb-Tyf" secondAttribute="leadingMargin" id="kzM-IF-wWw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g7o-gM-F6M" secondAttribute="trailing" constant="122" id="t9Z-6H-gPQ"/>
                             <constraint firstItem="ziW-U4-1YI" firstAttribute="leading" secondItem="JDZ-Qb-Tyf" secondAttribute="leadingMargin" id="vip-LO-tQd"/>
                             <constraint firstItem="ziW-U4-1YI" firstAttribute="top" secondItem="FHN-fU-hBp" secondAttribute="bottom" constant="125" id="xv7-Je-b1q"/>
                             <constraint firstItem="9IV-Er-jRP" firstAttribute="leading" secondItem="JDZ-Qb-Tyf" secondAttribute="leadingMargin" id="xv8-6E-gl7"/>
@@ -265,4 +280,7 @@
             <point key="canvasLocation" x="3564" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Touch-icon-lg" width="138" height="137"/>
+    </resources>
 </document>

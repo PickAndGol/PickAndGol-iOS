@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,8 +21,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqR-9t-uTm">
-                                <rect key="frame" x="158" y="86" width="59" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wH5-Km-9Am">
+                                <rect key="frame" x="112" y="72" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="3ss-JE-6v5"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u0i-5e-gmz">
+                                <rect key="frame" x="68" y="349" width="248" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Usuario" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqR-9t-uTm">
+                                <rect key="frame" x="68" y="250" width="248" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -29,11 +42,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="wH5-Km-9Am" secondAttribute="trailing" constant="96" id="1qo-wP-wwR"/>
+                            <constraint firstItem="u0i-5e-gmz" firstAttribute="leading" secondItem="bqR-9t-uTm" secondAttribute="trailing" constant="-149" id="6Ne-v4-0FO"/>
+                            <constraint firstItem="bqR-9t-uTm" firstAttribute="leading" secondItem="ipj-LR-L3n" secondAttribute="leadingMargin" constant="52" id="AHK-fz-1ZU"/>
+                            <constraint firstItem="bqR-9t-uTm" firstAttribute="top" secondItem="wH5-Km-9Am" secondAttribute="bottom" constant="77" id="EZj-px-dSe"/>
                             <constraint firstItem="bqR-9t-uTm" firstAttribute="centerX" secondItem="ipj-LR-L3n" secondAttribute="centerX" id="HWb-Hc-acg"/>
-                            <constraint firstItem="bqR-9t-uTm" firstAttribute="top" secondItem="uQh-h8-0Pa" secondAttribute="bottom" constant="22" id="zNh-Cj-mCJ"/>
+                            <constraint firstItem="wH5-Km-9Am" firstAttribute="leading" secondItem="ipj-LR-L3n" secondAttribute="leadingMargin" constant="96" id="O4D-n3-1oN"/>
+                            <constraint firstItem="wH5-Km-9Am" firstAttribute="top" secondItem="uQh-h8-0Pa" secondAttribute="bottom" constant="8" symbolic="YES" id="fsg-9g-yx3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="u0i-5e-gmz" secondAttribute="trailing" constant="43" id="v0F-Mk-cL5"/>
+                            <constraint firstItem="u0i-5e-gmz" firstAttribute="top" secondItem="bqR-9t-uTm" secondAttribute="bottom" constant="29" id="xky-Fu-U4D"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Tfz-gI-HQZ">
+                        <barButtonItem key="leftBarButtonItem" title="Save" id="8UH-JD-pr4">
+                            <connections>
+                                <action selector="saveUser:" destination="dui-P7-fnG" id="aiV-Wf-LJA"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Register" id="4Ls-fU-XZZ">
                             <connections>
                                 <action selector="registerButtonTapped:" destination="dui-P7-fnG" id="7ah-zv-8l2"/>
@@ -41,7 +66,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="userEmail" destination="u0i-5e-gmz" id="99j-WR-osz"/>
                         <outlet property="userNameLabel" destination="bqR-9t-uTm" id="bn6-q1-bfH"/>
+                        <outlet property="userPhoto" destination="wH5-Km-9Am" id="SrH-Mz-iAg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LxZ-Y5-lAy" userLabel="First Responder" sceneMemberID="firstResponder"/>

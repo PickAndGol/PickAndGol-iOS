@@ -19,8 +19,18 @@ class userSessionManager {
     }
     
     public func initWithLogin(dict:JSONDictionary){
-        userSession = try! UserModelStruct(dictionary: dict)
+        
         logged = true
+        
+        do {
+            userSession = try UserModelStruct(dictionary: dict)
+        } catch {
+            //MARK: - if before is logged put all var to nil
+           logged = false
+           userSession = nil
+        }
+        
+        
     }
     
     public func getToken() -> String {
@@ -34,4 +44,17 @@ class userSessionManager {
     public func getEmail() -> String {
         return (userSession?.email)!
     }
+    
+    public func getUrlPhoto() -> String{
+        return (userSession?.photoUrl)!
+    }
+    
+    public func getIdUser() -> String {
+        return (userSession?.id)!
+    }
+    
+    public func setUrlPhoto(url:String) {
+        self.userSession?.photoUrl = url
+    }
+    
 }

@@ -20,12 +20,18 @@ extension Client {
         
     }
     
-    public func login() -> Observable<Response>{
-        let dictionary = ["email":"antonio61@benavente-cardador.com","password":"password"]
+    public func login(email:String, password:String) -> Observable<Response>{
+        let dictionary = ["email":email,"password":password]
         let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/users/login")!, method: .post, body: dictionary)
         
         return objects(endPoint: endpoint)
         
+    }
+    
+    public func updateProfileUser(dictionary:JSONDictionary, idUser:String) -> Observable<Response> {
+        let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/users/"+idUser)!, method: .put, body: dictionary as! bodyType)
+        
+        return objects(endPoint: endpoint)
     }
     
 

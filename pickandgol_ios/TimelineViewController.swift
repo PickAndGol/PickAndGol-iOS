@@ -40,7 +40,7 @@ class TimelineViewController: UIViewController {
                 fatalError("missing cell")
             }
             
-            var bcolor : UIColor = UIColor( red: 0.2, green: 0.2, blue:0.2, alpha: 0.3 )
+            let bcolor : UIColor = UIColor( red: 0.2, green: 0.2, blue:0.2, alpha: 0.3 )
             cell.layer.borderColor = bcolor.cgColor
             cell.layer.borderWidth = 0.5
             cell.layer.cornerRadius = 3
@@ -49,6 +49,7 @@ class TimelineViewController: UIViewController {
             
             cell.eventTitle.text = event["name"]! as! String
             cell.eventDescription.text = event["description"]! as! String
+            cell.imageEvent.image = UIImage(imageLiteralResourceName:"default_placeholder.png")
             
             self.viewModel.downLoadImage(image: event["name"] as! String).bindTo(cell.imageEvent.rx.image)
             
