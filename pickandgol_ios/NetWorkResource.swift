@@ -23,9 +23,9 @@ extension NetworkResource {
 
     func request(completion:@escaping(_ response:Any) -> ()){
         
-        let headers = [
+        /*let headers = [
             "Content-Type":"application/json; charset=utf-8",
-            ]
+            ]*/
        
         
        // No puedo pasar el parametro method de manera dinamica tengo que cometer esta aberración por el momento!!!!!!!!

@@ -47,6 +47,7 @@ extension UIImage {
         
         return self
     }
+    
 
     
     func savePhotoS3(_ namePhoto:String) ->Observable<Bool>{
@@ -68,12 +69,10 @@ extension UIImage {
             return Disposables.create()
         })
         
-        
-
-        
     
     }
-
+    
+    
 
 
 }

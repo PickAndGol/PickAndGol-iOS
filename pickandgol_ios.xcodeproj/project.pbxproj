@@ -54,6 +54,7 @@
 		A99359631E7536310010AEEF /* NewEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99359621E7536310010AEEF /* NewEventViewModel.swift */; };
 		A99359671E75BD7E0010AEEF /* S3ConfigSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99359661E75BD7E0010AEEF /* S3ConfigSingleton.swift */; };
 		A99E5A4B1E7E663800A11304 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E5A4A1E7E663800A11304 /* ImageManager.swift */; };
+		A9A802E41E81850400387B37 /* touchIDAutentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A802E31E81850400387B37 /* touchIDAutentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		A99359621E7536310010AEEF /* NewEventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewModel.swift; sourceTree = "<group>"; };
 		A99359661E75BD7E0010AEEF /* S3ConfigSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ConfigSingleton.swift; sourceTree = "<group>"; };
 		A99E5A4A1E7E663800A11304 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		A9A802E31E81850400387B37 /* touchIDAutentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = touchIDAutentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 		349F44011E562ED400A905FE /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				A9A802E21E8184EF00387B37 /* autenticationUtils */,
 				A946D3651E71B6CD00DF4FBA /* NetWorkUtils */,
 				349F44021E562EE700A905FE /* Protocols */,
 				34B8451D1E3BBE1B00410E6A /* Extensions */,
@@ -480,6 +483,14 @@
 				A99359661E75BD7E0010AEEF /* S3ConfigSingleton.swift */,
 			);
 			name = NetWorkUtils;
+			sourceTree = "<group>";
+		};
+		A9A802E21E8184EF00387B37 /* autenticationUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A9A802E31E81850400387B37 /* touchIDAutentication.swift */,
+			);
+			name = autenticationUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -654,6 +665,7 @@
 				A946D3641E713C4D00DF4FBA /* httpMethods.swift in Sources */,
 				34E70B551E64B50D00430649 /* UITextField+isValid.swift in Sources */,
 				349F43EE1E54EEDE00A905FE /* UserDetailViewController.swift in Sources */,
+				A9A802E41E81850400387B37 /* touchIDAutentication.swift in Sources */,
 				A98BA9D51E6C2CBE00A0F5A8 /* EventApi.swift in Sources */,
 				349F43DF1E54EBB800A905FE /* JSONDecodable.swift in Sources */,
 				A98BA9D81E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift in Sources */,

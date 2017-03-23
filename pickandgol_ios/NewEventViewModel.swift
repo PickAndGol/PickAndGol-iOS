@@ -22,7 +22,7 @@ class NewEventViewModel{
         
         client.saveEvent(dic: dic).subscribe( onNext: { (element) in
             print(element)
-            })
+            }).addDisposableTo(disposeBag)
 
         
     }

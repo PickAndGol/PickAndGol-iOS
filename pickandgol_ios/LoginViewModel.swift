@@ -8,10 +8,11 @@
 
 import Foundation
 import RxSwift
-
+import SwiftKeychainWrapper
 class LoginViewModel {
 
     let client = Client()
+    let disposeBag = DisposeBag()
     
     func login(email:String, pass:String)->Observable<Bool> {
         
@@ -20,9 +21,14 @@ class LoginViewModel {
             self.client.login(email: email, password: pass).subscribe( onNext: { (element) in
                 
                 session.initWithLogin(dict: element.result() as! JSONDictionary)
+                
+                _ = KeychainWrapper.standard.set(email , forKey: "pickangol-email")
+                _ = KeychainWrapper.standard.set(pass , forKey: "pickangol-pass")
+                
+                
                 observer.onNext(session.logged)
                 observer.onCompleted()
-            })
+            }).addDisposableTo(self.disposeBag)
             
             return  Disposables.create()
         })

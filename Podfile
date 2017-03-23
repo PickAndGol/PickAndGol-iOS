@@ -32,6 +32,7 @@ pod 'AWSKinesis'
     pod 'AWSSQS'
 #pod 'HanekeSwift'
 pod 'SwifterSwift'
+pod 'SwiftKeychainWrapper'
 end
 
 post_install do |installer|

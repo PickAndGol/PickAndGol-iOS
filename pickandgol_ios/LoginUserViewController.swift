@@ -20,12 +20,15 @@ class LoginUserViewController: UIViewController {
     
     var contextSecurity = LAContext()
     
+    var touchID = TouchIDAutentication()
+    
     @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var password: UITextField!
     
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var touchIDButton: UIButton!
     
     @IBAction func touchID(_ sender: Any) {
         
@@ -64,7 +67,7 @@ class LoginUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindRxSwit()
-        
+        activarTouchID()
         
         
 
@@ -121,7 +124,23 @@ class LoginUserViewController: UIViewController {
         }
         
         activateButtonLogin.bindTo(loginButton.rx.isEnabled).addDisposableTo(disposeBag)
+        
+        
+
+        
+        //activateTouch.bindTo(touchIDButton.rx.isHidden)
+        
+        
     }
+    
+    func activarTouchID(){
+        touchID.isTouchIDPossible().subscribe( onNext: { (element) in
+            
+           self.touchIDButton.isHidden = !element
+        }).addDisposableTo(disposeBag)
+
+    }
+    
     
     
 

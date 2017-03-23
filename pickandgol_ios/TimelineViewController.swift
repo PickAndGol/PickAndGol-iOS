@@ -47,8 +47,8 @@ class TimelineViewController: UIViewController {
             
             cell.eventDescription.lineBreakMode = .byWordWrapping
             
-            cell.eventTitle.text = event["name"]! as! String
-            cell.eventDescription.text = event["description"]! as! String
+            cell.eventTitle.text = event["name"]! as? String
+            cell.eventDescription.text = event["description"]! as? String
             cell.imageEvent.image = UIImage(imageLiteralResourceName:"default_placeholder.png")
             
             self.viewModel.downLoadImage(image: event["name"] as! String).bindTo(cell.imageEvent.rx.image)
