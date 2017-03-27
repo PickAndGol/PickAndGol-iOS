@@ -45,18 +45,24 @@ private func response(endPoint:NetworkResource) ->Observable<Response>  {
         
     }
     
-public func downloadImage() -> Observable<UIImage>{
+    public func downloadImage(urlImage:URL) -> Observable<UIImage>{
         
         return Observable<UIImage>.create({ (observer) -> Disposable in
-            let network = EventApi(path:URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("myImage.jpg"), method: .get, body: [:])
+            let network = EventApi(path:URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(urlImage.lastPathComponent), method: .get, body: [:])
             network.downloadImageFromS3(){ data in
-                print(data)
-                 let datos = data as! AWSS3TransferManagerDownloadOutput
-                
+               
+                if data is AWSS3TransferManagerDownloadOutput {
+                    let datos = data as! AWSS3TransferManagerDownloadOutput
                     let url = datos.body as! NSURL
                     let image = UIImage(contentsOfFile: url.path! )!
                     observer.onNext(image)
                     observer.onCompleted()
+                }else{
+                    let image = UIImage(named: "error_placeholder")!
+                    observer.onNext(image)
+                    observer.onCompleted()
+                }
+                
             }
             return  Disposables.create()
         })

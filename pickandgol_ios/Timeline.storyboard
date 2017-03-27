@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -84,6 +85,7 @@
                                                                     <outlet property="eventDescription" destination="mc8-lR-7fY" id="u7O-Vr-PDV"/>
                                                                     <outlet property="eventTitle" destination="3SP-lA-Ov2" id="LoR-O4-JyD"/>
                                                                     <outlet property="imageEvent" destination="0ur-eh-P4U" id="geQ-sQ-UhQ"/>
+                                                                    <segue destination="bzR-T5-AiL" kind="show" identifier="detailEventSegue" id="j5h-qN-MCt"/>
                                                                 </connections>
                                                             </collectionViewCell>
                                                         </cells>
@@ -126,6 +128,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ixa-yk-2gd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2042.4000000000001" y="54.422788605697157"/>
+        </scene>
+        <!--Detail Event View Controller-->
+        <scene sceneID="EmL-Kz-JHT">
+            <objects>
+                <viewController id="bzR-T5-AiL" customClass="DetailEventViewController" customModule="pickandgol_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z5n-hD-0my"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ruq-aD-FDE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jrC-bj-yYC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FgD-56-g4v">
+                                <rect key="frame" x="16" y="20" width="343" height="163"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOo-Hk-U3a" userLabel="titulo">
+                                <rect key="frame" x="26" y="210" width="333" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zF-q3-EwX" userLabel="descripcion">
+                                <rect key="frame" x="26" y="239" width="333" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="iMU-aY-tKk">
+                                <rect key="frame" x="16" y="362" width="343" height="305"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionEvent" destination="0zF-q3-EwX" id="XVu-pc-skx"/>
+                        <outlet property="photoEvent" destination="FgD-56-g4v" id="umt-ID-YZI"/>
+                        <outlet property="titleEvent" destination="lOo-Hk-U3a" id="Zie-I4-7UW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="REl-TO-pl8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2751.1999999999998" y="55.322338830584712"/>
         </scene>
         <!--Pick-->
         <scene sceneID="BnO-YH-hdD">

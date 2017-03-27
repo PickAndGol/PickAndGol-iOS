@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class NewItemViewController: UIViewController {
 
@@ -16,6 +17,19 @@ class NewItemViewController: UIViewController {
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var categoryEvent: UITextField!
     @IBOutlet weak var pubEvent: UITextField!
+    
+    @IBOutlet weak var photo1: UIButton!
+    
+    let disposeBag = DisposeBag()
+
+    
+    @IBAction func button1(_ sender: Any) {
+       takePhoto()
+    }
+    
+  
+    
+    
     
     var dictionary:JSONDictionary = [:]
     let viewModel = NewEventViewModel()
@@ -27,18 +41,33 @@ class NewItemViewController: UIViewController {
         
         //TODO: Verificar que el usuario a iniciado sesion sino mandar al apartado de login
         
+        // Guardo la imagen en S3
         
-        dictionary["name"] = eventName.text as AnyObject?
-        dictionary["date"] = dateEvent.text as AnyObject?
-        dictionary["pub"] = "58c5036a92b33d06a10ca1e7" as AnyObject? //TODO: Seleccionar un bar
-        dictionary["description"] = eventDescription.text as AnyObject?
-        dictionary["category"] = categoryEvent.text as AnyObject?
-        dictionary["token"] = session.getToken() as AnyObject?
-        dictionary["photo_url"] = "test01.jgp" as AnyObject?
+        let urlPhoto = String.random(ofLength: 20)+".jpg"
+        photo1.imageForNormal?.savePhotoJPG(urlPhoto)?.savePhotoS3(urlPhoto).subscribe(
+        
+            onNext:{ result in
+                print(result)
+                print("HOA")
+        },
+            onError:{error in
+                print(error)
+        },
+            onCompleted: nil,
+            onDisposed: nil)
+            .addDisposableTo(disposeBag)
+        
+        self.dictionary["name"] = self.eventName.text as AnyObject?
+        self.dictionary["date"] = self.dateEvent.text as AnyObject?
+        self.dictionary["pub"] = "58c5036a92b33d06a10ca1e7" as AnyObject? //TODO: Seleccionar un bar
+        self.dictionary["description"] = self.eventDescription.text as AnyObject?
+        self.dictionary["category"] = self.categoryEvent.text as AnyObject?
+        self.dictionary["token"] = session.getToken() as AnyObject?
+        self.dictionary["photo_url"] = urlPhoto as AnyObject?
         
         
         
-        viewModel.saveEvent(dictionary: dictionary)
+        self.viewModel.saveEvent(dictionary: self.dictionary)
         
         
     }
@@ -55,6 +84,33 @@ class NewItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func takePhoto(){
+        let alert = UIAlertController(title:nil, message: nil, preferredStyle: .actionSheet)
+        let photo = UIAlertAction(title: "Hacer FOTO", style: .default) { (action) in
+            let pickerPhoto = UIImagePickerController()
+            
+            if (UIImagePickerController.isCameraDeviceAvailable(.rear)) {
+                pickerPhoto.sourceType = .camera
+            } else {
+                pickerPhoto.sourceType = .photoLibrary
+            }
+            pickerPhoto.delegate = self
+            self.present(pickerPhoto, animated: true, completion: nil)
+        }
+        let library = UIAlertAction(title: "Elige las fotos", style: .default) { (action) in
+            print("Libreria")
+        }
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { (action) in
+            print("Libreria")
+        }
+        alert.addAction(photo)
+        alert.addAction(library)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+
+    
 
     /*
     // MARK: - Navigation
@@ -65,5 +121,24 @@ class NewItemViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
 
 }
+
+extension NewItemViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+       
+        photo1.imageForNormal = info[UIImagePickerControllerOriginalImage] as? UIImage
+      
+       // userPhoto.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.dismiss(animated:true)
+        
+    }
+    
+    
+}
+

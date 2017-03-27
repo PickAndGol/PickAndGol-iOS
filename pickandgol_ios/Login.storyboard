@@ -125,8 +125,8 @@
                                 <rect key="frame" x="16" y="473" width="343" height="30"/>
                                 <state key="normal" title="¿Has olvidado tu contraseña?"/>
                             </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7o-gM-F6M">
-                                <rect key="frame" x="137" y="536" width="100" height="100"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7o-gM-F6M">
+                                <rect key="frame" x="137" y="537" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="8zX-r7-5ot"/>
                                     <constraint firstAttribute="height" constant="100" id="ys7-g0-Wf8"/>

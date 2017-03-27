@@ -21,6 +21,7 @@ class NewEventViewModel{
     func saveEvent(dictionary dic:JSONDictionary){
         
         client.saveEvent(dic: dic).subscribe( onNext: { (element) in
+            
             print(element)
             }).addDisposableTo(disposeBag)
 

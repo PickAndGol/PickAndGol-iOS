@@ -38,11 +38,11 @@ extension NetworkResource {
                     
                     if (response.result.error == nil) {
                         debugPrint("HTTP Response Body: \(response.data!)")
-                        completion(response.value)
+                        completion(response.value as Any)
                     }
                     else {
                         debugPrint("HTTP Request failed: \(response.result.error)")
-                        completion(response.error)
+                        completion(response.error as Any)
                     }
             }
         
@@ -53,11 +53,11 @@ extension NetworkResource {
                     
                     if (response.result.error == nil) {
                         debugPrint("HTTP Response Body: \(response.data!)")
-                        completion(response.value)
+                        completion(response.value as Any)
                     }
                     else {
                         debugPrint("HTTP Request failed: \(response.result.error)")
-                        completion(response.error)
+                        completion(response.error as Any)
                     }
             }
         case .put:
@@ -67,11 +67,11 @@ extension NetworkResource {
                     
                     if (response.result.error == nil) {
                         debugPrint("HTTP Response Body: \(response.data!)")
-                        completion(response.value)
+                        completion(response.value as Any)
                     }
                     else {
                         debugPrint("HTTP Request failed: \(response.result.error)")
-                        completion(response.error)
+                        completion(response.error as Any)
                     }
             }
         
@@ -91,7 +91,9 @@ extension NetworkResource {
     
     
     func downloadImageFromS3(completion:@escaping(_ response:Any) -> ()){
-        let downloadingFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("myImage.jpg")
+      
+        
+        let sessionAWSS3 = S3ConfigSingleton.sharedInstance
         
         let credentialProvider = AWSCognitoCredentialsProvider(regionType: .EUWest1, identityPoolId: "eu-west-1:45da37a2-d874-4a37-b94e-752a9120c937")
         let configuration = AWSServiceConfiguration(region:.EUWest1, credentialsProvider:credentialProvider)
@@ -102,9 +104,9 @@ extension NetworkResource {
         let transferManager = AWSS3TransferManager.default()
         
         let downloadRequest = AWSS3TransferManagerDownloadRequest()
-        downloadRequest?.bucket = "pickandgol"
-        downloadRequest?.key = "test01.jpg"
-        downloadRequest?.downloadingFileURL = downloadingFileURL
+        downloadRequest?.bucket = sessionAWSS3.bucket
+        downloadRequest?.key = self.path.lastPathComponent
+        downloadRequest?.downloadingFileURL = self.path
         
         transferManager.download(downloadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
             
@@ -125,7 +127,7 @@ extension NetworkResource {
             }
             print("Download complete for: \(downloadRequest?.key)")
             let downloadOutput = task.result
-            completion(downloadOutput)
+            completion(downloadOutput as Any)
             return nil
         })
 
@@ -162,7 +164,7 @@ extension NetworkResource {
             }
             print("Download complete for: \(uploadRequest?.key)")
             let uploadOutput = task.result
-            completion(uploadOutput)
+            completion(uploadOutput as Any)
             return nil
         })
         

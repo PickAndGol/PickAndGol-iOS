@@ -116,7 +116,7 @@ class UserDetailViewController: UIViewController {
                 return
             }
             
-            let loginRx = client.login(email: email, password: pass).subscribe( onNext: { (element) in
+            client.login(email: email, password: pass).subscribe( onNext: { (element) in
                 let session = userSessionManager.sharedInstance
                 session.initWithLogin(dict: element.result() as! JSONDictionary)
                 self.updateFieldsView()
