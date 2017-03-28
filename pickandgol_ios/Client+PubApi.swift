@@ -22,6 +22,10 @@ extension Client {
         return objects(endPoint: endpoint)
     }
     
+    public func getOnePub(pub:String) -> Observable<Response> {
+        let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/pubs/"+pub)!, method: .get, body:[:])
+        return objects(endPoint: endpoint)
+    }
     
     
 }

@@ -41,6 +41,7 @@
 		A92124ED1E852E2A00612261 /* SelectPubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92124EC1E852E2A00612261 /* SelectPubCollectionViewCell.swift */; };
 		A92124EF1E85369B00612261 /* SelectPubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92124EE1E85369B00612261 /* SelectPubViewController.swift */; };
 		A92124F11E85371300612261 /* SelectPubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92124F01E85371300612261 /* SelectPubViewModel.swift */; };
+		A9247C9F1E8AAC760099997D /* MapsAnnotationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9247C9E1E8AAC760099997D /* MapsAnnotationUtils.swift */; };
 		A9293D031E71FFA2006FF69B /* Client+UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9293D021E71FFA2006FF69B /* Client+UserApi.swift */; };
 		A946D3641E713C4D00DF4FBA /* httpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946D3631E713C4D00DF4FBA /* httpMethods.swift */; };
 		A950F2931E896B4600F4F278 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950F2921E896B4600F4F278 /* DetailEventViewController.swift */; };
@@ -120,6 +121,7 @@
 		A92124EC1E852E2A00612261 /* SelectPubCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPubCollectionViewCell.swift; sourceTree = "<group>"; };
 		A92124EE1E85369B00612261 /* SelectPubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPubViewController.swift; sourceTree = "<group>"; };
 		A92124F01E85371300612261 /* SelectPubViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPubViewModel.swift; sourceTree = "<group>"; };
+		A9247C9E1E8AAC760099997D /* MapsAnnotationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAnnotationUtils.swift; sourceTree = "<group>"; };
 		A9293D021E71FFA2006FF69B /* Client+UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+UserApi.swift"; sourceTree = "<group>"; };
 		A946D3631E713C4D00DF4FBA /* httpMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = httpMethods.swift; sourceTree = "<group>"; };
 		A950F2921E896B4600F4F278 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		349F44011E562ED400A905FE /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				A9247C9D1E8AAC580099997D /* MapsUtils */,
 				A9A802E21E8184EF00387B37 /* autenticationUtils */,
 				A946D3651E71B6CD00DF4FBA /* NetWorkUtils */,
 				349F44021E562EE700A905FE /* Protocols */,
@@ -505,6 +508,14 @@
 				2ABFDB01C706FE97FCEAAF0F /* Pods-pickandgol_ios.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A9247C9D1E8AAC580099997D /* MapsUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A9247C9E1E8AAC760099997D /* MapsAnnotationUtils.swift */,
+			);
+			name = MapsUtils;
 			sourceTree = "<group>";
 		};
 		A946D3651E71B6CD00DF4FBA /* NetWorkUtils */ = {
@@ -713,6 +724,7 @@
 				A9E3B91F1E83D7430090906C /* Client+PubApi.swift in Sources */,
 				A95778D41E73E18800E3D740 /* LoginUserViewController.swift in Sources */,
 				A92124EF1E85369B00612261 /* SelectPubViewController.swift in Sources */,
+				A9247C9F1E8AAC760099997D /* MapsAnnotationUtils.swift in Sources */,
 				A98BA9D91E6C2E6E00A0F5A8 /* TimelineViewController.swift in Sources */,
 				A98BA9CE1E6C2C6B00A0F5A8 /* Client.swift in Sources */,
 				349F43E01E54EBB800A905FE /* JSONDecodingError.swift in Sources */,

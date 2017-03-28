@@ -70,8 +70,7 @@ extension NewPubViewModel: CLLocationManagerDelegate {
         self.posicion.stopUpdatingLocation()
         locationUser = latestLocation
         
-        // Mandamos la nota
-        print(locations.last?.coordinate.latitude as Any)
+        
         
         
     }

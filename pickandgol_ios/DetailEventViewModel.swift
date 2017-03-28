@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import CoreLocation
 
 class DetailEventViewModel {
     
@@ -62,6 +63,35 @@ class DetailEventViewModel {
          return Disposables.create()
         }
     }
+    
+    func getLocation() ->Observable<PubModel> {
+        return Observable<PubModel>.create({ (observer) -> Disposable in
+             let p = self.event["pubs"] as! NSArray
+             self.client.getOnePub(pub: p[0] as! String).subscribe(
+                onNext:{ result in
+                    let data = result.result() as! JSONDictionary
+                    let dataLocation = data["location"] as! JSONDictionary
+                    let dataLocationCoordinates = dataLocation["coordinates"] as! NSArray
+                    let gpsData = CLLocation(latitude:dataLocationCoordinates[0] as! CLLocationDegrees, longitude: dataLocationCoordinates[1] as! CLLocationDegrees)
+                    let pub = PubModel(name: data["name"] as! String, location: gpsData)
+                    observer.onNext(pub)
+                    observer.onCompleted()
+                    
+             },
+                onError:{error in
+                    print(error)
+             },
+                onCompleted: nil,
+                onDisposed: nil).addDisposableTo(self.disposeBag)
+            
+          return Disposables.create()  
+        })
+        
+    }
+        
+        
+        
+    
     
     func getDescription() -> String {
         return event["description"] as! String
