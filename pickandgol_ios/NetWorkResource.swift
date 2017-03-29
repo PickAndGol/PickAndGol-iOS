@@ -41,7 +41,7 @@ extension NetworkResource {
                         completion(response.value as Any)
                     }
                     else {
-                        debugPrint("HTTP Request failed: \(response.result.error)")
+                        debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
                         completion(response.error as Any)
                     }
             }
@@ -56,7 +56,7 @@ extension NetworkResource {
                         completion(response.value as Any)
                     }
                     else {
-                        debugPrint("HTTP Request failed: \(response.result.error)")
+                        debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
                         completion(response.error as Any)
                     }
             }
@@ -70,7 +70,7 @@ extension NetworkResource {
                         completion(response.value as Any)
                     }
                     else {
-                        debugPrint("HTTP Request failed: \(response.result.error)")
+                        debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
                         completion(response.error as Any)
                     }
             }
@@ -110,22 +110,22 @@ extension NetworkResource {
         
         transferManager.download(downloadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
             
-            if let error = task.error as? NSError {
+            if let error = task.error as NSError? {
                 if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
                     switch code {
                     case .cancelled, .paused:
                         break
                     default:
-                        print("Error downloading: \(downloadRequest?.key) Error: \(error)")
+                        print("Error downloading: \(String(describing: downloadRequest?.key)) Error: \(error)")
                         completion(error)
                     }
                 } else {
-                    print("Error downloading: \(downloadRequest?.key) Error: \(error)")
+                    print("Error downloading: \(String(describing: downloadRequest?.key)) Error: \(error)")
                     completion(error)
                 }
                 return nil
             }
-            print("Download complete for: \(downloadRequest?.key)")
+            print("Download complete for: \(String(describing: downloadRequest?.key))")
             let downloadOutput = task.result
             completion(downloadOutput as Any)
             return nil
@@ -147,22 +147,22 @@ extension NetworkResource {
         
         transferManager.upload(uploadRequest!).continueWith(executor: AWSExecutor.mainThread(), block: { (task:AWSTask<AnyObject>) -> Any? in
             
-            if let error = task.error as? NSError {
+            if let error = task.error as NSError? {
                 if error.domain == AWSS3TransferManagerErrorDomain, let code = AWSS3TransferManagerErrorType(rawValue: error.code) {
                     switch code {
                     case .cancelled, .paused:
                         break
                     default:
-                        print("Error downloading: \(uploadRequest?.key) Error: \(error)")
+                        print("Error downloading: \(String(describing: uploadRequest?.key)) Error: \(error)")
                         completion(error)
                     }
                 } else {
-                    print("Error downloading: \(uploadRequest?.key) Error: \(error)")
+                    print("Error downloading: \(String(describing: uploadRequest?.key)) Error: \(error)")
                     completion(error)
                 }
                 return nil
             }
-            print("Download complete for: \(uploadRequest?.key)")
+            print("Download complete for: \(String(describing: uploadRequest?.key))")
             let uploadOutput = task.result
             completion(uploadOutput as Any)
             return nil

@@ -12,7 +12,7 @@ import RxCocoa
 
 
 
-class TimelineViewController: UIViewController {
+class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResultsUpdating {
 
     
     @IBOutlet weak var timelineEventDetail: UICollectionView!{
@@ -23,6 +23,7 @@ class TimelineViewController: UIViewController {
     }
     
    
+    @IBOutlet weak var searchbar: UISearchBar!
     
     private let viewModel = TimelineViewModel()
     private let disposeBag = DisposeBag()
@@ -30,10 +31,11 @@ class TimelineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        searchbar.delegate = self
     
+       
         
-        viewModel.listOfEvent().bindTo(timelineEventDetail.rx.items) { collectionView, row, event in
+        viewModel.eventsPubs.bindTo(timelineEventDetail.rx.items) { collectionView, row, event in
             
             let indexPath = IndexPath(item: row, section: 0)
             
@@ -108,7 +110,19 @@ class TimelineViewController: UIViewController {
         }
     }
     
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text ?? "")
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //print(searchText)
+        self.viewModel.query.value = searchText
+        //self.viewModel.listOfEvent()
+        
+    }
     
     
-
+    
 }
+
+

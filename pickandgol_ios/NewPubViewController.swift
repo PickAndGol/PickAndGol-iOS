@@ -32,7 +32,7 @@ class NewPubViewController: UIViewController {
     @IBAction func savePUB(_ sender: Any) {
         
       viewModel.savePub(namePUB.text!)
-        navigationController?.popViewController(animated: true)
+        //navigationController?.popViewController(animated: true)
         
     }
     
