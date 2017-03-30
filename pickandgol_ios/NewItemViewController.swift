@@ -27,13 +27,9 @@ class NewItemViewController: UIViewController {
        takePhoto()
     }
     
-  
-    
-    
-    
     var dictionary:JSONDictionary = [:]
     let viewModel = NewEventViewModel()
-    
+    var pubName:JSONDictionary=[:]
     
     @IBAction func sendEvent(_ sender: Any) {
         
@@ -45,10 +41,7 @@ class NewItemViewController: UIViewController {
         
         let urlPhoto = String.random(ofLength: 20)+".jpg"
         photo1.imageForNormal?.savePhotoJPG(urlPhoto)?.savePhotoS3(urlPhoto).subscribe(
-        
             onNext:{ result in
-                print(result)
-                print("HOA")
         },
             onError:{error in
                 print(error)
@@ -59,16 +52,13 @@ class NewItemViewController: UIViewController {
         
         self.dictionary["name"] = self.eventName.text as AnyObject?
         self.dictionary["date"] = self.dateEvent.text as AnyObject?
-        self.dictionary["pub"] = "58c5036a92b33d06a10ca1e7" as AnyObject? //TODO: Seleccionar un bar
+        self.dictionary["pub"] = pubName["_id"] as AnyObject?
         self.dictionary["description"] = self.eventDescription.text as AnyObject?
         self.dictionary["category"] = self.categoryEvent.text as AnyObject?
         self.dictionary["token"] = session.getToken() as AnyObject?
         self.dictionary["photo_url"] = urlPhoto as AnyObject?
         
-        
-        
         self.viewModel.saveEvent(dictionary: self.dictionary)
-        
         
     }
     
@@ -109,36 +99,37 @@ class NewItemViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
         
     }
+    
+    func setPubName(dataPub:JSONDictionary){
+        self.pubName = dataPub
+    }
 
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let nextVC = segue.destination as! SelectPubViewController
+        nextVC.delegate = self
     }
-    */
-    
-    
-    
 
 }
 
 extension NewItemViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-       
         photo1.imageForNormal = info[UIImagePickerControllerOriginalImage] as? UIImage
-      
-       // userPhoto.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.dismiss(animated:true)
-        
     }
     
     
+}
+
+extension NewItemViewController:SelectPubViewControllerDelegate {
+    func pubSelectedItem(pubSelct: JSONDictionary) {
+        pubName = pubSelct
+        pubEvent.text = pubName["name"] as! String
+        
+    }
 }
 

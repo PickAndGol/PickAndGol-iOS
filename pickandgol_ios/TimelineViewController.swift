@@ -12,7 +12,7 @@ import RxCocoa
 
 
 
-class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResultsUpdating {
+class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResultsUpdating,UICollectionViewDelegate {
 
     
     @IBOutlet weak var timelineEventDetail: UICollectionView!{
@@ -27,16 +27,46 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
     
     private let viewModel = TimelineViewModel()
     private let disposeBag = DisposeBag()
+  
+    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchbar.delegate = self
+        bindRx()
+        timelineEventDetail.delegate = self
     
        
         
+       
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+       
+        
+        if (indexPath.row == collectionView.numberOfItems-1){
+            print(collectionView.numberOfItems)
+            viewModel.refreshTable()
+           
+           
+        }
+        
+        
+    }
+   
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+   
+    func bindRx(){
         viewModel.eventsPubs.bindTo(timelineEventDetail.rx.items) { collectionView, row, event in
             
+             print(collectionView.numberOfItems)
             let indexPath = IndexPath(item: row, section: 0)
             
             guard let cell = self.timelineEventDetail.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TimelineCollectionViewCell else {
@@ -53,39 +83,19 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
             cell.eventTitle.text = event["name"]! as? String
             cell.eventDescription.text = event["description"]! as? String
             cell.imageEvent.image = UIImage(imageLiteralResourceName:"default_placeholder.png")
-           
+            
             if (event["photo_url"] as! String != ""){
-               self.viewModel.downLoadImage(image: event["photo_url"] as! String).bindTo(cell.imageEvent.rx.image).addDisposableTo(self.disposeBag)
+                self.viewModel.downLoadImage(image: event["photo_url"] as! String).bindTo(cell.imageEvent.rx.image).addDisposableTo(self.disposeBag)
             }
             
-            
-            
-           
-            
+                        
             return cell
             }
             .addDisposableTo(disposeBag)
-        
-        // Do any additional setup after loading the view.
     }
     
     
-   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     // en vez de hacer un segue instanciar por codigo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,7 +116,6 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
             }).addDisposableTo(disposeBag)
             
            
-            
         }
     }
     
@@ -115,9 +124,8 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //print(searchText)
+        
         self.viewModel.query.value = searchText
-        //self.viewModel.listOfEvent()
         
     }
     

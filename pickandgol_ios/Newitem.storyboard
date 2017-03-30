@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m5q-YS-WH0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="m5q-YS-WH0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -168,7 +168,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Cell" reuseIdentifier="Cell" id="loH-xM-Hf0" customClass="SelectPubCollectionViewCell" customModule="pickandgol_ios" customModuleProvider="target">
-                                        <rect key="frame" x="4" y="0.0" width="336" height="50"/>
+                                        <rect key="frame" x="3.5" y="0.0" width="336" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="336" height="50"/>
@@ -185,7 +185,6 @@
                                         </view>
                                         <connections>
                                             <outlet property="pubName" destination="dX4-Xx-abl" id="bHw-j6-p8D"/>
-                                            <segue destination="N5K-3u-cUh" kind="unwind" unwindAction="unwindWithSelectedGameWithSegue:" id="mxq-n6-e1u"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -205,7 +204,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m38-bA-qaQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="N5K-3u-cUh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1608.8" y="-125.4872563718141"/>
         </scene>

@@ -10,11 +10,16 @@ import UIKit
 import RxSwift
 
 
+protocol SelectPubViewControllerDelegate{
+    func pubSelectedItem(pubSelct:JSONDictionary)
+}
+
 
 class SelectPubViewController: UIViewController {
 
     private let viewModel = SelectPubViewModel()
     private let disposeBag = DisposeBag()
+    var delegate:SelectPubViewControllerDelegate?
     
     var selectCell:Int?
     
@@ -69,9 +74,8 @@ class SelectPubViewController: UIViewController {
     
     func observerTap(){
         listOfPubDetail.rx.modelSelected(JSONDictionary.self).subscribe(onNext: { value in
-            print(value)
-            
-            
+            self.delegate?.pubSelectedItem(pubSelct: value)
+            self.navigationController?.popViewController(animated: true)
             
         }).addDisposableTo(disposeBag)
     }
