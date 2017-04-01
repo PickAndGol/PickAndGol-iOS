@@ -66,7 +66,6 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
     func bindRx(){
         viewModel.eventsPubs.bindTo(timelineEventDetail.rx.items) { collectionView, row, event in
             
-             print(collectionView.numberOfItems)
             let indexPath = IndexPath(item: row, section: 0)
             
             guard let cell = self.timelineEventDetail.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TimelineCollectionViewCell else {
