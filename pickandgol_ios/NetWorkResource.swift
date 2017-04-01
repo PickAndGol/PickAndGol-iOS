@@ -37,11 +37,11 @@ extension NetworkResource {
                 .responseJSON { response in
                     
                     if (response.result.error == nil) {
-                        debugPrint("HTTP Response Body: \(response.data!)")
+                        //debugPrint("HTTP Response Body: \(response.data!)")
                         completion(response.value as Any)
                     }
                     else {
-                        debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
+                        //debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
                         completion(response.error as Any)
                     }
             }
@@ -52,11 +52,11 @@ extension NetworkResource {
                 .responseJSON { response in
                     
                     if (response.result.error == nil) {
-                        debugPrint("HTTP Response Body: \(response.data!)")
+                        //debugPrint("HTTP Response Body: \(response.data!)")
                         completion(response.value as Any)
                     }
                     else {
-                        debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
+                        //debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
                         completion(response.error as Any)
                     }
             }
@@ -66,11 +66,11 @@ extension NetworkResource {
                 .responseJSON { response in
                     
                     if (response.result.error == nil) {
-                        debugPrint("HTTP Response Body: \(response.data!)")
+                        //debugPrint("HTTP Response Body: \(response.data!)")
                         completion(response.value as Any)
                     }
                     else {
-                        debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
+                        //debugPrint("HTTP Request failed: \(String(describing: response.result.error))")
                         completion(response.error as Any)
                     }
             }
@@ -116,16 +116,16 @@ extension NetworkResource {
                     case .cancelled, .paused:
                         break
                     default:
-                        print("Error downloading: \(String(describing: downloadRequest?.key)) Error: \(error)")
+                        //print("Error downloading: \(String(describing: downloadRequest?.key)) Error: \(error)")
                         completion(error)
                     }
                 } else {
-                    print("Error downloading: \(String(describing: downloadRequest?.key)) Error: \(error)")
+                    //print("Error downloading: \(String(describing: downloadRequest?.key)) Error: \(error)")
                     completion(error)
                 }
                 return nil
             }
-            print("Download complete for: \(String(describing: downloadRequest?.key))")
+            //print("Download complete for: \(String(describing: downloadRequest?.key))")
             let downloadOutput = task.result
             completion(downloadOutput as Any)
             return nil
@@ -153,16 +153,16 @@ extension NetworkResource {
                     case .cancelled, .paused:
                         break
                     default:
-                        print("Error downloading: \(String(describing: uploadRequest?.key)) Error: \(error)")
+                        //print("Error downloading: \(String(describing: uploadRequest?.key)) Error: \(error)")
                         completion(error)
                     }
                 } else {
-                    print("Error downloading: \(String(describing: uploadRequest?.key)) Error: \(error)")
+                    //print("Error downloading: \(String(describing: uploadRequest?.key)) Error: \(error)")
                     completion(error)
                 }
                 return nil
             }
-            print("Download complete for: \(String(describing: uploadRequest?.key))")
+            //print("Download complete for: \(String(describing: uploadRequest?.key))")
             let uploadOutput = task.result
             completion(uploadOutput as Any)
             return nil

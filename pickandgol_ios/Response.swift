@@ -43,7 +43,7 @@ extension Response: JSONDecodable {
         let payload = dictionary["data"]
        
         
-        self.status = "OK"
+        self.status = status ?? "NOK"
         self.message = "NO implementado"
         self.payload = payload ?? "" as AnyObject
     }

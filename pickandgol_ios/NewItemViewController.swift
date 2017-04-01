@@ -19,6 +19,7 @@ class NewItemViewController: UIViewController {
     var categorySelected:JSONDictionary = [:]
     
     
+    
     @IBOutlet weak var eventName: UITextField!
     @IBOutlet weak var dateEvent: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
@@ -27,6 +28,17 @@ class NewItemViewController: UIViewController {
     
     let disposeBag = DisposeBag()
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindRx()
+        observerTap()
+        self.pubEvent.isUserInteractionEnabled = false
+        viewModel.login(controller: self)
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    
     
     @IBAction func button1(_ sender: Any) {
        takePhoto()
@@ -81,48 +93,27 @@ class NewItemViewController: UIViewController {
         self.dictionary["token"] = session.getToken() as AnyObject?
         self.dictionary["photo_url"] = urlPhoto as AnyObject?
         
-        self.viewModel.saveEvent(dictionary: self.dictionary)
-    }
-    
-    @IBAction func sendEvent(_ sender: Any) {
+        self.viewModel.saveEvent(dictionary: self.dictionary).subscribe(
         
-        let session = userSessionManager.sharedInstance
-        
-        //TODO: Verificar que el usuario a iniciado sesion sino mandar al apartado de login
-        
-        // Guardo la imagen en S3
-        
-        let urlPhoto = String.random(ofLength: 20)+".jpg"
-        photo1.imageForNormal?.savePhotoJPG(urlPhoto)?.savePhotoS3(urlPhoto).subscribe(
             onNext:{ result in
+                if(result){
+                    self.cleanFieldAndNotifty()
+                }else{
+                    self.dontSavePub()
+                }
         },
             onError:{error in
-                print(error)
+            print(error)
         },
             onCompleted: nil,
             onDisposed: nil)
             .addDisposableTo(disposeBag)
-        
-        self.dictionary["name"] = self.eventName.text as AnyObject?
-        self.dictionary["date"] = viewModel.dateToMogo(date: self.dateEvent.text!) as AnyObject?
-        self.dictionary["pub"] = pubName["_id"] as AnyObject?
-        self.dictionary["description"] = self.eventDescription.text as AnyObject?
-        self.dictionary["category"] = self.categorySelected["_id"]
-        self.dictionary["token"] = session.getToken() as AnyObject?
-        self.dictionary["photo_url"] = urlPhoto as AnyObject?
-        
-        self.viewModel.saveEvent(dictionary: self.dictionary)
-        
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bindRx()
-        observerTap()
 
-        // Do any additional setup after loading the view.
-    }
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -131,8 +122,9 @@ class NewItemViewController: UIViewController {
     
     func takePhoto(){
         let alert = UIAlertController(title:nil, message: nil, preferredStyle: .actionSheet)
+        let pickerPhoto = UIImagePickerController()
         let photo = UIAlertAction(title: "Hacer FOTO", style: .default) { (action) in
-            let pickerPhoto = UIImagePickerController()
+            
             
             if (UIImagePickerController.isCameraDeviceAvailable(.rear)) {
                 pickerPhoto.sourceType = .camera
@@ -143,16 +135,54 @@ class NewItemViewController: UIViewController {
             self.present(pickerPhoto, animated: true, completion: nil)
         }
         let library = UIAlertAction(title: "Elige las fotos", style: .default) { (action) in
-            print("Libreria")
+            pickerPhoto.sourceType = .photoLibrary
+            pickerPhoto.delegate = self
+            self.present(pickerPhoto, animated: true, completion: nil)
         }
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { (action) in
-            print("Libreria")
+            
         }
         alert.addAction(photo)
         alert.addAction(library)
         alert.addAction(cancel)
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+    func cleanFieldAndNotifty(){
+        
+        let pubSave = UIAlertController(title: "PickAndGol", message: "Pub Guardado", preferredStyle: .alert)
+        // Create the actions
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+           self.cleanField()
+        }
+        pubSave.addAction(okAction)
+        self.present(pubSave, animated: true, completion: nil)
+        
+    }
+    
+    func cleanField(){
+        for view in self.view.subviews {
+            
+            guard let textFieldData = view as? UITextField else{
+                return
+            }
+            textFieldData.text = ""
+            
+        }
+        
+        if let oldCellItem = self.itemSelected {
+            let oldCell = self.selectCategory.cellForItem(at: oldCellItem) as?categoryPubCollectionViewCell
+            self.viewModel.changeSelect(cell: oldCell!, type: cellStatus.deselect)
+        }
+        
+        photo1.imageForNormal = UIImage(named: "default_placeholder")
+    }
+    
+    func dontSavePub(){
+        let pubNotSave = UIAlertController(title: "PickAndGol", message: "El Pub no se ha guardado", preferredStyle: .alert)
+        self.present(pubNotSave, animated: true, completion: nil)
     }
     
     func setPubName(dataPub:JSONDictionary){
@@ -164,6 +194,7 @@ class NewItemViewController: UIViewController {
         dateFormatter.dateFormat = "dd-MM-YYYY HH:MM"
         dateEvent.text = dateFormatter.string(from: sender.date)
     }
+    
     
     
     func bindRx(){
@@ -203,11 +234,11 @@ class NewItemViewController: UIViewController {
             self.viewModel.changeSelect(cell: cell!, type: cellStatus.select)
             
         }).addDisposableTo(disposeBag)
-
-        
         
     }
     
+    
+   
     
 
     

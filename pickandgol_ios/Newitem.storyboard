@@ -138,18 +138,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="JeY-aw-BaU">
                                 <rect key="frame" x="21" y="506" width="333" height="107"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGQ-Ut-RbA" userLabel="photo1">
-                                        <rect key="frame" x="0.0" y="0.0" width="255" height="107"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pGQ-Ut-RbA" userLabel="photo1">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="107"/>
                                         <state key="normal" title="Button" image="default_placeholder"/>
                                         <connections>
                                             <action selector="button1:" destination="xCg-Kr-avl" eventType="touchUpInside" id="nPv-Ys-ten"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrI-ER-w7T">
-                                        <rect key="frame" x="255" y="38.5" width="78" height="30"/>
-                                        <state key="normal" title="Alta Evento"/>
-                                        <connections>
-                                            <action selector="sendEvent:" destination="xCg-Kr-avl" eventType="touchUpInside" id="KN0-ya-Cyx"/>
                                         </connections>
                                     </button>
                                 </subviews>

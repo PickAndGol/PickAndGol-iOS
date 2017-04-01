@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 import RxCocoa
 import SwifterSwift
+import RxSwift
+import SwiftKeychainWrapper
 
 class NewEventViewModel{
 
@@ -19,11 +21,24 @@ class NewEventViewModel{
        
     
     
-    func saveEvent(dictionary dic:JSONDictionary){
+    func saveEvent(dictionary dic:JSONDictionary) -> Observable<Bool>{
         
-        client.saveEvent(dic: dic).subscribe( onNext: { (element) in
-            print(element)
-            }).addDisposableTo(disposeBag)
+        return Observable<Bool>.create({ (observer) -> Disposable in
+        
+         self.client.saveEvent(dic: dic).subscribe(
+            onNext: { (element) in
+                    observer.onNext(true)
+                    observer.onCompleted()
+                    },
+            onError:{ (error) in
+                    observer.onError(error)
+          }
+            ).addDisposableTo(self.disposeBag)
+         
+            return Disposables.create()
+        })
+        
+        
     }
     
   
@@ -57,6 +72,36 @@ class NewEventViewModel{
         let dateIso = strTime[0].splitted(by: "-")
         return  dateIso[2]+"-"+dateIso[1]+"-"+dateIso[0]+"T"+strTime[1]+":00.000Z"
     }
+    
+   
+    
+    func login(controller: UIViewController){
+        let session = userSessionManager.sharedInstance
+        if (!session.logged){
+            guard let email = KeychainWrapper.standard.string(forKey: "pickangol-email"), let pass = KeychainWrapper.standard.string(forKey: "pickangol-pass") else {
+                openMainLogin(controller: controller)
+                return
+            }
+            
+            client.login(email: email, password: pass).subscribe( onNext: { (element) in
+                let session = userSessionManager.sharedInstance
+                session.initWithLogin(dict: element.result() as! JSONDictionary)
+            }).addDisposableTo(self.disposeBag)
+            
+          
+            
+        }
+    }
+    
+    func openMainLogin(controller: UIViewController) {
+        
+        let navVC = UINavigationController()
+        let loginVC: MainLoginViewController = UIStoryboard(storyboard: .login).instantiateViewController()
+        navVC.viewControllers = [loginVC]
+        controller.present(navVC, animated: true, completion: nil)
+        
+    }
+
     
 
 }
