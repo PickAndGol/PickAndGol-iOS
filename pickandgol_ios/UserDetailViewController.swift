@@ -25,6 +25,23 @@ class UserDetailViewController: UIViewController {
     let usersesion = userSessionManager.sharedInstance
     let client = Client()
     let touchID = TouchIDAutentication()
+    var changeData = false
+    
+    
+    override func viewDidLoad() {
+        
+        login()
+        photoGestureRecognize()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        updateFieldsView()
+        
+    }
+    
+    
     
     @IBAction func registerButtonTapped(_ sender: Any) {
 
@@ -36,18 +53,7 @@ class UserDetailViewController: UIViewController {
     }
    
     
-    override func viewDidLoad() {
-
-        login()
-        photoGestureRecognize()
-       
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        updateFieldsView()
-        
-    }
+   
     
 
     func openMainLogin() {
@@ -87,11 +93,12 @@ class UserDetailViewController: UIViewController {
    
     func updateFieldsView(){
     
-        if(userSessionManager.sharedInstance.logged){
-            if let photo = retrievePhoto(usersesion.getUrlPhoto()){
+        if(userSessionManager.sharedInstance.logged && !self.changeData){
+            if let photo = viewModel.retrievePhoto(usersesion.getUrlPhoto()){
                  self.userPhoto.image = photo
             }else {
                 self.userPhoto.image = UIImage(named: "ackbar.jpg")
+                viewModel.downLoadImage(image: usersesion.getUrlPhoto()).bindTo(userPhoto.rx.image)
             }
             userPhoto.roundImage()
             userNameLabel.text = usersesion.getUser()
@@ -99,15 +106,7 @@ class UserDetailViewController: UIViewController {
         }
     }
     
-    func retrievePhoto(_ namePhoto:String) -> UIImage? {
-        
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let namePhoto = namePhoto.lastPathComponent
-        let imageUrl = paths[0].appendingPathComponent(namePhoto)
-        let image = UIImage(contentsOfFile: imageUrl.path)
-        return image
-        
-    }
+    
     
     func login(){
         if (!usersesion.logged){
@@ -155,8 +154,8 @@ class UserDetailViewController: UIViewController {
 extension UserDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
         userPhoto.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        changeData = true
         self.dismiss(animated:true)
         
     }

@@ -17,7 +17,7 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
     
     @IBOutlet weak var timelineEventDetail: UICollectionView!{
         didSet{
-            timelineEventDetail.backgroundColor = UIColor.brown
+            //timelineEventDetail.backgroundColor = UIColor.brown
         }
         
     }

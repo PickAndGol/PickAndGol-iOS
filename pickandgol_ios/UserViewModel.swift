@@ -41,5 +41,21 @@ class UserViewModel{
         
     }
     
+    public func downLoadImage(image:String) -> Observable<UIImage>{
+        
+        return client.downloadImage(urlImage:URL(string:image)!)
+        
+    }
+    
+    func retrievePhoto(_ namePhoto:String) -> UIImage? {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let namePhoto = namePhoto.lastPathComponent
+        let imageUrl = paths[0].appendingPathComponent(namePhoto)
+        let image = UIImage(contentsOfFile: imageUrl.path)
+        return image
+        
+    }
+    
     
 }
