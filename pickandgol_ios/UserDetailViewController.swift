@@ -98,7 +98,7 @@ class UserDetailViewController: UIViewController {
                  self.userPhoto.image = photo
             }else {
                 self.userPhoto.image = UIImage(named: "ackbar.jpg")
-                viewModel.downLoadImage(image: usersesion.getUrlPhoto()).bindTo(userPhoto.rx.image)
+                viewModel.downLoadImage(image: usersesion.getUrlPhoto()).bindTo(userPhoto.rx.image).addDisposableTo(disposeBag)
             }
             userPhoto.roundImage()
             userNameLabel.text = usersesion.getUser()

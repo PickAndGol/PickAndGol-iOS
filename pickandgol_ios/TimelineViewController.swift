@@ -37,10 +37,6 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         bindRx()
         timelineEventDetail.delegate = self
     
-       
-        
-       
-        
         // Do any additional setup after loading the view.
     }
     
@@ -50,7 +46,6 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         if (indexPath.row == collectionView.numberOfItems-1){
             print(collectionView.numberOfItems)
             viewModel.refreshTable()
-           
            
         }
         

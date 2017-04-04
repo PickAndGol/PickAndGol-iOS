@@ -54,18 +54,8 @@ class SelectPubViewController: UIViewController {
                 fatalError("missing cell")
             }
             
-            /*let bcolor : UIColor = UIColor( red: 0.2, green: 0.2, blue:0.2, alpha: 0.3 )
-             cell.layer.borderColor = bcolor.cgColor
-             cell.layer.borderWidth = 0.5
-             cell.layer.cornerRadius = 3*/
             self.selectCell = row
-            
             cell.pubName.text = event["name"] as! String?
-            
-            
-            
-            
-            
             return cell
             }
             .addDisposableTo(disposeBag)

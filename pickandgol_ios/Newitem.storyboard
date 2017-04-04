@@ -151,7 +151,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ZNk-oT-ckE" firstAttribute="top" secondItem="pcq-wI-kOf" secondAttribute="bottom" constant="8" symbolic="YES" id="72j-xj-gop"/>
                             <constraint firstItem="JeY-aw-BaU" firstAttribute="leading" secondItem="BjV-EB-Qyp" secondAttribute="leadingMargin" constant="5" id="CL3-hG-zUJ"/>
@@ -227,7 +227,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="IjV-x8-tdL">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="iLS-2n-eHx">

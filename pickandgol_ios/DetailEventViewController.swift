@@ -39,7 +39,7 @@ class DetailEventViewController: UIViewController {
                 let coordinatePub = CLLocationCoordinate2D(latitude: result.model.location.coordinate.latitude, longitude: result.model.location.coordinate.longitude)
                 let annotationPub = MapsAnnotationsUtils(coordinate: coordinatePub, title: self.detailEvent.getTitle(), subtitle: self.detailEvent.getDescription())
                 self.mapEvent.addAnnotation(annotationPub)
-                print(result)
+                
         },onCompleted: nil,
          onDisposed: nil).addDisposableTo(self.disposeBag)
         

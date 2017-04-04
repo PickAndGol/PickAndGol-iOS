@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tre-F3-fqb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Tre-F3-fqb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Map Pub View Controller-->
         <scene sceneID="Rbx-Ps-gdE">
             <objects>
-                <viewController id="C5e-nI-AFs" sceneMemberID="viewController">
+                <viewController id="C5e-nI-AFs" customClass="MapPubViewController" customModule="pickandgol_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UGq-6f-kof"/>
                         <viewControllerLayoutGuide type="bottom" id="YTZ-2i-gy4"/>
@@ -19,13 +21,67 @@
                     <view key="view" contentMode="scaleToFill" id="zRH-TG-ElL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4i-Ha-2ZE">
+                                <rect key="frame" x="21" y="174" width="343" height="488"/>
+                            </mapView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="100" maxValue="5000" translatesAutoresizingMaskIntoConstraints="NO" id="fNS-UM-c8d">
+                                <rect key="frame" x="18" y="113" width="339" height="31"/>
+                                <connections>
+                                    <action selector="distanceMap:" destination="C5e-nI-AFs" eventType="valueChanged" id="svD-ms-OlJ"/>
+                                </connections>
+                            </slider>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="lR4-Vm-Z4U">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distancia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr3-VW-lqK">
+                                <rect key="frame" x="27" y="148" width="91" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="CP4-pf-ayh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRc-7g-EVi" userLabel="DistanceEvent">
+                                <rect key="frame" x="138" y="148" width="181" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xr3-VW-lqK" firstAttribute="top" secondItem="fNS-UM-c8d" secondAttribute="bottom" constant="5" id="6sm-82-STd"/>
+                            <constraint firstAttribute="trailing" secondItem="lR4-Vm-Z4U" secondAttribute="trailing" id="DGh-lX-KDY"/>
+                            <constraint firstItem="lR4-Vm-Z4U" firstAttribute="leading" secondItem="zRH-TG-ElL" secondAttribute="leading" id="EfM-fP-fig"/>
+                            <constraint firstItem="YTZ-2i-gy4" firstAttribute="top" secondItem="t4i-Ha-2ZE" secondAttribute="bottom" constant="5" id="Fp0-eY-amL"/>
+                            <constraint firstItem="cRc-7g-EVi" firstAttribute="centerY" secondItem="Xr3-VW-lqK" secondAttribute="centerY" id="KQ1-rx-PTL"/>
+                            <constraint firstItem="t4i-Ha-2ZE" firstAttribute="trailing" secondItem="zRH-TG-ElL" secondAttribute="trailingMargin" constant="5" id="PDD-Rf-Xkt"/>
+                            <constraint firstAttribute="trailing" secondItem="fNS-UM-c8d" secondAttribute="trailing" constant="20" symbolic="YES" id="ROz-hH-Cuh"/>
+                            <constraint firstItem="Xr3-VW-lqK" firstAttribute="top" secondItem="fNS-UM-c8d" secondAttribute="bottom" constant="5" id="TFq-rB-lDT"/>
+                            <constraint firstItem="Xr3-VW-lqK" firstAttribute="leading" secondItem="zRH-TG-ElL" secondAttribute="leadingMargin" constant="11" id="ajo-sE-9t9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cRc-7g-EVi" secondAttribute="trailing" constant="40" id="bha-ql-aJy"/>
+                            <constraint firstItem="t4i-Ha-2ZE" firstAttribute="top" secondItem="Xr3-VW-lqK" secondAttribute="bottom" constant="5" id="c0q-Oa-aAm"/>
+                            <constraint firstItem="cRc-7g-EVi" firstAttribute="leading" secondItem="Xr3-VW-lqK" secondAttribute="trailing" constant="20" id="gPT-a9-fXI"/>
+                            <constraint firstItem="fNS-UM-c8d" firstAttribute="leading" secondItem="zRH-TG-ElL" secondAttribute="leading" constant="20" symbolic="YES" id="hF1-OZ-bf4"/>
+                            <constraint firstItem="t4i-Ha-2ZE" firstAttribute="leading" secondItem="zRH-TG-ElL" secondAttribute="leadingMargin" constant="5" id="p97-Ph-wIT"/>
+                            <constraint firstItem="fNS-UM-c8d" firstAttribute="top" secondItem="lR4-Vm-Z4U" secondAttribute="bottom" constant="5" id="rg2-fj-iTt"/>
+                            <constraint firstItem="lR4-Vm-Z4U" firstAttribute="top" secondItem="UGq-6f-kof" secondAttribute="bottom" symbolic="YES" id="vtW-db-LMJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ipw-WC-KZv"/>
+                    <connections>
+                        <outlet property="distanceEvent" destination="cRc-7g-EVi" id="VZP-bF-kNd"/>
+                        <outlet property="distanceMapSlider" destination="fNS-UM-c8d" id="Gpg-kY-8v9"/>
+                        <outlet property="pubMap" destination="t4i-Ha-2ZE" id="Vco-lq-kLz"/>
+                        <outlet property="searchBar" destination="lR4-Vm-Z4U" id="Hoa-yo-kJc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GcT-XO-uHV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2042" y="769"/>
+            <point key="canvasLocation" x="2040.8" y="768.66566716641682"/>
         </scene>
         <!--Mapa-->
         <scene sceneID="11d-ZQ-KIP">
