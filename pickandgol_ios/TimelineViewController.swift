@@ -77,6 +77,8 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
             cell.eventTitle.text = event["name"]! as? String
             cell.eventDescription.text = event["description"]! as? String
             cell.imageEvent.image = UIImage(imageLiteralResourceName:"default_placeholder.png")
+            cell.sizeToFit()
+            
             
             if (event["photo_url"] as! String != ""){
                 self.viewModel.downLoadImage(image: event["photo_url"] as! String).bindTo(cell.imageEvent.rx.image).addDisposableTo(self.disposeBag)
