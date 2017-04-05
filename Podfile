@@ -33,6 +33,16 @@ pod 'AWSKinesis'
 #pod 'HanekeSwift'
 pod 'SwifterSwift'
 pod 'SwiftKeychainWrapper'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+end
+
+target 'pickandgol_iosTests' do
+pod 'RxSwift',    '~> 3.0'
+pod 'AWSS3'
+pod 'Alamofire', '~> 4.3'
+pod 'SwifterSwift'
+pod 'SwiftKeychainWrapper'
 end
 
 post_install do |installer|

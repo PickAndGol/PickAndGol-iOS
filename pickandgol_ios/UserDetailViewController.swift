@@ -67,8 +67,8 @@ class UserDetailViewController: UIViewController {
     
     func imageTapped(){
         let alert = UIAlertController(title:nil, message: nil, preferredStyle: .actionSheet)
+        let pickerPhoto = UIImagePickerController()
         let photo = UIAlertAction(title: "Hacer FOTO", style: .default) { (action) in
-              let pickerPhoto = UIImagePickerController()
             
             if (UIImagePickerController.isCameraDeviceAvailable(.rear)) {
                 pickerPhoto.sourceType = .camera
@@ -79,7 +79,10 @@ class UserDetailViewController: UIViewController {
             self.present(pickerPhoto, animated: true, completion: nil)
         }
         let library = UIAlertAction(title: "Elige las fotos", style: .default) { (action) in
-            print("Libreria")
+            pickerPhoto.sourceType = .photoLibrary
+            pickerPhoto.delegate = self
+            self.present(pickerPhoto, animated: true, completion: nil)
+            
         }
         let cancel = UIAlertAction(title: "Cancelar", style: .cancel) { (action) in
             print("Libreria")
@@ -94,12 +97,19 @@ class UserDetailViewController: UIViewController {
     func updateFieldsView(){
     
         if(userSessionManager.sharedInstance.logged && !self.changeData){
-            if let photo = viewModel.retrievePhoto(usersesion.getUrlPhoto()){
-                 self.userPhoto.image = photo
-            }else {
-                self.userPhoto.image = UIImage(named: "ackbar.jpg")
-                viewModel.downLoadImage(image: usersesion.getUrlPhoto()).bindTo(userPhoto.rx.image).addDisposableTo(disposeBag)
+            
+            self.userPhoto.image = UIImage(named: "default_avatar")
+            
+            if let photoProfileUrl = usersesion.getUrlPhoto() {
+                if let photo = viewModel.retrievePhoto(photoProfileUrl){
+                    self.userPhoto.image = photo
+                }else {
+                    viewModel.downLoadImage(image: usersesion.getUrlPhoto()!).bindTo(userPhoto.rx.image).addDisposableTo(disposeBag)
+                }
+                
             }
+            
+            
             userPhoto.roundImage()
             userNameLabel.text = usersesion.getUser()
             userEmail.text = usersesion.getEmail()

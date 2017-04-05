@@ -26,7 +26,7 @@ class MapPubViewModel:NSObject {
         return Observable<[MKAnnotation]>.create { (observer) -> Disposable in
             
             let pos = CurrentPositionUser.sharedInstance
-            let paramsUrl = "xxxlatitude="+String(pos.getLatidude())+"&longitude="+String(pos.getLongitud())+"&radius="+radius+"&text="+textFilter
+            let paramsUrl = "latitude="+String(pos.getLongitud())+"&longitude="+String(pos.getLatidude())+"&radius="+radius+"&text="+textFilter
             self.client.ListAllPub(params:paramsUrl)
                 .subscribe(onNext: { (elements) in
                     

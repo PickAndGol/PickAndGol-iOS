@@ -53,6 +53,10 @@ class CurrentPositionUser:NSObject, CLLocationManagerDelegate {
         return (self.posicion.location?.coordinate.longitude)!
     }
     
+    func getLocation() -> CLLocation {
+        return CLLocation(latitude: self.getLatidude(), longitude: self.getLongitud())
+    }
+    
    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         

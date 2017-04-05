@@ -25,7 +25,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4i-Ha-2ZE">
                                 <rect key="frame" x="21" y="174" width="343" height="488"/>
                             </mapView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="100" maxValue="5000" translatesAutoresizingMaskIntoConstraints="NO" id="fNS-UM-c8d">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="100" minValue="100" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="fNS-UM-c8d">
                                 <rect key="frame" x="18" y="113" width="339" height="31"/>
                                 <connections>
                                     <action selector="distanceMap:" destination="C5e-nI-AFs" eventType="valueChanged" id="svD-ms-OlJ"/>

@@ -37,6 +37,9 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         bindRx()
         timelineEventDetail.delegate = self
     
+        
+        
+        
         // Do any additional setup after loading the view.
     }
     

@@ -268,7 +268,7 @@ extension NewItemViewController: UIImagePickerControllerDelegate, UINavigationCo
 extension NewItemViewController:SelectPubViewControllerDelegate {
     func pubSelectedItem(pubSelct: JSONDictionary) {
         pubName = pubSelct
-        pubEvent.text = pubName["name"] as! String
+        pubEvent.text = pubName["name"] as? String
         
     }
 }

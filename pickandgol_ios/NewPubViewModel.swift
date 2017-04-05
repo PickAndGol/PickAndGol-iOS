@@ -49,7 +49,7 @@ class NewPubViewModel: NSObject {
     func savePub(_ name:String){
         
         let pub = PubModel(name: name, location: locationUser!)
-        client.savePub(dic: pub.modelToDict() as JSONDictionary).subscribe( onNext: { (element) in
+        client.savePub(dic: pub.modelToDict()! as JSONDictionary).subscribe( onNext: { (element) in
             print(element)
         }).addDisposableTo(disposeBag)
 

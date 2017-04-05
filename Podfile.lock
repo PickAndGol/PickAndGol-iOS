@@ -43,6 +43,30 @@ PODS:
     - AWSCore (= 2.5.2)
   - AWSSQS (2.5.2):
     - AWSCore (= 2.5.2)
+  - Firebase/Core (3.15.0):
+    - FirebaseAnalytics (= 3.7.0)
+    - FirebaseCore (= 3.5.2)
+  - Firebase/Messaging (3.15.0):
+    - Firebase/Core
+    - FirebaseMessaging (= 1.2.2)
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseCore (3.5.2):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (1.0.9)
+  - FirebaseMessaging (1.2.2):
+    - FirebaseAnalytics (~> 3.7)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/Logger (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - Protobuf (3.2.0)
   - Realm (2.4.4):
     - Realm/Headers (= 2.4.4)
   - Realm/Headers (2.4.4)
@@ -77,6 +101,8 @@ DEPENDENCIES:
   - AWSSimpleDB
   - AWSSNS
   - AWSSQS
+  - Firebase/Core
+  - Firebase/Messaging
   - RealmSwift
   - RxCocoa (~> 3.0)
   - RxSwift (~> 3.0)
@@ -107,6 +133,13 @@ SPEC CHECKSUMS:
   AWSSimpleDB: ba37cce420e00c9400bd62a54740dfc7083fc9d0
   AWSSNS: 3437c505bfb8d5eda6bfc497368462ae31423324
   AWSSQS: 558aac70d0c908fa5f3b043410243595e4100ff4
+  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FirebaseMessaging: df8267f378580a24174ce7861233aa11d5c90109
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  Protobuf: 745f59e122e5de98d4d7ef291e264a0eef80f58e
   Realm: 5a280a1f5a9a3c267bebf4f41ee47911137703d7
   RealmSwift: 0c02b9f2d4be4301c497ed10e53a0580584eb1dd
   RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
@@ -114,6 +147,6 @@ SPEC CHECKSUMS:
   SwifterSwift: 48a48a193b47e0d577359c75570e5291dd2f460a
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: ae826253e45c97af13fe26803b88445226dbd40e
+PODFILE CHECKSUM: ad056b9f2c617a55fa0eb1b23e6f639753e69661
 
 COCOAPODS: 1.2.0

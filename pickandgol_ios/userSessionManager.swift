@@ -45,7 +45,10 @@ class userSessionManager {
         return (userSession?.email)!
     }
     
-    public func getUrlPhoto() -> String{
+    public func getUrlPhoto() -> String?{
+        guard (userSession?.photoUrl) != nil else{
+            return nil
+        }
         return (userSession?.photoUrl)!
     }
     

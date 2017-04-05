@@ -41,6 +41,7 @@
 	<array>
 		<string>MKDirectionsModeBus</string>
 		<string>MKDirectionsModePedestrian</string>
+		<string>MKDirectionsModeTaxi</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
@@ -62,6 +63,10 @@
 	<string>I need description for Pub Location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Actualiza tu perfil</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

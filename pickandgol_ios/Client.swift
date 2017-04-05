@@ -75,7 +75,6 @@ private func response(endPoint:NetworkResource) ->Observable<Response>  {
             
             let network = EventApi(path: pathFile, method: .get, body: [:])
             network.uploadImageFromS3(){ data in
-                print(data)
                 observer.onNext(true)
                 observer.onCompleted()
             }

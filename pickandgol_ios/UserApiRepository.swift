@@ -13,17 +13,17 @@ class UserApiRepository {
 
     func userRegister(name: String, email: String, password: String) -> Observable<UserModelStruct> {
 
-        let url: URL = URL(string: "register", relativeTo: ApiPaths.user.url.absoluteURL)!
-
+        //let url: URL = URL(string: "register", relativeTo: ApiPaths.user.url.absoluteURL)!
+        let url = URL(string: "http://pickandgol.com/api/v1/users/register")
+        
         return Observable.create { observer in
             let params: Parameters = [
                 "name":name,
                 "email": email,
                 "password": password]
 
-            let request = Alamofire.request(url, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
+            let request = Alamofire.request(url!, method: .post, parameters: params, encoding: URLEncoding.default, headers: nil)
                 .responseJSON(completionHandler: { response in
-
                     guard response.result.isSuccess else {
                         observer.onError(response.result.error!)
                         observer.onCompleted()

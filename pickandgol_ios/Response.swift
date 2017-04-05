@@ -27,7 +27,7 @@ public struct Response {
     public func results() -> [JSONDictionary]? {
         
         var dataInDictionary = [JSONDictionary]()
-        let datos = payload["items"] as! NSArray
+        let datos = payload["items"] as! NSArray 
         for dat in datos {
             dataInDictionary.append(dat as! JSONDictionary)
         }

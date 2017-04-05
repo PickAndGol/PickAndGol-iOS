@@ -20,7 +20,11 @@ class PubModel{
         
     }
     
-    func modelToDict() -> bodyType {
+    func modelToDict() -> bodyType? {
+        
+        guard userSessionManager.sharedInstance.logged else  {
+            return nil
+        }
         
         return ["name":model.name,"latitude":String(model.location.coordinate.latitude) ,"longitude":String(model.location.coordinate.longitude),"user_id":userSessionManager.sharedInstance.getIdUser(), "token":userSessionManager.sharedInstance.getToken()]
         

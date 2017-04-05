@@ -15,6 +15,7 @@ class MapPubViewController: UIViewController {
 
     let viewModel = MapPubViewModel()
     let disposeBag = DisposeBag()
+    let regionRadius: CLLocationDistance = 5000
     
     @IBOutlet weak var distanceEvent: UILabel!
     @IBOutlet weak var pubMap: MKMapView!
@@ -25,12 +26,13 @@ class MapPubViewController: UIViewController {
     @IBAction func distanceMap(_ sender: Any) {
         distanceEvent.text = String(Int(distanceMapSlider.value))
         synMap()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchBar.delegate = self
-        centerMap()
+        centerMapOnLocation(location: CurrentPositionUser.sharedInstance.getLocation())
 
         // Do any additional setup after loading the view.
     }
@@ -61,15 +63,14 @@ class MapPubViewController: UIViewController {
         pubMap.removeAnnotations( annotationsToRemove )
     }
     
-    func centerMap(){
-        let regionRadius: CLLocationDistance = 5000
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+    
+        
+     func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                     regionRadius * 2.0, regionRadius * 2.0)
-            pubMap.setRegion(coordinateRegion, animated: true)
+        pubMap.setRegion(coordinateRegion, animated: true)
         }
 
-    }
     
     
     /*
