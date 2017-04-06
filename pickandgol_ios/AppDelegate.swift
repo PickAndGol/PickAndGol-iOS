@@ -9,15 +9,15 @@
 import UIKit
 import AWSS3
 
-import UIKit
-import UserNotifications
+
+//import UserNotifications
 import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    let gcmMessageIDKey = "gcm.message_id"
+    //let gcmMessageIDKey = "gcm.message_id"
     
     let notificactionManagerWithFireBase = NoficationManagerWithFireBase()
     
@@ -26,16 +26,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         _ = CurrentPositionUser.sharedInstance
-        
-        notificactionManagerWithFireBase.registerNotification(application)
         FIRApp.configure()
-        notificactionManagerWithFireBase.observingNotification()
+        //notificactionManagerWithFireBase.registerNotification(application)
+        //FIRApp.configure()
+        //notificactionManagerWithFireBase.observingNotification()
         
        
         return true
     }
     
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+    /*func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Unable to register for remote notifications: \(error.localizedDescription)")
     }
     
@@ -65,6 +65,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //FIRMessaging.messaging().disconnect()
         print("Disconnected from FCM.")
     }
-    // [END disconnect_from_fcm]
+    // [END disconnect_from_fcm]*/
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        application.registerForRemoteNotifications()
+        return true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // Register the device token with a webservice
+        print("Token \(deviceToken)")
+        var token = ""
+        for i in 0..<deviceToken.count {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        print("Process Token \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("error \(error)")
+    }
+    
+    func connectToFcm() {
+        FIRMessaging.messaging().connect { (error) in
+            if (error != nil) {
+                print("Unable to connect with FCM. \(error)")
+            } else {
+                print("Connected to FCM.")
+            }
+        }
+    }
+    
 }
 

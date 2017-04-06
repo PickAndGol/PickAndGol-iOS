@@ -53,7 +53,6 @@
 		A978CBF41E92568F00607B3D /* MapPubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978CBF31E92568F00607B3D /* MapPubViewController.swift */; };
 		A978CBF61E92576C00607B3D /* MapPubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978CBF51E92576C00607B3D /* MapPubViewModel.swift */; };
 		A978CBF81E92DF8000607B3D /* CurrentPositionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978CBF71E92DF8000607B3D /* CurrentPositionUser.swift */; };
-		A984AB791E93B8E700DA0509 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A984AB781E93B8E700DA0509 /* GoogleService-Info.plist */; };
 		A98B3FA01E951A1500D37DB3 /* testPub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B3F9F1E951A1500D37DB3 /* testPub.swift */; };
 		A98B3FA11E951B5100D37DB3 /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B9281E845F860090906C /* PubModel.swift */; };
 		A98B3FA21E951D6E00D37DB3 /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D41E6C2CBE00A0F5A8 /* EventApi.swift */; };
@@ -88,6 +87,7 @@
 		A996F9011E939A1200EB2827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A996F9001E939A1200EB2827 /* Assets.xcassets */; };
 		A99E5A4B1E7E663800A11304 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E5A4A1E7E663800A11304 /* ImageManager.swift */; };
 		A9A802E41E81850400387B37 /* touchIDAutentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A802E31E81850400387B37 /* touchIDAutentication.swift */; };
+		A9CDA5EF1E968E0100771A05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CDA5EE1E968E0100771A05 /* GoogleService-Info.plist */; };
 		A9D68AC01E9422380052C19E /* NotificationManagerWithFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D68ABF1E9422380052C19E /* NotificationManagerWithFirebase.swift */; };
 		A9E3B91F1E83D7430090906C /* Client+PubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B91E1E83D7430090906C /* Client+PubApi.swift */; };
 		A9E3B9211E83EA440090906C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E3B9201E83EA440090906C /* MapKit.framework */; };
@@ -160,7 +160,6 @@
 		A978CBF31E92568F00607B3D /* MapPubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPubViewController.swift; sourceTree = "<group>"; };
 		A978CBF51E92576C00607B3D /* MapPubViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPubViewModel.swift; sourceTree = "<group>"; };
 		A978CBF71E92DF8000607B3D /* CurrentPositionUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentPositionUser.swift; sourceTree = "<group>"; };
-		A984AB781E93B8E700DA0509 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A984AB7A1E93C4F500DA0509 /* pickandgol_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pickandgol_ios.entitlements; sourceTree = "<group>"; };
 		A98B3F9F1E951A1500D37DB3 /* testPub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testPub.swift; sourceTree = "<group>"; };
 		A98B3FB31E955B9900D37DB3 /* TestSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSessionManager.swift; sourceTree = "<group>"; };
@@ -179,6 +178,7 @@
 		A996F9001E939A1200EB2827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A99E5A4A1E7E663800A11304 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		A9A802E31E81850400387B37 /* touchIDAutentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = touchIDAutentication.swift; sourceTree = "<group>"; };
+		A9CDA5EE1E968E0100771A05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9D68ABF1E9422380052C19E /* NotificationManagerWithFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerWithFirebase.swift; sourceTree = "<group>"; };
 		A9E3B91E1E83D7430090906C /* Client+PubApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+PubApi.swift"; sourceTree = "<group>"; };
 		A9E3B9201E83EA440090906C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -445,6 +445,7 @@
 		34B844F81E3BBC4D00410E6A /* pickandgol_ios */ = {
 			isa = PBXGroup;
 			children = (
+				A9CDA5EE1E968E0100771A05 /* GoogleService-Info.plist */,
 				A984AB7A1E93C4F500DA0509 /* pickandgol_ios.entitlements */,
 				34B844F91E3BBC4D00410E6A /* AppDelegate.swift */,
 				349F43D21E54EA9200A905FE /* Repository */,
@@ -545,7 +546,6 @@
 		34B8451F1E3BBE4D00410E6A /* SupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				A984AB781E93B8E700DA0509 /* GoogleService-Info.plist */,
 				349F43F91E54F33500A905FE /* Podfile */,
 				34B845051E3BBC4D00410E6A /* Info.plist */,
 			);
@@ -711,7 +711,7 @@
 				34B845041E3BBC4D00410E6A /* LaunchScreen.storyboard in Resources */,
 				34B845571E3CA49000410E6A /* Timeline.storyboard in Resources */,
 				34B8455F1E3CD91A00410E6A /* Notifications.storyboard in Resources */,
-				A984AB791E93B8E700DA0509 /* GoogleService-Info.plist in Resources */,
+				A9CDA5EF1E968E0100771A05 /* GoogleService-Info.plist in Resources */,
 				349F43C41E505AE100A905FE /* Newitem.storyboard in Resources */,
 				34B845611E3CD92100410E6A /* User.storyboard in Resources */,
 			);
