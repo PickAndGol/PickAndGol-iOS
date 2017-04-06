@@ -74,6 +74,7 @@
 		A98B3FB21E95503600D37DB3 /* Client+UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9293D021E71FFA2006FF69B /* Client+UserApi.swift */; };
 		A98B3FB41E955B9900D37DB3 /* TestSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B3FB31E955B9900D37DB3 /* TestSessionManager.swift */; };
 		A98B3FB61E9562B900D37DB3 /* TestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B3FB51E9562B900D37DB3 /* TestResponse.swift */; };
+		A98B3FB81E95974C00D37DB3 /* ManagerHideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B3FB71E95974C00D37DB3 /* ManagerHideKeyboard.swift */; };
 		A98BA9CE1E6C2C6B00A0F5A8 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */; };
 		A98BA9CF1E6C2C6B00A0F5A8 /* Client+EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */; };
 		A98BA9D11E6C2C7F00A0F5A8 /* NetWorkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */; };
@@ -164,6 +165,7 @@
 		A98B3F9F1E951A1500D37DB3 /* testPub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testPub.swift; sourceTree = "<group>"; };
 		A98B3FB31E955B9900D37DB3 /* TestSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSessionManager.swift; sourceTree = "<group>"; };
 		A98B3FB51E9562B900D37DB3 /* TestResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestResponse.swift; sourceTree = "<group>"; };
+		A98B3FB71E95974C00D37DB3 /* ManagerHideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagerHideKeyboard.swift; sourceTree = "<group>"; };
 		A98BA9CC1E6C2C6B00A0F5A8 /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		A98BA9CD1E6C2C6B00A0F5A8 /* Client+EventApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+EventApi.swift"; sourceTree = "<group>"; };
 		A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkResource.swift; sourceTree = "<group>"; };
@@ -527,6 +529,7 @@
 				34B8456C1E3D229100410E6A /* UIStoryboard+Storyboard.swift */,
 				34E70B541E64B50D00430649 /* UITextField+isValid.swift */,
 				A958A0FA1E7ABC62006DEC6C /* UIImage+Extension.swift */,
+				A98B3FB71E95974C00D37DB3 /* ManagerHideKeyboard.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -857,6 +860,7 @@
 				A98BA9CF1E6C2C6B00A0F5A8 /* Client+EventApi.swift in Sources */,
 				A98BA9D31E6C2CA500A0F5A8 /* Response.swift in Sources */,
 				A90A2C911E74713E00364CF6 /* userSessionManager.swift in Sources */,
+				A98B3FB81E95974C00D37DB3 /* ManagerHideKeyboard.swift in Sources */,
 				A9E3B9291E845F860090906C /* PubModel.swift in Sources */,
 				A9E3B9271E845E890090906C /* PubModelStruct.swift in Sources */,
 				34D9523A1E59B1B800410032 /* MainLoginViewController.swift in Sources */,

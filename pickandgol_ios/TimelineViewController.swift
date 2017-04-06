@@ -36,6 +36,7 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         searchbar.delegate = self
         bindRx()
         timelineEventDetail.delegate = self
+        self.hideKeyboardWhenTappedAround() 
     
         
         

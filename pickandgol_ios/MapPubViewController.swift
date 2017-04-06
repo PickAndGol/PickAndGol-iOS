@@ -33,6 +33,7 @@ class MapPubViewController: UIViewController {
         super.viewDidLoad()
         self.searchBar.delegate = self
         centerMapOnLocation(location: CurrentPositionUser.sharedInstance.getLocation())
+        self.hideKeyboardWhenTappedAround() 
 
         // Do any additional setup after loading the view.
     }

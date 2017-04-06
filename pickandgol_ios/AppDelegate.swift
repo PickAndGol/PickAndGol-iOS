@@ -49,7 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.sandbox)
     }
     
-   
+    private func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        if (application.isRegisteredForRemoteNotifications) {
+            notificactionManagerWithFireBase.registerNotification(application)
+        }
+    }
     
     // [START connect_on_active]
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -58,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // [END connect_on_active]
     // [START disconnect_from_fcm]
     func applicationDidEnterBackground(_ application: UIApplication) {
-        FIRMessaging.messaging().disconnect()
+        //FIRMessaging.messaging().disconnect()
         print("Disconnected from FCM.")
     }
     // [END disconnect_from_fcm]
