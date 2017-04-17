@@ -68,7 +68,7 @@ class MapPubViewController: UIViewController {
         
      func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                    regionRadius * 2.0, regionRadius * 2.0)
+                                                                    regionRadius * 10.0, regionRadius * 10.0)
         pubMap.setRegion(coordinateRegion, animated: true)
         }
 

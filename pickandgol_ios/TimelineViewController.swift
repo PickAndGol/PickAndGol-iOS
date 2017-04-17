@@ -44,6 +44,10 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.refreshTable()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
        
         

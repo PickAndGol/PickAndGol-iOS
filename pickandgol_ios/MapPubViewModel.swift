@@ -26,7 +26,8 @@ class MapPubViewModel:NSObject {
         return Observable<[MKAnnotation]>.create { (observer) -> Disposable in
             
             let pos = CurrentPositionUser.sharedInstance
-            let paramsUrl = "latitude="+String(pos.getLongitud())+"&longitude="+String(pos.getLatidude())+"&radius="+radius+"&text="+textFilter
+            let paramsUrl = "latitude="+String(pos.getLatidude())+"&longitude="+String(pos.getLongitud())+"&radius="+radius+"&text="+textFilter
+           
             self.client.ListAllPub(params:paramsUrl)
                 .subscribe(onNext: { (elements) in
                     
@@ -34,7 +35,7 @@ class MapPubViewModel:NSObject {
                     for element in elements.results()! {
                         let infoLocation = element["location"] as! JSONDictionary
                         let coordinatePubInfo = infoLocation["coordinates"] as! NSArray
-                        let coordinatePub = CLLocationCoordinate2D(latitude: coordinatePubInfo[0] as! CLLocationDegrees, longitude: coordinatePubInfo[1] as! CLLocationDegrees)
+                        let coordinatePub = CLLocationCoordinate2D(latitude: coordinatePubInfo[1] as! CLLocationDegrees, longitude: coordinatePubInfo[0] as! CLLocationDegrees)
                         let annotationPub = MapsAnnotationsUtils(coordinate: coordinatePub, title: element["name"] as! String, subtitle: "")
                         annotation.append(annotationPub)
                     }

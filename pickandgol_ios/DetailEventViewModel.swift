@@ -72,7 +72,7 @@ class DetailEventViewModel {
                     let data = result.result() as! JSONDictionary
                     let dataLocation = data["location"] as! JSONDictionary
                     let dataLocationCoordinates = dataLocation["coordinates"] as! NSArray
-                    let gpsData = CLLocation(latitude:dataLocationCoordinates[0] as! CLLocationDegrees, longitude: dataLocationCoordinates[1] as! CLLocationDegrees)
+                    let gpsData = CLLocation(latitude:dataLocationCoordinates[1] as! CLLocationDegrees, longitude: dataLocationCoordinates[0] as! CLLocationDegrees)
                     let pub = PubModel(name: data["name"] as! String, location: gpsData)
                     observer.onNext(pub)
                     observer.onCompleted()
