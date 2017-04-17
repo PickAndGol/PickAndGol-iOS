@@ -11,6 +11,8 @@ import RxSwift
 import SwifterSwift
 
 
+
+
 class UserViewModel{
 
     let disposeBag = DisposeBag()
@@ -22,7 +24,8 @@ class UserViewModel{
             "email": userEmail,
             "name": user,
             "token": userSessionManager.sharedInstance.getToken(),
-            "photo_url": S3ConfigSingleton.sharedInstance.urlBucket.absoluteString+(userEmail.base64Encoded)!+".jpg"
+            "photo_url": S3ConfigSingleton.sharedInstance.urlBucket.absoluteString+(userEmail.base64Encoded)!+".jpg",
+            "registration_token":userSessionManager.sharedInstance.getTokenFirebase() ?? ""
         ]
     
         
@@ -35,7 +38,7 @@ class UserViewModel{
             }).addDisposableTo(disposeBag)
         
         client.updateProfileUser(dictionary: body as JSONDictionary, idUser: userSessionManager.sharedInstance.getIdUser()).subscribe(onNext: {(element) in
-            
+            print(body)
             print(element)
             
             

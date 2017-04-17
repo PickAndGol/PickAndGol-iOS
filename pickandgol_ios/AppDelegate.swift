@@ -17,7 +17,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    //let gcmMessageIDKey = "gcm.message_id"
+   
     
     let notificactionManagerWithFireBase = NoficationManagerWithFireBase()
     
@@ -27,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         _ = CurrentPositionUser.sharedInstance
         FIRApp.configure()
+        
+        if let refreshedToken = FIRInstanceID.instanceID().token() {
+            print("InstanceID token: \(refreshedToken)")
+        }
+        
+        connectToFcm()
+        
         //notificactionManagerWithFireBase.registerNotification(application)
         //FIRApp.configure()
         //notificactionManagerWithFireBase.observingNotification()
@@ -55,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-    // [START connect_on_active]
+    [START connect_on_active]
     func applicationDidBecomeActive(_ application: UIApplication) {
         notificactionManagerWithFireBase.connectToFcm()
     }

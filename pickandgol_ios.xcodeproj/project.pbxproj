@@ -64,7 +64,6 @@
 		A98B3FA91E951DF100D37DB3 /* S3ConfigSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99359661E75BD7E0010AEEF /* S3ConfigSingleton.swift */; };
 		A98B3FAA1E951E0900D37DB3 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349F43DD1E54EBB800A905FE /* JSONDecodable.swift */; };
 		A98B3FAB1E951E0C00D37DB3 /* JSONDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349F43DE1E54EBB800A905FE /* JSONDecodingError.swift */; };
-		A98B3FAC1E951E4000D37DB3 /* userSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A2C901E74713E00364CF6 /* userSessionManager.swift */; };
 		A98B3FAD1E951E4300D37DB3 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95778D51E73FC8B00E3D740 /* UserViewModel.swift */; };
 		A98B3FAE1E953D2000D37DB3 /* NetWorkResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D01E6C2C7F00A0F5A8 /* NetWorkResource.swift */; };
 		A98B3FAF1E953F0B00D37DB3 /* UserModelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349F43E31E54EC2B00A905FE /* UserModelStruct.swift */; };
@@ -87,6 +86,7 @@
 		A996F9011E939A1200EB2827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A996F9001E939A1200EB2827 /* Assets.xcassets */; };
 		A99E5A4B1E7E663800A11304 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E5A4A1E7E663800A11304 /* ImageManager.swift */; };
 		A9A802E41E81850400387B37 /* touchIDAutentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A802E31E81850400387B37 /* touchIDAutentication.swift */; };
+		A9A934161EA51E5E0068FCAC /* userSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A2C901E74713E00364CF6 /* userSessionManager.swift */; };
 		A9CDA5EF1E968E0100771A05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CDA5EE1E968E0100771A05 /* GoogleService-Info.plist */; };
 		A9D68AC01E9422380052C19E /* NotificationManagerWithFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D68ABF1E9422380052C19E /* NotificationManagerWithFirebase.swift */; };
 		A9E3B91F1E83D7430090906C /* Client+PubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B91E1E83D7430090906C /* Client+PubApi.swift */; };
@@ -886,6 +886,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A98B3FB61E9562B900D37DB3 /* TestResponse.swift in Sources */,
+				A9A934161EA51E5E0068FCAC /* userSessionManager.swift in Sources */,
 				A98B3FA51E951DE300D37DB3 /* httpMethods.swift in Sources */,
 				A98B3FA21E951D6E00D37DB3 /* EventApi.swift in Sources */,
 				A98B3FAE1E953D2000D37DB3 /* NetWorkResource.swift in Sources */,
@@ -893,7 +894,6 @@
 				A98B3FAB1E951E0C00D37DB3 /* JSONDecodingError.swift in Sources */,
 				A98B3FA31E951DB100D37DB3 /* Client+EventApi.swift in Sources */,
 				A98B3FAD1E951E4300D37DB3 /* UserViewModel.swift in Sources */,
-				A98B3FAC1E951E4000D37DB3 /* userSessionManager.swift in Sources */,
 				A98B3FB41E955B9900D37DB3 /* TestSessionManager.swift in Sources */,
 				A98B3FAA1E951E0900D37DB3 /* JSONDecodable.swift in Sources */,
 				A98B3FA41E951DB900D37DB3 /* PubModelStruct.swift in Sources */,
