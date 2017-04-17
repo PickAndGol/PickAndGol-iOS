@@ -91,7 +91,7 @@ class NewItemViewController: UIViewController {
         self.dictionary["description"] = self.eventDescription.text as AnyObject?
         self.dictionary["category"] = self.categorySelected["_id"]
         self.dictionary["token"] = session.getToken() as AnyObject?
-        self.dictionary["photo_url"] = urlPhoto as AnyObject?
+        self.dictionary["photo_url"] = "https://pickandgol.s3.amazonaws.com/"+urlPhoto as AnyObject?
         
         self.viewModel.saveEvent(dictionary: self.dictionary).subscribe(
         

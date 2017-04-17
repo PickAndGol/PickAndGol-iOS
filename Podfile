@@ -43,6 +43,8 @@ pod 'AWSS3'
 pod 'Alamofire', '~> 4.3'
 pod 'SwifterSwift'
 pod 'SwiftKeychainWrapper'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
 end
 
 post_install do |installer|

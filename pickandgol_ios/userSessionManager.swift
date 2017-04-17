@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 class userSessionManager {
     
@@ -59,5 +60,15 @@ class userSessionManager {
     public func setUrlPhoto(url:String) {
         self.userSession?.photoUrl = url
     }
+    public func getTokenFirebase() -> String?{
+        guard let refreshedToken = FIRInstanceID.instanceID().token() else{
+            return nil
+        }
+        return refreshedToken
+
+    }
+    
+    
+    
     
 }
