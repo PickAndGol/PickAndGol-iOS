@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import RxRealm
+import RealmSwift
 
 
 protocol SelectPubViewControllerDelegate{
@@ -15,7 +17,7 @@ protocol SelectPubViewControllerDelegate{
 }
 
 
-class SelectPubViewController: UIViewController {
+class SelectPubViewController: UIViewController , UICollectionViewDelegate{
 
     private let viewModel = SelectPubViewModel()
     private let disposeBag = DisposeBag()
@@ -30,10 +32,18 @@ class SelectPubViewController: UIViewController {
         
         loadTable()
         observerTap()
-
+        
+        
       
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+       
+        
+    }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -45,8 +55,13 @@ class SelectPubViewController: UIViewController {
     
     func loadTable(){
         
+        let realm = try! Realm()
+        let dataPub = realm.objects(PubModelRealm.self)
+        Observable.from( dataPub)
+          .bindTo(listOfPubDetail.rx.items) { collectionView, row, event in
         
-        viewModel.listOfPub().bindTo(listOfPubDetail.rx.items) { collectionView, row, event in
+        
+        //viewModel.listOfPubTable.bindTo(listOfPubDetail.rx.items) { collectionView, row, event in
             
             let indexPath = IndexPath(item: row, section: 0)
             

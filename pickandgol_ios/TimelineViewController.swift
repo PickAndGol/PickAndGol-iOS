@@ -13,8 +13,7 @@ import RxCocoa
 
 
 class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResultsUpdating,UICollectionViewDelegate {
-
-    
+ 
     @IBOutlet weak var timelineEventDetail: UICollectionView!{
         didSet{
             //timelineEventDetail.backgroundColor = UIColor.brown
@@ -36,25 +35,27 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         searchbar.delegate = self
         bindRx()
         timelineEventDetail.delegate = self
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
+        viewModel.refreshTableEvent.subscribe(
+        
+            onNext:{value in
+                if (value){
+                    print("****",value)
+                    self.timelineEventDetail.reloadData()
+                }
+        }
+        
+        ).addDisposableTo(disposeBag)
+        
     
-        
-        
-        
-        // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        viewModel.refreshTable()
-    }
+   
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
        
-        
         if (indexPath.row == collectionView.numberOfItems-1){
-            print(collectionView.numberOfItems)
             viewModel.refreshTable()
-           
         }
         
         
@@ -67,8 +68,8 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
     
    
     func bindRx(){
-        viewModel.eventsPubs.bindTo(timelineEventDetail.rx.items) { collectionView, row, event in
-            
+        
+        viewModel.events.bindTo(timelineEventDetail.rx.items) { collectionView, row, event in
             let indexPath = IndexPath(item: row, section: 0)
             
             guard let cell = self.timelineEventDetail.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? TimelineCollectionViewCell else {
@@ -128,6 +129,7 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
         
         self.viewModel.query.value = searchText
         

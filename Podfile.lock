@@ -74,6 +74,14 @@ PODS:
     - Realm (= 2.4.4)
   - RxCocoa (3.3.1):
     - RxSwift (~> 3.3)
+  - RxRealm (0.5.2):
+    - RealmSwift (~> 2.4)
+    - RxSwift (~> 3.1)
+  - RxRealmDataSources (0.2.1):
+    - RealmSwift (~> 2.1)
+    - RxCocoa (~> 3.1)
+    - RxRealm (~> 0.5)
+    - RxSwift (~> 3.1)
   - RxSwift (3.3.1)
   - SwifterSwift (1.6.2)
   - SwiftKeychainWrapper (3.0.1)
@@ -105,6 +113,8 @@ DEPENDENCIES:
   - Firebase/Messaging
   - RealmSwift
   - RxCocoa (~> 3.0)
+  - RxRealm
+  - RxRealmDataSources
   - RxSwift (~> 3.0)
   - SwifterSwift
   - SwiftKeychainWrapper
@@ -143,10 +153,12 @@ SPEC CHECKSUMS:
   Realm: 5a280a1f5a9a3c267bebf4f41ee47911137703d7
   RealmSwift: 0c02b9f2d4be4301c497ed10e53a0580584eb1dd
   RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
+  RxRealm: df024f04e64c3a9723dab63a6ec8621b3db6473f
+  RxRealmDataSources: 743901f35ef18533b2fc5d41a0f6b6b62b3c3304
   RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
   SwifterSwift: 48a48a193b47e0d577359c75570e5291dd2f460a
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 3282adcb804f8a5a02152bbe33450dc10f169fbc
+PODFILE CHECKSUM: 167dfcfc6899f90e294ebd4a36b23273501fa54a
 
 COCOAPODS: 1.2.0

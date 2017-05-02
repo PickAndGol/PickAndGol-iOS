@@ -95,6 +95,7 @@
 		A9E3B9251E8424CC0090906C /* NewPubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B9241E8424CC0090906C /* NewPubViewModel.swift */; };
 		A9E3B9271E845E890090906C /* PubModelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B9261E845E890090906C /* PubModelStruct.swift */; };
 		A9E3B9291E845F860090906C /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B9281E845F860090906C /* PubModel.swift */; };
+		A9E72ABF1EB8DD38004C26D1 /* PubModelRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E72ABE1EB8DD38004C26D1 /* PubModelRealm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +187,7 @@
 		A9E3B9241E8424CC0090906C /* NewPubViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPubViewModel.swift; sourceTree = "<group>"; };
 		A9E3B9261E845E890090906C /* PubModelStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModelStruct.swift; sourceTree = "<group>"; };
 		A9E3B9281E845F860090906C /* PubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModel.swift; sourceTree = "<group>"; };
+		A9E72ABE1EB8DD38004C26D1 /* PubModelRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModelRealm.swift; sourceTree = "<group>"; };
 		D50A5FFB24080A7F9A8101CC /* Pods-pickandgol_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_iosTests/Pods-pickandgol_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		D82814AAAC40C86FE252799E /* Pods-pickandgol_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_iosTests/Pods-pickandgol_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -289,6 +291,7 @@
 			children = (
 				A9E3B9261E845E890090906C /* PubModelStruct.swift */,
 				A9E3B9281E845F860090906C /* PubModel.swift */,
+				A9E72ABE1EB8DD38004C26D1 /* PubModelRealm.swift */,
 			);
 			name = Pub;
 			sourceTree = "<group>";
@@ -861,6 +864,7 @@
 				A98BA9D31E6C2CA500A0F5A8 /* Response.swift in Sources */,
 				A90A2C911E74713E00364CF6 /* userSessionManager.swift in Sources */,
 				A98B3FB81E95974C00D37DB3 /* ManagerHideKeyboard.swift in Sources */,
+				A9E72ABF1EB8DD38004C26D1 /* PubModelRealm.swift in Sources */,
 				A9E3B9291E845F860090906C /* PubModel.swift in Sources */,
 				A9E3B9271E845E890090906C /* PubModelStruct.swift in Sources */,
 				34D9523A1E59B1B800410032 /* MainLoginViewController.swift in Sources */,

@@ -17,9 +17,19 @@ extension Client {
         return objects(endPoint: endpoint)
     }
     
-    public func ListAllPub() -> Observable<Response> {
+    public func ListAllPub() ->  Observable<[JSONDictionary]> {
         let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/pubs/")!, method: .get, body:[:])
-        return objects(endPoint: endpoint)
+       // return objects(endPoint: endpoint)
+        
+        return Observable<[JSONDictionary]>.create { (observer) -> Disposable in
+            self.objects(endPoint: endpoint).subscribe(onNext: { (element) in
+                observer.onNext((element.results() ?? nil)!)
+                observer.onCompleted()
+            }).addDisposableTo(self.disposeBag)
+            return Disposables.create()
+        }
+        
+        
     }
     public func ListAllPub(params:String) -> Observable<Response> {
         let endpoint = EventApi(path: URL(string:"http://pickandgol.com/api/v1/pubs/?"+params)!, method: .get, body:[:])

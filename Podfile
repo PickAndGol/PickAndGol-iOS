@@ -35,6 +35,8 @@ pod 'SwifterSwift'
 pod 'SwiftKeychainWrapper'
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
+pod 'RxRealm'
+pod 'RxRealmDataSources'
 end
 
 target 'pickandgol_iosTests' do

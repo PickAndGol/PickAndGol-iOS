@@ -9,6 +9,7 @@
 import Foundation
 import CoreLocation
 import RxSwift
+import RealmSwift
 
 
 class NewPubViewModel: NSObject {
@@ -18,6 +19,9 @@ class NewPubViewModel: NSObject {
     let posicion = CLLocationManager()
     var locationUser:CLLocation?
     let client = Client()
+    
+    let refreshTableListofPub = SelectPubViewModel()
+    
     let disposeBag = DisposeBag()
     
     func initLocationUser(){
@@ -48,9 +52,18 @@ class NewPubViewModel: NSObject {
     
     func savePub(_ name:String){
         
+        let realm = try! Realm()
+        
         let pub = PubModel(name: name, location: locationUser!)
         client.savePub(dic: pub.modelToDict()! as JSONDictionary).subscribe( onNext: { (element) in
-            print(element)
+            
+            let dataPub = PubModelRealm()
+            dataPub.name = name
+            
+            try! realm.write {
+                realm.add(dataPub)
+            }
+            
         }).addDisposableTo(disposeBag)
 
         

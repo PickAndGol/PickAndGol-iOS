@@ -18,4 +18,11 @@ class TimelineCollectionViewCell: UICollectionViewCell {
    
     @IBOutlet weak var eventDescription: UILabel!
     
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+         eventTitle.text=""
+    }
+    
+    
 }
