@@ -10,28 +10,45 @@ import UIKit
 import RxSwift
 import RxRealm
 import RealmSwift
+import RxRealmDataSources
 
 
-protocol SelectPubViewControllerDelegate{
-    func pubSelectedItem(pubSelct:JSONDictionary)
-}
+
 
 
 class SelectPubViewController: UIViewController , UICollectionViewDelegate{
 
-    private let viewModel = SelectPubViewModel()
-    private let disposeBag = DisposeBag()
-    var delegate:SelectPubViewControllerDelegate?
+    fileprivate let viewModel = SelectPubViewModel()
+    fileprivate let disposeBag = DisposeBag()
+
     
     var selectCell:Int?
+    var selectedPub = PublishSubject<String>()
+    
+    // PARAR PREUBAS
+    //let realm = try! Realm()
+    //var dataPub:Results<PubModelRealm>? = nil
+    
+    // FIN
+    
+   
     
     @IBOutlet weak var listOfPubDetail: UICollectionView!
     
+    @IBOutlet weak var searchBarPub: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
+        listOfPubDetail.delegate = self
+        listOfPubDetail.dataSource = self
+        bindRx()
         
-        loadTable()
-        observerTap()
+       
+        
+        
+        //loadTable()
+        //observerTap()
+        //syncRealm()
+        searchBar()
         
         
       
@@ -40,6 +57,7 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
        
         
     }
@@ -52,16 +70,45 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
     
     // Do any additional setup after loading the view.
     
+    func searchBar() {
+        searchBarPub
+            .rx.text // Observable property thanks to RxCocoa
+            .orEmpty // Make it non-optional
+            .debounce(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
+            .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
+            .subscribe(onNext: { [unowned self] query in // Here we subscribe to every new value
+                self.viewModel.listOfPub(nameSearch: query)
+                
+            })
+            .addDisposableTo(disposeBag)
+    }
     
-    func loadTable(){
+    
+    func bindRx(){
+        viewModel.refreshListOfPub.asObservable().subscribe(
+            
+            onNext:{ value in
+                if(value){
+                    print("Actualiza");
+                    self.listOfPubDetail.reloadData()
+                }
+        }
+            
+            ).addDisposableTo(self.disposeBag)
+    }
+    
+    
+    func loadTable(filterPub:String = ""){
         
-        let realm = try! Realm()
+       
+        
+        /*let realm = try! Realm()
         let dataPub = realm.objects(PubModelRealm.self)
-        Observable.from( dataPub)
+        Observable.collection( from: dataPub)*/
+
+        Observable.from(optional: self.viewModel.listOfPubTable)
           .bindTo(listOfPubDetail.rx.items) { collectionView, row, event in
         
-        
-        //viewModel.listOfPubTable.bindTo(listOfPubDetail.rx.items) { collectionView, row, event in
             
             let indexPath = IndexPath(item: row, section: 0)
             
@@ -77,12 +124,31 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
     }
     
     
-    func observerTap(){
-        listOfPubDetail.rx.modelSelected(JSONDictionary.self).subscribe(onNext: { value in
-            self.delegate?.pubSelectedItem(pubSelct: value)
+   /* func observerTap(){
+    
+        listOfPubDetail.rx.modelSelected(PubModelRealm.self).subscribe(onNext: { value in
+            
+            
             self.navigationController?.popViewController(animated: true)
             
         }).addDisposableTo(disposeBag)
+      
+    }*/
+    
+    func syncRealm(){
+        
+      /*
+        // create data source
+        let dataSource = RxCollectionViewRealmDataSource<PubModelRealm>(cellIdentifier: "Cell", cellType: SelectPubCollectionViewCell.self) {cell, ip, lap in
+            cell.pubName.text = lap.name
+        }
+        
+        dataPub = realm.objects(PubModelRealm.self)
+        let data = Observable<Results<PubModelRealm>>.changeset(from: dataPub!)
+         .share()
+        
+        data.bindTo(listOfPubDetail.rx.realmChanges(dataSource)).addDisposableTo(disposeBag)
+        */
     }
     
     @IBAction func unwindWithSelectedGame(segue:UIStoryboardSegue) {
@@ -106,12 +172,62 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
         
     }
 
+
+    
+   
+    
+}
+
+extension SelectPubViewController:UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.numOfPub()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let pub = viewModel.pubAt(indexPath.row)
+        let photo = pub?.photos
+        
+        
+        
+        let cell: SelectPubCollectionViewCell = self.listOfPubDetail.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SelectPubCollectionViewCell
+        
+        
+        cell.pubName.text = pub?.name
+        
+        if let photoPub = photo?.first?.photo {
+           
+             self.viewModel.downLoadImage(image: photoPub).bindTo(cell.pubPhoto.rx.image).addDisposableTo(disposeBag)
+ 
+            
+        }
+        
+        
+        
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //self.delegate?.pubSelectedItem(pubSelct: value.name)
+        let pub = viewModel.pubAt(indexPath.row)
+        self.selectedPub.onNext((pub?.name)!)
+        self.navigationController?.popViewController(animated: true)
+    }
     
     
     
     
     
 }
+
+
+
 
 
 

@@ -13,4 +13,11 @@ class SelectPubCollectionViewCell: UICollectionViewCell {
   
     @IBOutlet weak var pubName: UILabel!
     
+    @IBOutlet weak var pubPhoto: UIImageView!
+    
+    
+    override func prepareForReuse() {
+        pubPhoto.image = nil
+    }
+    
 }

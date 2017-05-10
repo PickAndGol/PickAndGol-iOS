@@ -250,7 +250,15 @@ class NewItemViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nextVC = segue.destination as! SelectPubViewController
-        nextVC.delegate = self
+        
+        nextVC.selectedPub.subscribe(
+        
+            onNext:{value in
+                    self.pubEvent.text = value
+        }
+        
+        ).addDisposableTo(disposeBag)
+        
     }
 
 }
@@ -265,11 +273,5 @@ extension NewItemViewController: UIImagePickerControllerDelegate, UINavigationCo
     
 }
 
-extension NewItemViewController:SelectPubViewControllerDelegate {
-    func pubSelectedItem(pubSelct: JSONDictionary) {
-        pubName = pubSelct
-        pubEvent.text = pubName["name"] as? String
-        
-    }
-}
+
 

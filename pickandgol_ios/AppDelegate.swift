@@ -8,6 +8,7 @@
 
 import UIKit
 import AWSS3
+import RealmSwift
 
 
 //import UserNotifications
@@ -18,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
    
+    // Delete in production
+    
+    
+    
     
     let notificactionManagerWithFireBase = NoficationManagerWithFireBase()
     
@@ -33,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         connectToFcm()
-        
+        deleteRealmFile()
         //notificactionManagerWithFireBase.registerNotification(application)
         //FIRApp.configure()
         //notificactionManagerWithFireBase.observingNotification()
@@ -101,6 +106,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Connected to FCM.")
             }
         }
+    }
+    
+    func deleteRealmFile(){
+        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+        let realmURLs = [
+            realmURL,
+            realmURL.appendingPathExtension("lock"),
+            realmURL.appendingPathExtension("note"),
+            realmURL.appendingPathExtension("management")
+        ]
+        for URL in realmURLs {
+            do {
+                try FileManager.default.removeItem(at: URL)
+            } catch {
+                // handle error
+            }
+        }
+
     }
     
 }

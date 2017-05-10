@@ -53,6 +53,7 @@
 		A978CBF41E92568F00607B3D /* MapPubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978CBF31E92568F00607B3D /* MapPubViewController.swift */; };
 		A978CBF61E92576C00607B3D /* MapPubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978CBF51E92576C00607B3D /* MapPubViewModel.swift */; };
 		A978CBF81E92DF8000607B3D /* CurrentPositionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978CBF71E92DF8000607B3D /* CurrentPositionUser.swift */; };
+		A97FB4E11EC2270B000591AD /* PubSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FB4E01EC2270B000591AD /* PubSelectorTableViewCell.swift */; };
 		A98B3FA01E951A1500D37DB3 /* testPub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B3F9F1E951A1500D37DB3 /* testPub.swift */; };
 		A98B3FA11E951B5100D37DB3 /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B9281E845F860090906C /* PubModel.swift */; };
 		A98B3FA21E951D6E00D37DB3 /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D41E6C2CBE00A0F5A8 /* EventApi.swift */; };
@@ -161,6 +162,7 @@
 		A978CBF31E92568F00607B3D /* MapPubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPubViewController.swift; sourceTree = "<group>"; };
 		A978CBF51E92576C00607B3D /* MapPubViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPubViewModel.swift; sourceTree = "<group>"; };
 		A978CBF71E92DF8000607B3D /* CurrentPositionUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentPositionUser.swift; sourceTree = "<group>"; };
+		A97FB4E01EC2270B000591AD /* PubSelectorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubSelectorTableViewCell.swift; sourceTree = "<group>"; };
 		A984AB7A1E93C4F500DA0509 /* pickandgol_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = pickandgol_ios.entitlements; sourceTree = "<group>"; };
 		A98B3F9F1E951A1500D37DB3 /* testPub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testPub.swift; sourceTree = "<group>"; };
 		A98B3FB31E955B9900D37DB3 /* TestSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSessionManager.swift; sourceTree = "<group>"; };
@@ -428,6 +430,7 @@
 		34B844ED1E3BBC4D00410E6A = {
 			isa = PBXGroup;
 			children = (
+				A97FB4E01EC2270B000591AD /* PubSelectorTableViewCell.swift */,
 				34B844F81E3BBC4D00410E6A /* pickandgol_ios */,
 				34B8450D1E3BBC4D00410E6A /* pickandgol_iosTests */,
 				34B844F71E3BBC4D00410E6A /* Products */,
@@ -831,6 +834,7 @@
 				349F43DA1E54EB3E00A905FE /* UserApiRepository.swift in Sources */,
 				A99359671E75BD7E0010AEEF /* S3ConfigSingleton.swift in Sources */,
 				A95778D61E73FC8B00E3D740 /* UserViewModel.swift in Sources */,
+				A97FB4E11EC2270B000591AD /* PubSelectorTableViewCell.swift in Sources */,
 				349F43DC1E54EB4E00A905FE /* UserDataBaseRepository.swift in Sources */,
 				349F44001E55015100A905FE /* ApiPaths.swift in Sources */,
 				A99E5A4B1E7E663800A11304 /* ImageManager.swift in Sources */,

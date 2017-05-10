@@ -48,6 +48,22 @@ private func response(endPoint:NetworkResource) ->Observable<Response>  {
     public func downloadImage(urlImage:URL) -> Observable<UIImage>{
         
         return Observable<UIImage>.create({ (observer) -> Disposable in
+            
+            // Find image in disk
+            
+            let docDir = URL(fileURLWithPath: NSTemporaryDirectory())
+            let imageURL = docDir.appendingPathComponent(urlImage.lastPathComponent)
+            let fileManager = FileManager.default
+            // If image was downloaded send image
+            if fileManager.fileExists(atPath: imageURL.path) {
+                print("exiist")
+                let image = UIImage(contentsOfFile: imageURL.path )!
+                observer.onNext(image)
+                observer.onCompleted()
+            }else{
+            
+            // If not download image
+            
             let network = EventApi(path:URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(urlImage.lastPathComponent), method: .get, body: [:])
             network.downloadImageFromS3(){ data in
                
@@ -62,7 +78,8 @@ private func response(endPoint:NetworkResource) ->Observable<Response>  {
                     observer.onNext(image)
                     observer.onCompleted()
                 }
-                
+             
+                }
             }
             return  Disposables.create()
         })
