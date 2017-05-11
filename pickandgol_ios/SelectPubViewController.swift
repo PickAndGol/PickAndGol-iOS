@@ -221,11 +221,13 @@ extension SelectPubViewController:UICollectionViewDataSource {
         print(indexPath.row)
         if (indexPath.row == collectionView.numberOfItems-1){
             if (!viewModel.filterAction){
-                viewModel.filterAction = false
+                
                 viewModel.listOfPub(addRegister: true)
             }
             filterSearch = !filterSearch
+           
         }
+         viewModel.filterAction = false
         
         
     }
