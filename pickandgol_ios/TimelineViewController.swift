@@ -50,8 +50,6 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
     
     }
     
-   
-    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
        
         if (indexPath.row == collectionView.numberOfItems-1){
@@ -60,6 +58,8 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         
         
     }
+    
+    
    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

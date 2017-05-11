@@ -20,16 +20,12 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
 
     fileprivate let viewModel = SelectPubViewModel()
     fileprivate let disposeBag = DisposeBag()
+    fileprivate var filterSearch = false
 
     
     var selectCell:Int?
     var selectedPub = PublishSubject<String>()
-    
-    // PARAR PREUBAS
-    //let realm = try! Realm()
-    //var dataPub:Results<PubModelRealm>? = nil
-    
-    // FIN
+   
     
    
     
@@ -49,6 +45,7 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
         //observerTap()
         //syncRealm()
         searchBar()
+        
         
         
       
@@ -77,8 +74,7 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
             .debounce(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
             .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
             .subscribe(onNext: { [unowned self] query in // Here we subscribe to every new value
-                self.viewModel.listOfPub(nameSearch: query)
-                
+                self.viewModel.query.value = query
             })
             .addDisposableTo(disposeBag)
     }
@@ -219,6 +215,21 @@ extension SelectPubViewController:UICollectionViewDataSource {
         self.selectedPub.onNext((pub?.name)!)
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        print(collectionView.numberOfItems(inSection: 0))
+        print(indexPath.row)
+        if (indexPath.row == collectionView.numberOfItems-1){
+            if (!viewModel.filterAction){
+                viewModel.filterAction = false
+                viewModel.listOfPub(addRegister: true)
+            }
+            filterSearch = !filterSearch
+        }
+        
+        
+    }
+
     
     
     

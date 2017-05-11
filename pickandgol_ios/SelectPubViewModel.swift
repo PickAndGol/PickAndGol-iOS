@@ -15,6 +15,10 @@ class SelectPubViewModel {
     
     private let client: Client
     private let realm = try! Realm()
+    private var start = 0
+    private let limit = 20
+    private var firstSuscriptionSearchBar = true
+    var filterAction = false
     
 
     
@@ -41,21 +45,28 @@ class SelectPubViewModel {
     
   
     
-    public func listOfPub(nameSearch:String = "") {
+    public func listOfPub(addRegister:Bool = true) {
         
-        var params = "start=0&limit=60"
+        var params = ("offset=\(start)&limit=\(limit)")
         
-        if(nameSearch != ""){
-            params+="&text="+nameSearch
+       if(query.value != ""){
+            params+="&text="+query.value
         }
-        
-       
+ 
+    
         self.client.ListAllPub(params:params).subscribe(onNext: { (element) in
             
-            self.deleteAllRegisterInPubModelRealm()
-            self.saveDataInPubModelRealm(dataPub: element.results()!)
+            let returnElement = (element.results()?.count)!
             
-         
+            if(!addRegister){
+              self.deleteAllRegisterInPubModelRealm()
+            }else{
+                self.start += self.start+returnElement
+            }
+            if ( returnElement > 0 ){
+                self.saveDataInPubModelRealm(dataPub: element.results()!)
+            }
+            
             
         }).addDisposableTo(self.disposeBag)
         
@@ -80,6 +91,9 @@ class SelectPubViewModel {
     
    private func bindRx() {
     
+    
+    // Observa los cambios en base de datos
+    
      Observable<Results<PubModelRealm>>.changeset(from: listOfPubTable!)
      .subscribe(onNext: { results, changes in
      if let changes = changes {
@@ -91,7 +105,27 @@ class SelectPubViewModel {
      }
      }).addDisposableTo(self.disposeBag)
      
-     
+    
+    // Observer query change
+    
+    query.asObservable().skip(1).subscribe(
+        onNext:{value in
+            self.start = 0
+            
+            if (self.firstSuscriptionSearchBar){
+                self.firstSuscriptionSearchBar = false
+               
+            } else {
+                self.listOfPub(addRegister: false)
+                self.filterAction = true
+            }
+            
+            
+    }
+    
+    ).addDisposableTo(disposeBag)
+    
+    
     }
     
     private func saveDataInPubModelRealm(dataPub:[JSONDictionary]) {
