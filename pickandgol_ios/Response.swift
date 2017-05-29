@@ -33,6 +33,10 @@ public struct Response {
         }
         return dataInDictionary
     }
+    
+    public func getErrorFromPayload() -> JSONDictionary {
+        return payload as! JSONDictionary
+    }
 }
 
 extension Response: JSONDecodable {

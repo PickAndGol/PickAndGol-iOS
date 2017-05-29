@@ -17,6 +17,7 @@ import RxRealmDataSources
 
 
 class SelectPubViewController: UIViewController , UICollectionViewDelegate{
+    
 
     fileprivate let viewModel = SelectPubViewModel()
     fileprivate let disposeBag = DisposeBag()
@@ -27,7 +28,16 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
     var selectedPub = PublishSubject<String>()
    
     
-   
+    @IBAction func addNewPub(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "Newitem", bundle: nil)
+        let newVC = storyBoard.instantiateViewController(withIdentifier:"newpub" )
+        let navController = UINavigationController(rootViewController: newVC) // Creating a navigation controller
+        self.present(navController, animated: true, completion: nil)
+        
+        
+        
+    }
     
     @IBOutlet weak var listOfPubDetail: UICollectionView!
     
@@ -37,32 +47,9 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
         listOfPubDetail.delegate = self
         listOfPubDetail.dataSource = self
         bindRx()
-        
-       
-        
-        
-        //loadTable()
-        //observerTap()
-        //syncRealm()
         searchBar()
         
-        
-        
-      
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-       
-        
-    }
-   
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // Do any additional setup after loading the view.
@@ -85,7 +72,7 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
             
             onNext:{ value in
                 if(value){
-                    print("Actualiza");
+                   
                     self.listOfPubDetail.reloadData()
                 }
         }
@@ -93,67 +80,10 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
             ).addDisposableTo(self.disposeBag)
     }
     
-    
-    func loadTable(filterPub:String = ""){
-        
-       
-        
-        /*let realm = try! Realm()
-        let dataPub = realm.objects(PubModelRealm.self)
-        Observable.collection( from: dataPub)*/
-
-        Observable.from(optional: self.viewModel.listOfPubTable)
-          .bindTo(listOfPubDetail.rx.items) { collectionView, row, event in
-        
-            
-            let indexPath = IndexPath(item: row, section: 0)
-            
-            guard let cell = self.listOfPubDetail.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? SelectPubCollectionViewCell else {
-                fatalError("missing cell")
-            }
-            
-            self.selectCell = row
-            cell.pubName.text = event["name"] as! String?
-            return cell
-            }
-            .addDisposableTo(disposeBag)
-    }
+   
     
     
-   /* func observerTap(){
-    
-        listOfPubDetail.rx.modelSelected(PubModelRealm.self).subscribe(onNext: { value in
-            
-            
-            self.navigationController?.popViewController(animated: true)
-            
-        }).addDisposableTo(disposeBag)
-      
-    }*/
-    
-    func syncRealm(){
-        
-      /*
-        // create data source
-        let dataSource = RxCollectionViewRealmDataSource<PubModelRealm>(cellIdentifier: "Cell", cellType: SelectPubCollectionViewCell.self) {cell, ip, lap in
-            cell.pubName.text = lap.name
-        }
-        
-        dataPub = realm.objects(PubModelRealm.self)
-        let data = Observable<Results<PubModelRealm>>.changeset(from: dataPub!)
-         .share()
-        
-        data.bindTo(listOfPubDetail.rx.realmChanges(dataSource)).addDisposableTo(disposeBag)
-        */
-    }
-    
-    @IBAction func unwindWithSelectedGame(segue:UIStoryboardSegue) {
-        
-        if segue.source is  NewItemViewController{
-            
-        }
-    }
-    
+  
     
     // MARK: - Navigation
     
@@ -217,8 +147,7 @@ extension SelectPubViewController:UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        print(collectionView.numberOfItems(inSection: 0))
-        print(indexPath.row)
+       
         if (indexPath.row == collectionView.numberOfItems-1){
             if (!viewModel.filterAction){
                 

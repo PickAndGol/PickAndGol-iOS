@@ -18,8 +18,8 @@ extension UIImage {
     func savePhotoPNG(_ namePhoto:String){
     
         if let data = UIImagePNGRepresentation(self) {
-            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let documentsDirectory = paths[0]
+            let paths = URL(fileURLWithPath: NSTemporaryDirectory())
+            let documentsDirectory = paths
             let namePhoto = documentsDirectory.appendingPathComponent(namePhoto)
             do{
                try data.write(to: namePhoto)
@@ -33,8 +33,8 @@ extension UIImage {
     func savePhotoJPG(_ namePhoto:String) -> UIImage?{
         
         if let data = UIImageJPEGRepresentation(self, 0.9) {
-            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let documentsDirectory = paths[0]
+            let paths = URL(fileURLWithPath: NSTemporaryDirectory())
+            let documentsDirectory = paths
             let namePhoto = documentsDirectory.appendingPathComponent(namePhoto)
             do{
                 try data.write(to: namePhoto)
@@ -47,8 +47,6 @@ extension UIImage {
         
         return self
     }
-    
-
     
     func savePhotoS3(_ namePhoto:String) ->Observable<Bool>{
         
@@ -69,8 +67,10 @@ extension UIImage {
             return Disposables.create()
         })
         
-    
+        
     }
+    
+
     
     
 

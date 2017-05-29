@@ -89,6 +89,7 @@
 		A9A802E41E81850400387B37 /* touchIDAutentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A802E31E81850400387B37 /* touchIDAutentication.swift */; };
 		A9A934161EA51E5E0068FCAC /* userSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A2C901E74713E00364CF6 /* userSessionManager.swift */; };
 		A9CDA5EF1E968E0100771A05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CDA5EE1E968E0100771A05 /* GoogleService-Info.plist */; };
+		A9D1B2E31ED35F74006D3F52 /* NewPubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D1B2E21ED35F74006D3F52 /* NewPubCollectionViewCell.swift */; };
 		A9D68AC01E9422380052C19E /* NotificationManagerWithFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D68ABF1E9422380052C19E /* NotificationManagerWithFirebase.swift */; };
 		A9E3B91F1E83D7430090906C /* Client+PubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B91E1E83D7430090906C /* Client+PubApi.swift */; };
 		A9E3B9211E83EA440090906C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E3B9201E83EA440090906C /* MapKit.framework */; };
@@ -182,6 +183,7 @@
 		A99E5A4A1E7E663800A11304 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		A9A802E31E81850400387B37 /* touchIDAutentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = touchIDAutentication.swift; sourceTree = "<group>"; };
 		A9CDA5EE1E968E0100771A05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A9D1B2E21ED35F74006D3F52 /* NewPubCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPubCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9D68ABF1E9422380052C19E /* NotificationManagerWithFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerWithFirebase.swift; sourceTree = "<group>"; };
 		A9E3B91E1E83D7430090906C /* Client+PubApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+PubApi.swift"; sourceTree = "<group>"; };
 		A9E3B9201E83EA440090906C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -331,6 +333,7 @@
 				A92124EC1E852E2A00612261 /* SelectPubCollectionViewCell.swift */,
 				A92124EE1E85369B00612261 /* SelectPubViewController.swift */,
 				A93093851E8E44850035F65F /* categoryPubCollectionViewCell.swift */,
+				A9D1B2E21ED35F74006D3F52 /* NewPubCollectionViewCell.swift */,
 			);
 			name = Newitem;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				349F43EE1E54EEDE00A905FE /* UserDetailViewController.swift in Sources */,
 				A9A802E41E81850400387B37 /* touchIDAutentication.swift in Sources */,
 				A98BA9D51E6C2CBE00A0F5A8 /* EventApi.swift in Sources */,
+				A9D1B2E31ED35F74006D3F52 /* NewPubCollectionViewCell.swift in Sources */,
 				349F43DF1E54EBB800A905FE /* JSONDecodable.swift in Sources */,
 				A950F2951E89700500F4F278 /* DetailEventViewModel.swift in Sources */,
 				A98BA9D81E6C2E6E00A0F5A8 /* TimelineCollectionViewCell.swift in Sources */,

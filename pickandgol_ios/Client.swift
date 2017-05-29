@@ -56,7 +56,7 @@ private func response(endPoint:NetworkResource) ->Observable<Response>  {
             let fileManager = FileManager.default
             // If image was downloaded send image
             if fileManager.fileExists(atPath: imageURL.path) {
-                print("exiist")
+                
                 let image = UIImage(contentsOfFile: imageURL.path )!
                 observer.onNext(image)
                 observer.onCompleted()
