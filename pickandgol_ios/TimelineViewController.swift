@@ -40,7 +40,7 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         
             onNext:{value in
                 if (value){
-                    print("****",value)
+                    print("entro")
                     self.timelineEventDetail.reloadData()
                 }
         }

@@ -1,4 +1,3 @@
-
 platform :ios, '9.0'
 
 use_frameworks!
@@ -37,7 +36,14 @@ pod 'Firebase/Core'
 pod 'Firebase/Messaging'
 pod 'RxRealm'
 pod 'RxRealmDataSources'
+
 end
+
+target 'pickandgol-watch Extension' do
+  platform :watchos, '2.0'
+  pod 'RxSwift',    '~> 3.0'
+end
+
 
 target 'pickandgol_iosTests' do
 pod 'RxSwift',    '~> 3.0'

@@ -16,6 +16,7 @@ class DetailEventViewModel {
     let event:JSONDictionary
     let client = Client()
     let disposeBag = DisposeBag()
+    var addressEvent = PublishSubject<String>()
     
     init(eventDetail event:JSONDictionary){
         self.event = event
@@ -88,6 +89,58 @@ class DetailEventViewModel {
         })
         
     }
+    
+    func getAddressFromLatLon(pdblLatitude: Double, withLongitude pdblLongitude: Double)  {
+        var center : CLLocationCoordinate2D = CLLocationCoordinate2D()
+        
+        let ceo: CLGeocoder = CLGeocoder()
+        center.latitude = pdblLatitude
+        center.longitude = pdblLongitude
+        
+        let loc: CLLocation = CLLocation(latitude:center.latitude, longitude: center.longitude)
+        
+        
+        ceo.reverseGeocodeLocation(loc, completionHandler:
+            {(placemarks, error) in
+                if (error != nil)
+                {
+                    print("reverse geodcode fail: \(error!.localizedDescription)")
+                }
+                let pm = placemarks! as [CLPlacemark]
+                
+                
+                if pm.count > 0 {
+                    let pm = placemarks![0]
+                    print(pm.country ?? "No def")
+                    print(pm.locality ?? "No def")
+                    print(pm.subLocality ?? "No def")
+                    print(pm.thoroughfare ?? "No def")
+                    print(pm.postalCode ?? "No def")
+                    print(pm.subThoroughfare ?? "No def")
+                    var addressString : String = ""
+                    if pm.subLocality != nil {
+                        addressString = addressString + pm.subLocality! + ", "
+                    }
+                    if pm.thoroughfare != nil {
+                        addressString = addressString + pm.thoroughfare! + ", "
+                    }
+                    if pm.locality != nil {
+                        addressString = addressString + pm.locality! + ", "
+                    }
+                    if pm.country != nil {
+                        //addressString = addressString + pm.country! + ", "
+                    }
+                    if pm.postalCode != nil {
+                        addressString = addressString + pm.postalCode! + " "
+                    }
+                    
+                self.addressEvent.onNext(addressString)
+                    
+                }
+        })
+        
+        
+    }
         
         
         
@@ -98,7 +151,8 @@ class DetailEventViewModel {
     }
     
     func getDate() -> String {
-        return event["date"] as! String
+        let dateEvent = event["date"] as! String
+        return dateEvent.zuluToDate()
     }
     
     func getCreator() -> String{

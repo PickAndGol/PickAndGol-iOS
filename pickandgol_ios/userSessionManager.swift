@@ -61,7 +61,7 @@ class userSessionManager {
         self.userSession?.photoUrl = url
     }
     public func getTokenFirebase() -> String?{
-        guard let refreshedToken = FIRInstanceID.instanceID().token() else{
+        guard let refreshedToken = InstanceID.instanceID().token() else{
             return nil
         }
         return refreshedToken

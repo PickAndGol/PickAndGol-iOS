@@ -1,64 +1,66 @@
 PODS:
   - Alamofire (4.4.0)
-  - AWSAutoScaling (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSCloudWatch (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSCognito (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSCognitoIdentityProvider (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSCore (2.5.2)
-  - AWSDynamoDB (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSEC2 (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSElasticLoadBalancing (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSIoT (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSKinesis (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSLambda (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSLex (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSMachineLearning (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSMobileAnalytics (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSPinpoint (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSPolly (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSRekognition (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSS3 (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSSES (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSSimpleDB (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSSNS (2.5.2):
-    - AWSCore (= 2.5.2)
-  - AWSSQS (2.5.2):
-    - AWSCore (= 2.5.2)
-  - Firebase/Core (3.15.0):
-    - FirebaseAnalytics (= 3.7.0)
-    - FirebaseCore (= 3.5.2)
-  - Firebase/Messaging (3.15.0):
+  - AWSAutoScaling (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSCloudWatch (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSCognito (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSCognitoIdentityProvider (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSCore (2.5.8)
+  - AWSDynamoDB (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSEC2 (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSElasticLoadBalancing (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSIoT (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSKinesis (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSLambda (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSLex (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSMachineLearning (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSMobileAnalytics (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSPinpoint (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSPolly (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSRekognition (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSS3 (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSSES (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSSimpleDB (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSSNS (2.5.8):
+    - AWSCore (= 2.5.8)
+  - AWSSQS (2.5.8):
+    - AWSCore (= 2.5.8)
+  - Firebase/Core (4.0.1):
+    - FirebaseAnalytics (= 4.0.0)
+    - FirebaseCore (= 4.0.1)
+  - Firebase/Messaging (4.0.1):
     - Firebase/Core
-    - FirebaseMessaging (= 1.2.2)
-  - FirebaseAnalytics (3.7.0):
-    - FirebaseCore (~> 3.5)
-    - FirebaseInstanceID (~> 1.0)
+    - FirebaseMessaging (= 2.0.0)
+  - FirebaseAnalytics (4.0.0):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseCore (3.5.2):
+  - FirebaseCore (4.0.1):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseInstanceID (1.0.9)
-  - FirebaseMessaging (1.2.2):
-    - FirebaseAnalytics (~> 3.7)
-    - FirebaseInstanceID (~> 1.0)
+  - FirebaseInstanceID (2.0.0):
+    - FirebaseCore (~> 4.0)
+  - FirebaseMessaging (2.0.0):
+    - FirebaseAnalytics (~> 4.0)
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - Protobuf (~> 3.1)
   - GoogleToolboxForMac/Defines (2.1.1)
@@ -66,24 +68,24 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
-  - Protobuf (3.2.0)
-  - Realm (2.4.4):
-    - Realm/Headers (= 2.4.4)
-  - Realm/Headers (2.4.4)
-  - RealmSwift (2.4.4):
-    - Realm (= 2.4.4)
-  - RxCocoa (3.3.1):
-    - RxSwift (~> 3.3)
-  - RxRealm (0.5.2):
-    - RealmSwift (~> 2.4)
-    - RxSwift (~> 3.1)
+  - Protobuf (3.3.0)
+  - Realm (2.8.0):
+    - Realm/Headers (= 2.8.0)
+  - Realm/Headers (2.8.0)
+  - RealmSwift (2.8.0):
+    - Realm (= 2.8.0)
+  - RxCocoa (3.5.0):
+    - RxSwift (~> 3.4)
+  - RxRealm (0.6.0):
+    - RealmSwift (~> 2.5)
+    - RxSwift (~> 3.2)
   - RxRealmDataSources (0.2.1):
     - RealmSwift (~> 2.1)
     - RxCocoa (~> 3.1)
     - RxRealm (~> 0.5)
     - RxSwift (~> 3.1)
-  - RxSwift (3.3.1)
-  - SwifterSwift (1.6.2)
+  - RxSwift (3.5.0)
+  - SwifterSwift (1.6.4)
   - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
@@ -121,44 +123,44 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AWSAutoScaling: 7fe819fa52fb37d2b4b15535ad557a219213a6a8
-  AWSCloudWatch: 765c1878c5005328acb24e15e523f98755ab90c0
-  AWSCognito: a29c52e3a3d4988f01b449c8b229a51b73d1c1bf
-  AWSCognitoIdentityProvider: 496a5d717180e4127f038be3c6494bc59e8ff4dd
-  AWSCore: b2fe455c2c7d6653521238c5b0b0ddb67ec4f063
-  AWSDynamoDB: 311ba51593276a198f8a611c9e89706bd0fe740f
-  AWSEC2: 0d88da0cb9d9d900a5b1e62f97a2365075b301fd
-  AWSElasticLoadBalancing: f7ba3b23dd605e283535e3ef42fba5db766eb1e2
-  AWSIoT: 282cd15afffb9c3a5767efa36f8d330635f0802c
-  AWSKinesis: 124bfe652495ca07e63cd947080829679cc32547
-  AWSLambda: 330b7bddbb34632de02b31536cb7f7c10546dfc4
-  AWSLex: b3a075d6c08321d6b10fa952d3c6dfd241e36d48
-  AWSMachineLearning: c77fe5eba3207bf1c26944b22d868973ee825300
-  AWSMobileAnalytics: d0ce50be90fba6b1dfac20f66c18ac7dc3daf6b6
-  AWSPinpoint: f33f4fed418034999d0708853b0889f6bdea676b
-  AWSPolly: a87083d6ec5278a81f6aa222eb8ecea852e53027
-  AWSRekognition: 3e4af236a7787336ae3d68378fa757927664095b
-  AWSS3: 1f53d780bae0a5949f11da99520c14684bc90af0
-  AWSSES: 01c1bd6953d7c3b8e2698ff6c30fc9b111c1c656
-  AWSSimpleDB: ba37cce420e00c9400bd62a54740dfc7083fc9d0
-  AWSSNS: 3437c505bfb8d5eda6bfc497368462ae31423324
-  AWSSQS: 558aac70d0c908fa5f3b043410243595e4100ff4
-  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
-  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
-  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
-  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
-  FirebaseMessaging: df8267f378580a24174ce7861233aa11d5c90109
+  AWSAutoScaling: b0ca14740f9f26282d6ccd00a7b2f5a499506c28
+  AWSCloudWatch: 9813ebc6104bc61599b12fa448047c69d4a0115c
+  AWSCognito: 8eb74039f4dc5f2d929999c4f531eeb4bd83e6cb
+  AWSCognitoIdentityProvider: 6c0c276a16b622914563350c64d723bcecaa9e75
+  AWSCore: cf101c44d2cc5da32abc27d5529cddc63c010415
+  AWSDynamoDB: 53ead656801e1a40b415fc0bebd85f1dc0dc0ead
+  AWSEC2: d2817357186d4cc18c23ec0b9deb136bfea88b3a
+  AWSElasticLoadBalancing: 9fd9f162b87bded22a5d0406173d8b128eabc379
+  AWSIoT: 209ae36ea1e48a9b8bcb65a94e8267265b4ff2b3
+  AWSKinesis: d4badcaa538424fad79aa86bc35626aa0b7019c9
+  AWSLambda: d83a31bca72ce8e6a6b81a5a3a03e7ea2a44ec3d
+  AWSLex: d8b18608c1076be34034e52f69052a16acce9172
+  AWSMachineLearning: bc8860ad5c2651616f6482e7d70842ba89eaf7a8
+  AWSMobileAnalytics: d0eefb1dbcab87cb97f78961bb847f61396380bb
+  AWSPinpoint: 30b5ef18bfa3a95558d14c85c4fa0457dc8667d3
+  AWSPolly: ca97cf9a0b900a5bb4ca6b9bd297daf851540d48
+  AWSRekognition: 85d53a2ed7d6a11d710b16fbc95e4670f7af19ce
+  AWSS3: addf558f9cf2368e7fb520440867fea5596db0fb
+  AWSSES: 4b81522e24a8e4095d8d6c0511397ab1d51fc06f
+  AWSSimpleDB: d25964f8ec8e5d20af3755667fe0c2924e28925c
+  AWSSNS: 812baa3f5dd5e53da69c37fb8b451e52d0735821
+  AWSSQS: bea4c7b93c011c7765a071b01ad74949d62c1d76
+  Firebase: f984cd44a160be77ad0590f432e574562bfd4083
+  FirebaseAnalytics: 6f08e746f7d66f5452931bc2e822b5df9c66b64a
+  FirebaseCore: 06172c5a0744ab3dd14f778fd666c22855e20098
+  FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
+  FirebaseMessaging: 227406c05b0dc9290702d2e9f18ab5528f0c2cf2
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  Protobuf: 745f59e122e5de98d4d7ef291e264a0eef80f58e
-  Realm: 5a280a1f5a9a3c267bebf4f41ee47911137703d7
-  RealmSwift: 0c02b9f2d4be4301c497ed10e53a0580584eb1dd
-  RxCocoa: 7dcb7a1860fc9cd0e23dae67ab105fc2916670b6
-  RxRealm: df024f04e64c3a9723dab63a6ec8621b3db6473f
+  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  Realm: 929243ad2b618b3232e70658bedc61110e7563f1
+  RealmSwift: 5b7079b891f2833d1849294161ba3e092bbda3f6
+  RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
+  RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
   RxRealmDataSources: 743901f35ef18533b2fc5d41a0f6b6b62b3c3304
-  RxSwift: 8fc9f2de6275a9101d518444e00bf32f1a42caac
-  SwifterSwift: 48a48a193b47e0d577359c75570e5291dd2f460a
+  RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  SwifterSwift: 92c73c47c3cbf7d5f788adf6459bf07b5d23d3fb
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 167dfcfc6899f90e294ebd4a36b23273501fa54a
+PODFILE CHECKSUM: d5cace99b0aa94ea802eb164db9b0406e408c2be
 
 COCOAPODS: 1.2.0

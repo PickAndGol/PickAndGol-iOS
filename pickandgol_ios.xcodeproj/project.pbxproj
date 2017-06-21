@@ -34,9 +34,12 @@
 		34D9523C1E59B35800410032 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D9523B1E59B35800410032 /* RegisterViewModel.swift */; };
 		34E70B551E64B50D00430649 /* UITextField+isValid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E70B541E64B50D00430649 /* UITextField+isValid.swift */; };
 		4925ADBB9C14A57292BE6DA2 /* Pods_pickandgol_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AEE5AA2C33B69F6A907567B /* Pods_pickandgol_ios.framework */; };
+		644E0AD38E679B3223D69BA1 /* Pods_pickandgol_watch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5714AB856C5EFC1B3F91A31D /* Pods_pickandgol_watch_Extension.framework */; };
 		6D2955860C92EEE5BD20D910 /* Pods_pickandgol_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A49134A72C14DBC17BD53D8 /* Pods_pickandgol_iosTests.framework */; };
 		A90A2C911E74713E00364CF6 /* userSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A2C901E74713E00364CF6 /* userSessionManager.swift */; };
 		A90A2C931E74817900364CF6 /* NewItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A2C921E74817900364CF6 /* NewItemViewController.swift */; };
+		A91400B71EE6B92A00EEFAEF /* eventRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91400B21EE6B43E00EEFAEF /* eventRowController.swift */; };
+		A91400B91EE6C8E800EEFAEF /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91400B81EE6C8E800EEFAEF /* EventController.swift */; };
 		A92124ED1E852E2A00612261 /* SelectPubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92124EC1E852E2A00612261 /* SelectPubCollectionViewCell.swift */; };
 		A92124EF1E85369B00612261 /* SelectPubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92124EE1E85369B00612261 /* SelectPubViewController.swift */; };
 		A92124F11E85371300612261 /* SelectPubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92124F01E85371300612261 /* SelectPubViewModel.swift */; };
@@ -44,6 +47,15 @@
 		A9293D031E71FFA2006FF69B /* Client+UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9293D021E71FFA2006FF69B /* Client+UserApi.swift */; };
 		A93093861E8E44850035F65F /* categoryPubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93093851E8E44850035F65F /* categoryPubCollectionViewCell.swift */; };
 		A93093881E8E69020035F65F /* typeOfStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93093871E8E69020035F65F /* typeOfStatusCell.swift */; };
+		A930AF541EE164D200AE1E75 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A930AF521EE164D200AE1E75 /* Interface.storyboard */; };
+		A930AF5D1EE164D200AE1E75 /* pickandgol-watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A930AF5C1EE164D200AE1E75 /* pickandgol-watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A930AF641EE164D200AE1E75 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A930AF631EE164D200AE1E75 /* InterfaceController.swift */; };
+		A930AF661EE164D200AE1E75 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A930AF651EE164D200AE1E75 /* ExtensionDelegate.swift */; };
+		A930AF681EE164D200AE1E75 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A930AF671EE164D200AE1E75 /* NotificationController.swift */; };
+		A930AF6A1EE164D200AE1E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A930AF691EE164D200AE1E75 /* Assets.xcassets */; };
+		A930AF6E1EE164D200AE1E75 /* pickandgol-watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = A930AF501EE164D200AE1E75 /* pickandgol-watch.app */; };
+		A930AF781EE168D400AE1E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A930AF771EE168D400AE1E75 /* Assets.xcassets */; };
+		A930AF791EE168D400AE1E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A930AF771EE168D400AE1E75 /* Assets.xcassets */; };
 		A946D3641E713C4D00DF4FBA /* httpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946D3631E713C4D00DF4FBA /* httpMethods.swift */; };
 		A950F2931E896B4600F4F278 /* DetailEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950F2921E896B4600F4F278 /* DetailEventViewController.swift */; };
 		A950F2951E89700500F4F278 /* DetailEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950F2941E89700500F4F278 /* DetailEventViewModel.swift */; };
@@ -54,6 +66,8 @@
 		A978CBF61E92576C00607B3D /* MapPubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978CBF51E92576C00607B3D /* MapPubViewModel.swift */; };
 		A978CBF81E92DF8000607B3D /* CurrentPositionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A978CBF71E92DF8000607B3D /* CurrentPositionUser.swift */; };
 		A97FB4E11EC2270B000591AD /* PubSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97FB4E01EC2270B000591AD /* PubSelectorTableViewCell.swift */; };
+		A980E5361EEFE3CB00F258A8 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D21E6C2CA500A0F5A8 /* Response.swift */; };
+		A980E5371EEFE5CC00F258A8 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349F43DD1E54EBB800A905FE /* JSONDecodable.swift */; };
 		A98B3FA01E951A1500D37DB3 /* testPub.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98B3F9F1E951A1500D37DB3 /* testPub.swift */; };
 		A98B3FA11E951B5100D37DB3 /* PubModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B9281E845F860090906C /* PubModel.swift */; };
 		A98B3FA21E951D6E00D37DB3 /* EventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98BA9D41E6C2CBE00A0F5A8 /* EventApi.swift */; };
@@ -88,8 +102,11 @@
 		A99E5A4B1E7E663800A11304 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E5A4A1E7E663800A11304 /* ImageManager.swift */; };
 		A9A802E41E81850400387B37 /* touchIDAutentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A802E31E81850400387B37 /* touchIDAutentication.swift */; };
 		A9A934161EA51E5E0068FCAC /* userSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90A2C901E74713E00364CF6 /* userSessionManager.swift */; };
+		A9B944361EEE94E500899378 /* NetworkManagerForWatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B944351EEE94E500899378 /* NetworkManagerForWatch.swift */; };
+		A9B944371EEE9A1F00899378 /* httpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = A946D3631E713C4D00DF4FBA /* httpMethods.swift */; };
 		A9CDA5EF1E968E0100771A05 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9CDA5EE1E968E0100771A05 /* GoogleService-Info.plist */; };
 		A9D1B2E31ED35F74006D3F52 /* NewPubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D1B2E21ED35F74006D3F52 /* NewPubCollectionViewCell.swift */; };
+		A9D253B31EF98243006E2552 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D253B21EF98243006E2552 /* String+Extension.swift */; };
 		A9D68AC01E9422380052C19E /* NotificationManagerWithFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D68ABF1E9422380052C19E /* NotificationManagerWithFirebase.swift */; };
 		A9E3B91F1E83D7430090906C /* Client+PubApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E3B91E1E83D7430090906C /* Client+PubApi.swift */; };
 		A9E3B9211E83EA440090906C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E3B9201E83EA440090906C /* MapKit.framework */; };
@@ -108,9 +125,49 @@
 			remoteGlobalIDString = 34B844F51E3BBC4D00410E6A;
 			remoteInfo = pickandgol_ios;
 		};
+		A930AF5E1EE164D200AE1E75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34B844EE1E3BBC4D00410E6A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A930AF5B1EE164D200AE1E75;
+			remoteInfo = "pickandgol-watch Extension";
+		};
+		A930AF6C1EE164D200AE1E75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 34B844EE1E3BBC4D00410E6A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A930AF4F1EE164D200AE1E75;
+			remoteInfo = "pickandgol-watch";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A930AF721EE164D200AE1E75 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A930AF5D1EE164D200AE1E75 /* pickandgol-watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A930AF761EE164D200AE1E75 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				A930AF6E1EE164D200AE1E75 /* pickandgol-watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		035D1129D0CB5EB88ABF758B /* Pods-pickandgol-watch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol-watch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol-watch Extension/Pods-pickandgol-watch Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		0A49134A72C14DBC17BD53D8 /* Pods_pickandgol_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pickandgol_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ABFDB01C706FE97FCEAAF0F /* Pods-pickandgol_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_ios/Pods-pickandgol_ios.release.xcconfig"; sourceTree = "<group>"; };
 		2AEE5AA2C33B69F6A907567B /* Pods_pickandgol_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pickandgol_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,9 +201,13 @@
 		34D952391E59B1B800410032 /* MainLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLoginViewController.swift; sourceTree = "<group>"; };
 		34D9523B1E59B35800410032 /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		34E70B541E64B50D00430649 /* UITextField+isValid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+isValid.swift"; sourceTree = "<group>"; };
+		5714AB856C5EFC1B3F91A31D /* Pods_pickandgol_watch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pickandgol_watch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B20C08AA10E8CE98B79D52 /* Pods-pickandgol_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_ios/Pods-pickandgol_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		A90A2C901E74713E00364CF6 /* userSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userSessionManager.swift; sourceTree = "<group>"; };
 		A90A2C921E74817900364CF6 /* NewItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewItemViewController.swift; sourceTree = "<group>"; };
+		A91400B11EE6B43E00EEFAEF /* pickandgol-watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "pickandgol-watch-Bridging-Header.h"; sourceTree = "<group>"; };
+		A91400B21EE6B43E00EEFAEF /* eventRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = eventRowController.swift; path = "../pickandgol-watch/eventRowController.swift"; sourceTree = "<group>"; };
+		A91400B81EE6C8E800EEFAEF /* EventController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		A92124EC1E852E2A00612261 /* SelectPubCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPubCollectionViewCell.swift; sourceTree = "<group>"; };
 		A92124EE1E85369B00612261 /* SelectPubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPubViewController.swift; sourceTree = "<group>"; };
 		A92124F01E85371300612261 /* SelectPubViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPubViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +215,17 @@
 		A9293D021E71FFA2006FF69B /* Client+UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+UserApi.swift"; sourceTree = "<group>"; };
 		A93093851E8E44850035F65F /* categoryPubCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryPubCollectionViewCell.swift; sourceTree = "<group>"; };
 		A93093871E8E69020035F65F /* typeOfStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typeOfStatusCell.swift; sourceTree = "<group>"; };
+		A930AF501EE164D200AE1E75 /* pickandgol-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pickandgol-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A930AF531EE164D200AE1E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		A930AF571EE164D200AE1E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A930AF5C1EE164D200AE1E75 /* pickandgol-watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "pickandgol-watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A930AF621EE164D200AE1E75 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		A930AF631EE164D200AE1E75 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		A930AF651EE164D200AE1E75 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		A930AF671EE164D200AE1E75 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		A930AF691EE164D200AE1E75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A930AF6B1EE164D200AE1E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A930AF771EE168D400AE1E75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A946D3631E713C4D00DF4FBA /* httpMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = httpMethods.swift; sourceTree = "<group>"; };
 		A950F2921E896B4600F4F278 /* DetailEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewController.swift; sourceTree = "<group>"; };
 		A950F2941E89700500F4F278 /* DetailEventViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailEventViewModel.swift; sourceTree = "<group>"; };
@@ -182,8 +254,10 @@
 		A996F9001E939A1200EB2827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		A99E5A4A1E7E663800A11304 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		A9A802E31E81850400387B37 /* touchIDAutentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = touchIDAutentication.swift; sourceTree = "<group>"; };
+		A9B944351EEE94E500899378 /* NetworkManagerForWatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerForWatch.swift; sourceTree = "<group>"; };
 		A9CDA5EE1E968E0100771A05 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A9D1B2E21ED35F74006D3F52 /* NewPubCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPubCollectionViewCell.swift; sourceTree = "<group>"; };
+		A9D253B21EF98243006E2552 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		A9D68ABF1E9422380052C19E /* NotificationManagerWithFirebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManagerWithFirebase.swift; sourceTree = "<group>"; };
 		A9E3B91E1E83D7430090906C /* Client+PubApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+PubApi.swift"; sourceTree = "<group>"; };
 		A9E3B9201E83EA440090906C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -192,6 +266,8 @@
 		A9E3B9261E845E890090906C /* PubModelStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModelStruct.swift; sourceTree = "<group>"; };
 		A9E3B9281E845F860090906C /* PubModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModel.swift; sourceTree = "<group>"; };
 		A9E72ABE1EB8DD38004C26D1 /* PubModelRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PubModelRealm.swift; sourceTree = "<group>"; };
+		B6CDB2C395ACE3B4CAC53927 /* Pods_pickandgol_watch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pickandgol_watch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE595AAF232C33E7922523E8 /* Pods-pickandgol-watch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol-watch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol-watch Extension/Pods-pickandgol-watch Extension.release.xcconfig"; sourceTree = "<group>"; };
 		D50A5FFB24080A7F9A8101CC /* Pods-pickandgol_iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_iosTests/Pods-pickandgol_iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		D82814AAAC40C86FE252799E /* Pods-pickandgol_iosTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pickandgol_iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pickandgol_iosTests/Pods-pickandgol_iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +290,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6EFF662C81516024B7B92A24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A930AF591EE164D200AE1E75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				644E0AD38E679B3223D69BA1 /* Pods_pickandgol_watch_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -223,6 +314,8 @@
 				A9E3B9201E83EA440090906C /* MapKit.framework */,
 				2AEE5AA2C33B69F6A907567B /* Pods_pickandgol_ios.framework */,
 				0A49134A72C14DBC17BD53D8 /* Pods_pickandgol_iosTests.framework */,
+				5714AB856C5EFC1B3F91A31D /* Pods_pickandgol_watch_Extension.framework */,
+				B6CDB2C395ACE3B4CAC53927 /* Pods_pickandgol_watch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -433,6 +526,7 @@
 		34B844ED1E3BBC4D00410E6A = {
 			isa = PBXGroup;
 			children = (
+				A930AF4D1EE1621B00AE1E75 /* watch */,
 				A97FB4E01EC2270B000591AD /* PubSelectorTableViewCell.swift */,
 				34B844F81E3BBC4D00410E6A /* pickandgol_ios */,
 				34B8450D1E3BBC4D00410E6A /* pickandgol_iosTests */,
@@ -447,6 +541,8 @@
 			children = (
 				34B844F61E3BBC4D00410E6A /* pickandgol_ios.app */,
 				34B8450A1E3BBC4D00410E6A /* pickandgol_iosTests.xctest */,
+				A930AF501EE164D200AE1E75 /* pickandgol-watch.app */,
+				A930AF5C1EE164D200AE1E75 /* pickandgol-watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -540,6 +636,7 @@
 				34E70B541E64B50D00430649 /* UITextField+isValid.swift */,
 				A958A0FA1E7ABC62006DEC6C /* UIImage+Extension.swift */,
 				A98B3FB71E95974C00D37DB3 /* ManagerHideKeyboard.swift */,
+				A9D253B21EF98243006E2552 /* String+Extension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -568,6 +665,8 @@
 				2ABFDB01C706FE97FCEAAF0F /* Pods-pickandgol_ios.release.xcconfig */,
 				D82814AAAC40C86FE252799E /* Pods-pickandgol_iosTests.debug.xcconfig */,
 				D50A5FFB24080A7F9A8101CC /* Pods-pickandgol_iosTests.release.xcconfig */,
+				035D1129D0CB5EB88ABF758B /* Pods-pickandgol-watch Extension.debug.xcconfig */,
+				CE595AAF232C33E7922523E8 /* Pods-pickandgol-watch Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -579,6 +678,50 @@
 				A978CBF71E92DF8000607B3D /* CurrentPositionUser.swift */,
 			);
 			name = MapsUtils;
+			sourceTree = "<group>";
+		};
+		A930AF4D1EE1621B00AE1E75 /* watch */ = {
+			isa = PBXGroup;
+			children = (
+				A930AF601EE164D200AE1E75 /* pickandgol-watch Extension */,
+				A930AF511EE164D200AE1E75 /* pickandgol-watch */,
+			);
+			name = watch;
+			sourceTree = "<group>";
+		};
+		A930AF511EE164D200AE1E75 /* pickandgol-watch */ = {
+			isa = PBXGroup;
+			children = (
+				A930AF521EE164D200AE1E75 /* Interface.storyboard */,
+				A930AF771EE168D400AE1E75 /* Assets.xcassets */,
+				A930AF571EE164D200AE1E75 /* Info.plist */,
+				A91400B11EE6B43E00EEFAEF /* pickandgol-watch-Bridging-Header.h */,
+			);
+			path = "pickandgol-watch";
+			sourceTree = "<group>";
+		};
+		A930AF601EE164D200AE1E75 /* pickandgol-watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A9B944331EEE947B00899378 /* manager */,
+				A930AF631EE164D200AE1E75 /* InterfaceController.swift */,
+				A930AF651EE164D200AE1E75 /* ExtensionDelegate.swift */,
+				A930AF671EE164D200AE1E75 /* NotificationController.swift */,
+				A91400B21EE6B43E00EEFAEF /* eventRowController.swift */,
+				A91400B81EE6C8E800EEFAEF /* EventController.swift */,
+				A930AF691EE164D200AE1E75 /* Assets.xcassets */,
+				A930AF6B1EE164D200AE1E75 /* Info.plist */,
+				A930AF611EE164D200AE1E75 /* Supporting Files */,
+			);
+			path = "pickandgol-watch Extension";
+			sourceTree = "<group>";
+		};
+		A930AF611EE164D200AE1E75 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A930AF621EE164D200AE1E75 /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A946D3651E71B6CD00DF4FBA /* NetWorkUtils */ = {
@@ -602,6 +745,22 @@
 			name = autenticationUtils;
 			sourceTree = "<group>";
 		};
+		A9B944331EEE947B00899378 /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				A9B944341EEE948700899378 /* networkManager */,
+			);
+			name = manager;
+			sourceTree = "<group>";
+		};
+		A9B944341EEE948700899378 /* networkManager */ = {
+			isa = PBXGroup;
+			children = (
+				A9B944351EEE94E500899378 /* NetworkManagerForWatch.swift */,
+			);
+			name = networkManager;
+			sourceTree = "<group>";
+		};
 		A9D68ABE1E9421FE0052C19E /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,10 +782,12 @@
 				34B844F41E3BBC4D00410E6A /* Resources */,
 				8DE3D5CF2D5D8CD98AEC4256 /* [CP] Embed Pods Frameworks */,
 				3D05D8EF1AAF0AB54A25699E /* [CP] Copy Pods Resources */,
+				A930AF761EE164D200AE1E75 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A930AF6D1EE164D200AE1E75 /* PBXTargetDependency */,
 			);
 			name = pickandgol_ios;
 			productName = pickandgol_ios;
@@ -654,13 +815,51 @@
 			productReference = 34B8450A1E3BBC4D00410E6A /* pickandgol_iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		A930AF4F1EE164D200AE1E75 /* pickandgol-watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A930AF731EE164D200AE1E75 /* Build configuration list for PBXNativeTarget "pickandgol-watch" */;
+			buildPhases = (
+				A930AF4E1EE164D200AE1E75 /* Resources */,
+				A930AF721EE164D200AE1E75 /* Embed App Extensions */,
+				6EFF662C81516024B7B92A24 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A930AF5F1EE164D200AE1E75 /* PBXTargetDependency */,
+			);
+			name = "pickandgol-watch";
+			productName = "pickandgol-watch";
+			productReference = A930AF501EE164D200AE1E75 /* pickandgol-watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		A930AF5B1EE164D200AE1E75 /* pickandgol-watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A930AF6F1EE164D200AE1E75 /* Build configuration list for PBXNativeTarget "pickandgol-watch Extension" */;
+			buildPhases = (
+				48B73A5E584A907B246E4C7A /* [CP] Check Pods Manifest.lock */,
+				A930AF581EE164D200AE1E75 /* Sources */,
+				A930AF591EE164D200AE1E75 /* Frameworks */,
+				A930AF5A1EE164D200AE1E75 /* Resources */,
+				5CB6070B1353944C8F20B885 /* [CP] Embed Pods Frameworks */,
+				7BB40B674CB863DD73D556CE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "pickandgol-watch Extension";
+			productName = "pickandgol-watch Extension";
+			productReference = A930AF5C1EE164D200AE1E75 /* pickandgol-watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		34B844EE1E3BBC4D00410E6A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = pickandgol;
 				TargetAttributes = {
@@ -686,6 +885,17 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 34B844F51E3BBC4D00410E6A;
 					};
+					A930AF4F1EE164D200AE1E75 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = KR3B4933S2;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					A930AF5B1EE164D200AE1E75 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = KR3B4933S2;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 34B844F11E3BBC4D00410E6A /* Build configuration list for PBXProject "pickandgol_ios" */;
@@ -703,6 +913,8 @@
 			targets = (
 				34B844F51E3BBC4D00410E6A /* pickandgol_ios */,
 				34B845091E3BBC4D00410E6A /* pickandgol_iosTests */,
+				A930AF4F1EE164D200AE1E75 /* pickandgol-watch */,
+				A930AF5B1EE164D200AE1E75 /* pickandgol-watch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -730,6 +942,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A930AF4E1EE164D200AE1E75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A930AF781EE168D400AE1E75 /* Assets.xcassets in Resources */,
+				A930AF541EE164D200AE1E75 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A930AF5A1EE164D200AE1E75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A930AF6A1EE164D200AE1E75 /* Assets.xcassets in Resources */,
+				A930AF791EE168D400AE1E75 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,6 +1011,36 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pickandgol_ios/Pods-pickandgol_ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		48B73A5E584A907B246E4C7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5CB6070B1353944C8F20B885 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pickandgol-watch Extension/Pods-pickandgol-watch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7997C4F0470AC2FE86EFC689 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -794,6 +1054,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7BB40B674CB863DD73D556CE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-pickandgol-watch Extension/Pods-pickandgol-watch Extension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		87A69B69FA034A9BDC4AE568 /* [CP] Check Pods Manifest.lock */ = {
@@ -889,6 +1164,7 @@
 				A9293D031E71FFA2006FF69B /* Client+UserApi.swift in Sources */,
 				349F43E41E54EC2B00A905FE /* UserModelStruct.swift in Sources */,
 				A92124F11E85371300612261 /* SelectPubViewModel.swift in Sources */,
+				A9D253B31EF98243006E2552 /* String+Extension.swift in Sources */,
 				349F43E61E54EC3B00A905FE /* UserModelStruct+JSONDecodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -920,6 +1196,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A930AF581EE164D200AE1E75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A980E5371EEFE5CC00F258A8 /* JSONDecodable.swift in Sources */,
+				A980E5361EEFE3CB00F258A8 /* Response.swift in Sources */,
+				A9B944361EEE94E500899378 /* NetworkManagerForWatch.swift in Sources */,
+				A930AF681EE164D200AE1E75 /* NotificationController.swift in Sources */,
+				A91400B71EE6B92A00EEFAEF /* eventRowController.swift in Sources */,
+				A91400B91EE6C8E800EEFAEF /* EventController.swift in Sources */,
+				A9B944371EEE9A1F00899378 /* httpMethods.swift in Sources */,
+				A930AF661EE164D200AE1E75 /* ExtensionDelegate.swift in Sources */,
+				A930AF641EE164D200AE1E75 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -927,6 +1219,16 @@
 			isa = PBXTargetDependency;
 			target = 34B844F51E3BBC4D00410E6A /* pickandgol_ios */;
 			targetProxy = 34B8450B1E3BBC4D00410E6A /* PBXContainerItemProxy */;
+		};
+		A930AF5F1EE164D200AE1E75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A930AF5B1EE164D200AE1E75 /* pickandgol-watch Extension */;
+			targetProxy = A930AF5E1EE164D200AE1E75 /* PBXContainerItemProxy */;
+		};
+		A930AF6D1EE164D200AE1E75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A930AF4F1EE164D200AE1E75 /* pickandgol-watch */;
+			targetProxy = A930AF6C1EE164D200AE1E75 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -937,6 +1239,14 @@
 				34B845031E3BBC4D00410E6A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		A930AF521EE164D200AE1E75 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A930AF531EE164D200AE1E75 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1099,6 +1409,89 @@
 			};
 			name = Release;
 		};
+		A930AF701EE164D200AE1E75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 035D1129D0CB5EB88ABF758B /* Pods-pickandgol-watch Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = KR3B4933S2;
+				INFOPLIST_FILE = "pickandgol-watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pickandgol.pickandgol-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		A930AF711EE164D200AE1E75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE595AAF232C33E7922523E8 /* Pods-pickandgol-watch Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = KR3B4933S2;
+				INFOPLIST_FILE = "pickandgol-watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pickandgol.pickandgol-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
+		A930AF741EE164D200AE1E75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = KR3B4933S2;
+				IBSC_MODULE = pickandgol_watch_Extension;
+				INFOPLIST_FILE = "pickandgol-watch/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pickandgol.pickandgol-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "pickandgol-watch/pickandgol-watch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Debug;
+		};
+		A930AF751EE164D200AE1E75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = KR3B4933S2;
+				IBSC_MODULE = pickandgol_watch_Extension;
+				INFOPLIST_FILE = "pickandgol-watch/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pickandgol.pickandgol-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "pickandgol-watch/pickandgol-watch-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1125,6 +1518,24 @@
 			buildConfigurations = (
 				34B845171E3BBC4D00410E6A /* Debug */,
 				34B845181E3BBC4D00410E6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A930AF6F1EE164D200AE1E75 /* Build configuration list for PBXNativeTarget "pickandgol-watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A930AF701EE164D200AE1E75 /* Debug */,
+				A930AF711EE164D200AE1E75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A930AF731EE164D200AE1E75 /* Build configuration list for PBXNativeTarget "pickandgol-watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A930AF741EE164D200AE1E75 /* Debug */,
+				A930AF751EE164D200AE1E75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

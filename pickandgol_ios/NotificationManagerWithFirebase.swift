@@ -28,7 +28,7 @@ class NoficationManagerWithFireBase:NSObject{
                 completionHandler: {_, _ in })
             
             // For iOS 10 data message (sent via FCM)
-            FIRMessaging.messaging().remoteMessageDelegate = self
+            //Messaging.messaging().remoteMessageDelegate = self
             
         } else {
             let settings: UIUserNotificationSettings =
@@ -43,7 +43,7 @@ class NoficationManagerWithFireBase:NSObject{
     
     
     @objc func tokenRefreshNotification(_ notification: Notification) {
-        if let refreshedToken = FIRInstanceID.instanceID().token() {
+        if let refreshedToken = InstanceID.instanceID().token() {
             print("InstanceID token: \(refreshedToken)")
         }
         
@@ -54,14 +54,14 @@ class NoficationManagerWithFireBase:NSObject{
     // [START connect_to_fcm]
     func connectToFcm() {
         // Won't connect since there is no token
-        guard FIRInstanceID.instanceID().token() != nil else {
+        guard InstanceID.instanceID().token() != nil else {
             return
         }
         
         // Disconnect previous FCM connection if it exists.
-        FIRMessaging.messaging().disconnect()
+        Messaging.messaging().disconnect()
         
-        FIRMessaging.messaging().connect { (error) in
+        Messaging.messaging().connect { (error) in
             if error != nil {
                 print("Unable to connect with FCM. \(error?.localizedDescription ?? "")")
             } else {
@@ -71,7 +71,7 @@ class NoficationManagerWithFireBase:NSObject{
     }
     // [END connect_to_fcm]
     
-    func observingNotification(){
+ /*   func observingNotification(){
         // [START add_token_refresh_observer]
         // Add observer for InstanceID token refresh callback.
         NotificationCenter.default.addObserver(self,
@@ -79,7 +79,7 @@ class NoficationManagerWithFireBase:NSObject{
                                                name: .firInstanceIDTokenRefresh,
                                                object: nil)
         // [END add_token_refresh_observer]
-    }
+    }*/
     
     
     
@@ -150,14 +150,15 @@ extension NoficationManagerWithFireBase : UNUserNotificationCenterDelegate {
 }
 // [END ios_10_message_handling]
 // [START ios_10_data_message_handling]
-extension NoficationManagerWithFireBase : FIRMessagingDelegate {
+/*extension NoficationManagerWithFireBase : MessagingDelegate {
     // Receive data message on iOS 10 devices while app is in the foreground.
-    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+    func application(received remoteMessage: MessagingRemoteMessage) {
         print(".... \(remoteMessage.appData)")
         
         alertNotification(title: "PickandGol", subtitle: "MEnsajito", body: "Estos es un mensaje")
     }
-}
+    
+}*/
 // [END ios_10_data_message_handling]
 
 

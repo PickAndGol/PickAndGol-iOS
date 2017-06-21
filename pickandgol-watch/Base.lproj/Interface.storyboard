@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+    </dependencies>
+    <scenes>
+        <!--Event Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="EventController" customModule="pickandgol_watch_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="FUq-rt-sXb">
+                            <items>
+                                <imageView width="20" height="21" alignment="left" image="pickandgollogo" id="GJo-we-PJo"/>
+                                <label width="113" height="17" alignment="center" text="Lista Eventos" textAlignment="left" minimumScaleFactor="0.69999999999999996" id="S4C-6Y-u84">
+                                    <color key="textColor" red="0.092045225203037262" green="0.47498273849487305" blue="0.14477145671844482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </label>
+                            </items>
+                        </group>
+                        <separator alignment="left" id="6Db-A0-PK3"/>
+                        <table alignment="left" backgroundImage="ackbar" id="DGX-ay-pnZ">
+                            <items>
+                                <tableRow identifier="eventRowCellType" id="CPQ-Dh-i8x" customClass="eventRowController" customModule="pickandgol_watch_Extension">
+                                    <group key="rootItem" width="1" height="40" alignment="left" id="Rou-qk-Kkx">
+                                        <items>
+                                            <imageView width="30" height="30" alignment="left" image="ackbar" contentMode="scaleAspectFill" id="PH8-Yi-Qkl"/>
+                                            <group width="90" height="38" alignment="left" layout="vertical" id="WA6-q1-ksh">
+                                                <items>
+                                                    <label width="91" height="17" alignment="left" text="Label" minimumScaleFactor="0.69999999999999996" id="LTI-Bc-2gm">
+                                                        <color key="textColor" red="0.092045225203037262" green="0.47498273849487305" blue="0.14477145671844482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                                    </label>
+                                                    <label alignment="left" text="Label" minimumScaleFactor="0.40000000000000002" id="j2s-G9-UN8" userLabel="Label date">
+                                                        <color key="textColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="eventDate" destination="j2s-G9-UN8" id="iIE-XD-HtX"/>
+                                        <outlet property="eventImage" destination="PH8-Yi-Qkl" id="xRK-cW-kWv"/>
+                                        <outlet property="eventName" destination="LTI-Bc-2gm" id="UxH-F9-2jp"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="eventTable" destination="DGX-ay-pnZ" id="p7K-Be-yCR"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="pickandgol_watch" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
