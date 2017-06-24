@@ -45,6 +45,7 @@
 		A92124F11E85371300612261 /* SelectPubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92124F01E85371300612261 /* SelectPubViewModel.swift */; };
 		A9247C9F1E8AAC760099997D /* MapsAnnotationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9247C9E1E8AAC760099997D /* MapsAnnotationUtils.swift */; };
 		A9293D031E71FFA2006FF69B /* Client+UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9293D021E71FFA2006FF69B /* Client+UserApi.swift */; };
+		A92FC7661EFBD20000B995C3 /* TimelineModelRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92FC7651EFBD20000B995C3 /* TimelineModelRealm.swift */; };
 		A93093861E8E44850035F65F /* categoryPubCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93093851E8E44850035F65F /* categoryPubCollectionViewCell.swift */; };
 		A93093881E8E69020035F65F /* typeOfStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93093871E8E69020035F65F /* typeOfStatusCell.swift */; };
 		A930AF541EE164D200AE1E75 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A930AF521EE164D200AE1E75 /* Interface.storyboard */; };
@@ -213,6 +214,7 @@
 		A92124F01E85371300612261 /* SelectPubViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPubViewModel.swift; sourceTree = "<group>"; };
 		A9247C9E1E8AAC760099997D /* MapsAnnotationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsAnnotationUtils.swift; sourceTree = "<group>"; };
 		A9293D021E71FFA2006FF69B /* Client+UserApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Client+UserApi.swift"; sourceTree = "<group>"; };
+		A92FC7651EFBD20000B995C3 /* TimelineModelRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineModelRealm.swift; sourceTree = "<group>"; };
 		A93093851E8E44850035F65F /* categoryPubCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = categoryPubCollectionViewCell.swift; sourceTree = "<group>"; };
 		A93093871E8E69020035F65F /* typeOfStatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = typeOfStatusCell.swift; sourceTree = "<group>"; };
 		A930AF501EE164D200AE1E75 /* pickandgol-watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pickandgol-watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -579,6 +581,7 @@
 		34B845191E3BBDE400410E6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A9BF5B2C1EFB1CC800F005E9 /* Timeline */,
 				349F43D71E54EB0900A905FE /* User */,
 				349F43D81E54EB0D00A905FE /* Pub */,
 				349F43D61E54EB0700A905FE /* Event */,
@@ -759,6 +762,14 @@
 				A9B944351EEE94E500899378 /* NetworkManagerForWatch.swift */,
 			);
 			name = networkManager;
+			sourceTree = "<group>";
+		};
+		A9BF5B2C1EFB1CC800F005E9 /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				A92FC7651EFBD20000B995C3 /* TimelineModelRealm.swift */,
+			);
+			name = Timeline;
 			sourceTree = "<group>";
 		};
 		A9D68ABE1E9421FE0052C19E /* Notification */ = {
@@ -1158,6 +1169,7 @@
 				34D952381E59AF8C00410032 /* RegisterViewController.swift in Sources */,
 				349F43E21E54EBEB00A905FE /* UserModel.swift in Sources */,
 				34B8456D1E3D229100410E6A /* UIStoryboard+Storyboard.swift in Sources */,
+				A92FC7661EFBD20000B995C3 /* TimelineModelRealm.swift in Sources */,
 				A958A0FB1E7ABC62006DEC6C /* UIImage+Extension.swift in Sources */,
 				A93093861E8E44850035F65F /* categoryPubCollectionViewCell.swift in Sources */,
 				A90A2C931E74817900364CF6 /* NewItemViewController.swift in Sources */,

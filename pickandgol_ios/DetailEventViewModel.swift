@@ -68,7 +68,9 @@ class DetailEventViewModel {
     func getLocation() ->Observable<PubModel> {
         return Observable<PubModel>.create({ (observer) -> Disposable in
              let p = self.event["pubs"] as! NSArray
-             self.client.getOnePub(pub: p[0] as! String).subscribe(
+             let idpub = p[0] as! pubsOfEvent
+                
+             self.client.getOnePub(pub:idpub.idPubEvent).subscribe(
                 onNext:{ result in
                     let data = result.result() as! JSONDictionary
                     let dataLocation = data["location"] as! JSONDictionary
