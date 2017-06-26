@@ -33,59 +33,22 @@ class TimelineViewController: UIViewController, UICollectionViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //searchbar.delegate = self
+      
         bindRx()
         searchBar()
         
         timelineEventDetail.delegate = self
         timelineEventDetail.dataSource = self
         self.hideKeyboardWhenTappedAround()
-        /*viewModel.refreshTableEvent.subscribe(
         
-            onNext:{value in
-                if (value){
-                    print("entro")
-                    self.timelineEventDetail.reloadData()
-                }
-        }
-        
-        ).addDisposableTo(disposeBag)
-        */
-    
     }
-    
-    /*func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-       
-        if (indexPath.row == collectionView.numberOfItems-1){
-            viewModel.refreshTable()
-        }
-        
-        
-    }*/
-    
-    
-   
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-   
-    
-    
-   /* func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text ?? "")
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    
-        
-        self.viewModel.query.value = searchText
-        
-    }*/
-    
-    // new function
-    
+
     func searchBar() {
         searchbar
             .rx.text // Observable property thanks to RxCocoa
@@ -101,7 +64,6 @@ class TimelineViewController: UIViewController, UICollectionViewDelegate {
     
     // en vez de hacer un segue instanciar por codigo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         
         
         guard let nextVC: DetailEventViewController = segue.destination as? DetailEventViewController else {

@@ -26,17 +26,7 @@ class TimelineViewModel {
     private var firstSuscriptionSearchBar = true
     var oldValueSearch = ""
    
-    
-    
-    fileprivate let eventsSubject = PublishSubject<[JSONDictionary]>()
-    fileprivate var eventsApi:[JSONDictionary] = []
-    fileprivate var pageElement = 0
-    static let limit = 10
-    static let incrementElement = 10
-    
-    var events: Observable<[JSONDictionary]> {
-        return eventsSubject.asObservable()
-    }
+   
     
     
     init(client: Client = Client()) {
@@ -45,21 +35,7 @@ class TimelineViewModel {
         listOfEventTable = realm.objects(PubTimelineModel.self)
         bindRx()
         listOfEvent()
-        
-        /*self.query.asObservable()
-            .throttle(0.3, scheduler: MainScheduler.instance)
-            .subscribe(
-                onNext:{ value in
-                     self.pageElement = 0
-                     self.refreshTable(refresh: true)
-                    
-            }
-        
-        ).addDisposableTo(disposeBag)
-        */
-
-        
-        
+    
     }
 
     let disposeBag = DisposeBag()
@@ -77,39 +53,7 @@ class TimelineViewModel {
         
     }
     
-    
-    /*public func refreshTable(refresh:Bool=false) {
-    
-        let params = "text=\(query.value)&start=\(pageElement)&limit=\(TimelineViewModel.limit)"
-        print(params)
-        client.listEvent(params: params).subscribe(
-        
-            onNext:{ value in
-                if (value.count > 0) {
-                    if (refresh){
-                        self.eventsApi.removeAll()
-                        self.eventsSubject.onNext(self.eventsApi)
-                      
-                    }
-                    self.saveDataInTimeLineModel(dataEvent: value)
-                    self.eventsApi.append(contentsOf: value)
-                    self.eventsSubject.onNext(self.eventsApi)
-                    self.pageElement += value.count
-                    self.refreshTableEvent.onNext(true)
-                }else {
-                    self.eventsSubject.onCompleted()
-                }
-                print("TOTAL",self.eventsApi.count)
-        }
-        
-        ).addDisposableTo(disposeBag)
-        
-    
-    }*/
-    
-    
-    
-// NEW FUNCTION WITH REALM
+
     
     private func bindRx() {
         
