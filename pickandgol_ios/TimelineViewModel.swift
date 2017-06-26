@@ -24,6 +24,7 @@ class TimelineViewModel {
     var filterAction = false
     let refreshListOfEvent = Variable<Bool>(false)
     private var firstSuscriptionSearchBar = true
+    var oldValueSearch = ""
    
     
     
@@ -77,7 +78,7 @@ class TimelineViewModel {
     }
     
     
-    public func refreshTable(refresh:Bool=false) {
+    /*public func refreshTable(refresh:Bool=false) {
     
         let params = "text=\(query.value)&start=\(pageElement)&limit=\(TimelineViewModel.limit)"
         print(params)
@@ -104,7 +105,7 @@ class TimelineViewModel {
         ).addDisposableTo(disposeBag)
         
     
-    }
+    }*/
     
     
     
@@ -131,7 +132,13 @@ class TimelineViewModel {
         
         query.asObservable().skip(1).subscribe(
             onNext:{value in
-                self.start = 0
+            
+                
+                if (self.oldValueSearch != value){
+                    self.oldValueSearch = value
+                    self.start = 0
+                    
+                }
                 
                 if (self.firstSuscriptionSearchBar){
                     self.firstSuscriptionSearchBar = false
@@ -214,7 +221,7 @@ class TimelineViewModel {
     }
     public func listOfEvent(addRegister:Bool = true) {
         
-        var params = ("start=\(start)&limit=\(limit)")
+        var params = ("start=\(self.start)&limit=\(limit)")
         
         if(query.value != ""){
             params+="&text="+query.value
@@ -229,8 +236,10 @@ class TimelineViewModel {
             if(!addRegister){
                 self.deleteAllRegisterInPubModelRealm()
             }else{
-                self.start += self.start+returnElement
+                //self.start += returnElement
+                
             }
+            self.start += returnElement
             if ( returnElement > 0 ){
                 
                 self.saveDataInTimeLineModel(dataEvent: element)

@@ -12,7 +12,7 @@ import RxCocoa
 
 
 
-class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResultsUpdating,UICollectionViewDelegate {
+class TimelineViewController: UIViewController, UICollectionViewDelegate {
  
     @IBOutlet weak var timelineEventDetail: UICollectionView!{
         didSet{
@@ -33,8 +33,9 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchbar.delegate = self
+        //searchbar.delegate = self
         bindRx()
+        searchBar()
         
         timelineEventDetail.delegate = self
         timelineEventDetail.dataSource = self
@@ -72,7 +73,7 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
    
     
     
-    func updateSearchResults(for searchController: UISearchController) {
+   /* func updateSearchResults(for searchController: UISearchController) {
         print(searchController.searchBar.text ?? "")
     }
     
@@ -81,9 +82,22 @@ class TimelineViewController: UIViewController, UISearchBarDelegate,UISearchResu
         
         self.viewModel.query.value = searchText
         
-    }
+    }*/
     
     // new function
+    
+    func searchBar() {
+        searchbar
+            .rx.text // Observable property thanks to RxCocoa
+            .orEmpty // Make it non-optional
+            .debounce(0.5, scheduler: MainScheduler.instance) // Wait 0.5 for changes.
+            .distinctUntilChanged() // If they didn't occur, check if the new value is the same as old.
+            .subscribe(onNext: { [unowned self] query in // Here we subscribe to every new value
+                self.viewModel.query.value = query
+            })
+            .addDisposableTo(disposeBag)
+    }
+    
     
     // en vez de hacer un segue instanciar por codigo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
