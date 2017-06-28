@@ -34,6 +34,7 @@ class NewItemViewController: UIViewController {
         observerTap()
         self.pubEvent.isUserInteractionEnabled = false
         viewModel.login(controller: self)
+        self.hideKeyboardWhenTappedAround()
         
         // Do any additional setup after loading the view.
     }
@@ -77,6 +78,7 @@ class NewItemViewController: UIViewController {
         let urlPhoto = String.random(ofLength: 20)+".jpg"
         photo1.imageForNormal?.savePhotoJPG(urlPhoto)?.savePhotoS3(urlPhoto).subscribe(
             onNext:{ result in
+                print(urlPhoto)
         },
             onError:{error in
                 print(error)
@@ -182,6 +184,8 @@ class NewItemViewController: UIViewController {
     
     func dontSavePub(){
         let pubNotSave = UIAlertController(title: "PickAndGol", message: "El Pub no se ha guardado", preferredStyle: .alert)
+        let koAction = UIAlertAction(title: "Ups esto no estaba previsto, lo miramos", style: UIAlertActionStyle.destructive, handler:nil)
+        pubNotSave.addAction(koAction)
         self.present(pubNotSave, animated: true, completion: nil)
     }
     
@@ -254,7 +258,10 @@ class NewItemViewController: UIViewController {
         nextVC.selectedPub.subscribe(
         
             onNext:{value in
-                    self.pubEvent.text = value
+                
+                    self.pubName = value 
+                    self.pubEvent.text = value["name"] as! String
+                
         }
         
         ).addDisposableTo(disposeBag)

@@ -54,10 +54,13 @@ extension UIImage {
             let client = Client()
             let disposeBag = DisposeBag()
             
-            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            let url = paths[0].appendingPathComponent(namePhoto)
+            let paths = URL(fileURLWithPath: NSTemporaryDirectory())
+            let documentsDirectory = paths
+            let url = documentsDirectory.appendingPathComponent(namePhoto)
             
-            client.uploadImage(pathFile: url).subscribe(onNext: { (element) in
+            client.uploadImage(pathFile: url).subscribe(
+                
+                onNext: { (element) in
                 
                 observer.onNext(true)
                 observer.onCompleted()

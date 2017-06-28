@@ -21,10 +21,7 @@ class NewPubViewController: UIViewController, UICollectionViewDelegate {
         viewModel.initLocationUser()
         photoCollection.delegate = self
         photoCollection.dataSource = self
-       
-        
-        
-        
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
 

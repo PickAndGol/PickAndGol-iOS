@@ -13,6 +13,12 @@ import SwifterSwift
 import RxSwift
 import SwiftKeychainWrapper
 
+enum newItemError:Error {
+    case Error
+    case PubNotFound
+}
+
+
 class NewEventViewModel{
 
 
@@ -27,7 +33,11 @@ class NewEventViewModel{
         
          self.client.saveEvent(dic: dic).subscribe(
             onNext: { (element) in
+                if (element.status == "ERROR"){
+                   observer.onNext(false)
+                }else {
                     observer.onNext(true)
+                }
                     observer.onCompleted()
                     },
             onError:{ (error) in

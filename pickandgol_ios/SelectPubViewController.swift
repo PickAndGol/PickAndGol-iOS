@@ -25,7 +25,7 @@ class SelectPubViewController: UIViewController , UICollectionViewDelegate{
 
     
     var selectCell:Int?
-    var selectedPub = PublishSubject<String>()
+    var selectedPub = PublishSubject<JSONDictionary>()
    
     
     @IBAction func addNewPub(_ sender: Any) {
@@ -142,7 +142,11 @@ extension SelectPubViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //self.delegate?.pubSelectedItem(pubSelct: value.name)
         let pub = viewModel.pubAt(indexPath.row)
-        self.selectedPub.onNext((pub?.name)!)
+        var dataPub:JSONDictionary = [:]
+        dataPub["name"] = pub?.name as AnyObject
+        dataPub["_id"] = pub?.id as AnyObject
+        
+        self.selectedPub.onNext((dataPub))
         self.navigationController?.popViewController(animated: true)
     }
     
