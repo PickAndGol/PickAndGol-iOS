@@ -70,6 +70,8 @@ class NewPubViewController: UIViewController, UICollectionViewDelegate {
         datapub["name"] = namePUB.text as AnyObject
         datapub["url"] = webUrl.text as AnyObject
         datapub["phone"] = phone.text as AnyObject
+    
+        
         
         
         viewModel.savePub(name: namePUB.text!, url: webUrl.text!, phone: phone.text!).subscribe(
@@ -126,13 +128,17 @@ class NewPubViewController: UIViewController, UICollectionViewDelegate {
         
         photo.savePhotoJPG(urlPhoto)?.savePhotoS3(urlPhoto).subscribe(
             onNext:{ result in
-                self.viewModel.savePhoto(urlPhoto)
-                self.photoCollection.reloadData()
+                print(result)
         },
             onError:{error in
                 print(error)
         }
             ).addDisposableTo(disposeBag)
+    
+    
+     self.viewModel.savePhoto(urlPhoto)
+     self.photoCollection.reloadData()   
+    
     }
     
     
